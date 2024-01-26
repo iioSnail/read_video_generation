@@ -1,0 +1,4 @@
+gTTS
+pydub
+moviepy
+pandas
