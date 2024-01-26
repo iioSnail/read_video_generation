@@ -2,8 +2,8 @@
 
 自动生成读单词的视频，效果如下：
 
-<video id="video">
-      <source id="mp4" src="./samples/samples.mp4" type="video/mp4">
+<video src="./samples/samples.mp4" controls>
+  你的浏览器不支持 <code>video</code> 标签。
 </video>
 
 # 使用方式
