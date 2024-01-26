@@ -1,10 +1,6 @@
 # read_video_generation
 
-自动生成读单词的视频，效果如下：
-
-<video src="https://github.com/iioSnail/read_video_generation/raw/main/samples/samples.mp4" controls>
-  你的浏览器不支持 <code>video</code> 标签。
-</video>
+自动生成读单词的视频，效果如下：[样例视频](https://github.com/iioSnail/read_video_generation/raw/main/samples/samples.mp4)
 
 # 使用方式
 

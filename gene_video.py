@@ -145,7 +145,7 @@ class GenerateVideo(object):
         if not is_null(meaning):
             text = text + f"\n{meaning}"
 
-        font_file = "./assets/ms.TTF"
+        font_file = "./assets/font.TTF"
         font_size = self._auto_font_size(text, font_file)
         font = ImageFont.truetype(font_file, font_size)
 
