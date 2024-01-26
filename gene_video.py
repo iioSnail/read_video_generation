@@ -162,7 +162,7 @@ class GenerateVideo(object):
         for line in lines:
             line_bbox = draw.textbbox((0, 0, width, height), line, font)
             line_width, line_height = line_bbox[2], line_bbox[3]
-            draw.text(((width - line_width) // 2, text_y), line, font=font, fill="white")
+            draw.text(((width - line_width) // 2, text_y), line, font=font, fill=self.args.font_color)
             text_y += line_height + line_spacing  # Move to the next line
 
         os.makedirs(self.cache_dir / 'image', exist_ok=True)
