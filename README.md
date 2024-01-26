@@ -2,7 +2,7 @@
 
 自动生成读单词的视频，效果如下：
 
-<video src="./samples/samples.mp4" controls>
+<video src="https://github.com/iioSnail/read_video_generation/raw/main/samples/samples.mp4" controls>
   你的浏览器不支持 <code>video</code> 标签。
 </video>
 
