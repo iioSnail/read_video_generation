@@ -4,6 +4,10 @@
 
 # 使用方式
 
+使用colab生成：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/iioSnail/read_video_generation/blob/master/colab.ipynb)
+
+# 详细参数
+
 ```
 >> python gene_video.py -h
 usage: gene_video.py [-h] [--filename FILENAME] [--repeat-times REPEAT_TIMES] [--interval INTERVAL] [--inner-interval INNER_INTERVAL] [--max-minutes MAX_MINUTES] [--video] [--no-video] [--background-color BACKGROUND_COLOR]
