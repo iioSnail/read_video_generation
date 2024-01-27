@@ -204,9 +204,6 @@ class GenerateVideo(object):
         video.close()
 
     def generate(self):
-        interval = AudioSegment.silent(duration=self.args.interval)
-        inner_interval = AudioSegment.silent(duration=self.args.inner_interval)
-
         total_duration = 0
         merged_audio = None
         start_index = None
@@ -229,6 +226,9 @@ class GenerateVideo(object):
             word_audio = AudioSegment.from_mp3(word_audio)
             meaning_audio = AudioSegment.from_mp3(meaning_audio)
 
+            interval = AudioSegment.silent(duration=self.args.interval, frame_rate=word_audio.frame_rate)
+            inner_interval = AudioSegment.silent(duration=self.args.inner_interval, frame_rate=word_audio.frame_rate)
+
             audio = interval + word_audio + inner_interval + meaning_audio
             for _ in range(self.args.repeat_times - 1):
                 audio = audio + interval + audio
@@ -247,8 +247,8 @@ class GenerateVideo(object):
 
             # 输出到文件
             if total_duration >= self.args.max_minutes * 60 * 1000 or i == len(self.data) - 1:
-                merged_audio_file = self.output_dir / f'{start_index}-{index}.mp3'
-                merged_audio.export(str(merged_audio_file), format("mp3"))
+                merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
+                merged_audio.export(str(merged_audio_file), format("wav"))
 
                 print("\n生成音频文件：", str(merged_audio_file))
 
