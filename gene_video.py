@@ -90,7 +90,7 @@ class GenerateVideo(object):
 
         return data
 
-    def generate_audio(self, content, lang):
+    def generate_audio(self, content, lang) -> Path:
         audio_dir = self.cache_dir / 'audio'
         os.makedirs(audio_dir, exist_ok=True)
 
@@ -205,9 +205,9 @@ class GenerateVideo(object):
 
     def generate(self):
         total_duration = 0
-        merged_audio = None
         start_index = None
         video: cv2.VideoWriter = None
+        audio_segments = []
         for i, row in tqdm(self.data.iterrows(), total=len(self.data)):
             index = _clean_content(row['序号'])
             if pd.isnull(index):
@@ -224,22 +224,21 @@ class GenerateVideo(object):
 
             # 如果报错，请执行：conda install -c conda-forge ffmpeg
             word_audio = AudioSegment.from_mp3(word_audio)
-            meaning_audio = AudioSegment.from_mp3(meaning_audio)
+            word_audio = word_audio.fade_in(100).fade_out(100)
+            meaning_audio = AudioSegment.from_mp3(meaning_audio).fade_in(100).fade_out(100)
+            meaning_audio = meaning_audio.fade_in(100).fade_out(100)
 
             interval = AudioSegment.silent(duration=self.args.interval, frame_rate=word_audio.frame_rate)
-            inner_interval = AudioSegment.silent(duration=self.args.inner_interval, frame_rate=word_audio.frame_rate)
+            interval = interval.fade_in(100).fade_out(100)
+            inner_interval = AudioSegment.silent(duration=self.args.inner_interval, frame_rate=meaning_audio.frame_rate)
+            inner_interval = inner_interval.fade_in(100).fade_out(100)
 
-            audio = interval + word_audio + inner_interval + meaning_audio
-            for _ in range(self.args.repeat_times - 1):
-                audio = audio + interval + audio
+            for _ in range(self.args.repeat_times):
+                audio_segments.extend([interval, word_audio, inner_interval, meaning_audio])
 
-            audio_duration = len(audio)  # 音频时长(ms)
+            # 计算本次的音频时长(ms)
+            audio_duration = len(interval) + len(word_audio) + len(inner_interval) + len(meaning_audio)
             total_duration += audio_duration
-
-            if merged_audio is None:
-                merged_audio = audio
-            else:
-                merged_audio = merged_audio + audio
 
             # 生成视频
             image = self.generate_image(row)  # 生成图片
@@ -248,6 +247,7 @@ class GenerateVideo(object):
             # 输出到文件
             if total_duration >= self.args.max_minutes * 60 * 1000 or i == len(self.data) - 1:
                 merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
+                merged_audio = sum(audio_segments)
                 merged_audio.export(str(merged_audio_file), format("wav"))
 
                 print("\n生成音频文件：", str(merged_audio_file))
@@ -267,7 +267,7 @@ class GenerateVideo(object):
                     print("\n生成视频文件：", str(video_file))
                     print("耗时:", int(time.time() - start_time), '秒')
 
-                merged_audio = None
+                audio_segments = []
                 total_duration = 0
                 start_index = None
                 video = None
