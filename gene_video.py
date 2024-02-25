@@ -170,9 +170,9 @@ class GenerateVideo(object):
 
         if lang is None:
             if has_chinese(content):
-                lang = 'en'
-            else:
                 lang = 'zh-CN'
+            else:
+                lang = 'en'
 
         tts = gTTS(content, lang=lang)
         tts.save(cache_file)
@@ -313,7 +313,8 @@ class GenerateVideo(object):
             video = self.generate_video(video, image, audio_duration + self.args.interval)
 
             # 输出到文件
-            if sum_list_total_len(audio_segments) >= self.args.max_minutes * 60 * 1000 or i == len(self.data_list[0]) - 1:
+            if sum_list_total_len(audio_segments) >= self.args.max_minutes * 60 * 1000 or i == len(
+                    self.data_list[0]) - 1:
                 merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
                 merged_audio = sum(audio_segments)
                 merged_audio.export(str(merged_audio_file), format("wav"))
