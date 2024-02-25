@@ -4,8 +4,10 @@ import shutil
 import time
 from multiprocessing import cpu_count
 from pathlib import Path
+from typing import List
 
 import cv2
+import re
 import pandas as pd
 
 from gtts import gTTS
@@ -46,12 +48,22 @@ def is_null(obj):
 
     raise RuntimeError("不支持的obj类型：" + str(type(obj)))
 
+def sum_list_total_len(obj_list:list):
+    """
+    统计list每个元素的总长度之和
+    """
+    total_len = 0
+    for item in obj_list:
+        total_len += len(item)
+
+    return total_len
+
 
 class GenerateVideo(object):
 
     def __init__(self):
         self.args = self.parse_args()
-        self.data = self.read_data()
+        self.data_list = self.read_data()
 
         self.cache_dir = Path(self.args.cache_dir)
         os.makedirs(self.cache_dir, exist_ok=True)
@@ -63,7 +75,13 @@ class GenerateVideo(object):
 
     def parse_args(self):
         parser = argparse.ArgumentParser()
-        parser.add_argument('--filename', type=str, default='./words.xlsx', help='单词文件的路径')
+        parser.add_argument('--filename', type=str, default='./samples/coca20000.xlsx', help='单词文件的路径')
+        parser.add_argument('--read-columns', type=str, default='单词,基本释义',
+                            help="需要朗读的列，多个列用逗号分隔。例如：单词,基本释义,例句")
+        parser.add_argument('--lrc-columns', type=str, default='单词+基本释义,详细释义',
+                            help='需要在音频歌词中展示的列，多个列用逗号分隔，若使用+号。例如：单词+释义,详细释义')
+        parser.add_argument('--show-columns', type=str, default='序号+单词+音标,详细释义,例句,例句释义',
+                            help="需要在视频中展示的列，多个列以逗号分割，若使用+号，两列将展示到一行。例如：序号+单词+音标,详细释义,例句,例句中文")
         parser.add_argument('--repeat-times', type=int, default=2, help='重复次数')
         parser.add_argument('--interval', type=int, default=1000, help='两个单词的间隔时间(ms)')
         parser.add_argument('--inner-interval', type=int, default=500, help='单词和释义的间隔时间(ms)')
@@ -82,15 +100,57 @@ class GenerateVideo(object):
 
         return args
 
-    def read_data(self):
+    def read_data(self) -> List:
         if not os.path.exists(self.args.filename):
             raise RuntimeError("找不到单词文件: " + self.args.filename)
 
         data = pd.read_excel(self.args.filename, dtype=str)
 
-        return data
+        read_columns = self.args.read_columns.split(',')
+        lrc_columns = self.args.lrc_columns.split(',')
+        lrc_columns = [item.split('+') for item in lrc_columns]
+        show_columns = self.args.show_columns.split(',')
+        show_columns = [item.split('+') for item in show_columns]
 
-    def generate_audio(self, content, lang) -> Path:
+        for col in read_columns:
+            if col not in data.columns:
+                raise RuntimeError("Excel中不存在“%s”列，请检查read-columns参数与Excel文件!" % col)
+
+        for col_list in lrc_columns:
+            for col in col_list:
+                if col not in data.columns:
+                    raise RuntimeError("Excel中不存在“%s”列，请检查lrc-columns参数与Excel文件!" % col)
+
+        for col_list in show_columns:
+            for col in col_list:
+                if col not in data.columns:
+                    raise RuntimeError("Excel中不存在“%s”列，请检查show-columns参数与Excel文件!" % col)
+
+        data_list = []
+        for i, row in data.iterrows():
+            read = []
+            for col in read_columns:
+                read.append(_clean_content(row[col]))
+
+            lrc = []
+            for col_list in lrc_columns:
+                items = []
+                for col in col_list:
+                    items.append(_clean_content(row[col]))
+                lrc.append(' '.join(items))
+
+            show = []
+            for col_list in show_columns:
+                items = []
+                for col in col_list:
+                    items.append(_clean_content(row[col]))
+                show.append(' '.join(items))
+
+            data_list.append((read, lrc, show))
+
+        return data_list
+
+    def generate_audio(self, content, lang=None) -> Path:
         audio_dir = self.cache_dir / 'audio'
         os.makedirs(audio_dir, exist_ok=True)
 
@@ -98,6 +158,10 @@ class GenerateVideo(object):
 
         if os.path.exists(cache_file):
             return cache_file
+
+        if lang is None:
+            # todo 判断语言
+            pass
 
         tts = gTTS(content, lang=lang)
         tts.save(cache_file)
@@ -126,24 +190,11 @@ class GenerateVideo(object):
 
         return font_size
 
-    def generate_image(self, row):
+    def generate_image(self, lines):
         """
         生成该行的视频图片
         """
-        index = _clean_content(row['序号'])
-        word = _clean_content(row['词汇'])
-        meaning = _clean_content(row['释义'])
-        soundmark = _clean_content(row['音标'])
-
-        text = f"{word}"
-        if not is_null(index):
-            text = f"{index}.  " + text
-
-        if not is_null(soundmark):
-            text = text + f"  {soundmark}"
-
-        if not is_null(meaning):
-            text = text + f"\n{meaning}"
+        text = '\n'.join(lines)
 
         font_file = "./assets/font.TTF"
         font_size = self._auto_font_size(text, font_file)
@@ -166,7 +217,7 @@ class GenerateVideo(object):
             text_y += line_height + line_spacing  # Move to the next line
 
         os.makedirs(self.cache_dir / 'image', exist_ok=True)
-        filename = self.cache_dir / 'image' / f'{index}.png'
+        filename = self.cache_dir / 'image' / f'{lines[0]}.png'  # todo
         image.save(filename)
 
         return filename
@@ -208,44 +259,42 @@ class GenerateVideo(object):
         start_index = None
         video: cv2.VideoWriter = None
         audio_segments = []
-        for i, row in tqdm(self.data.iterrows(), total=len(self.data)):
-            index = _clean_content(row['序号'])
-            if pd.isnull(index):
-                index = i
+        curr_audio_segment = []
+        for i, (read_items, lrc_items, show_items) in tqdm(self.data_list, total=len(self.data_list)):
+            index = i + 1
             if start_index is None:
                 start_index = str(index)
 
-            word = _clean_content(row['词汇'])
-            meaning = _clean_content(row['释义'])
+            if len(read_items) <= 0:
+                continue
 
             # 生成音频
-            word_audio = self.generate_audio(word, 'en')
-            meaning_audio = self.generate_audio(meaning, 'zh')
-
-            # 如果报错，请执行：conda install -c conda-forge ffmpeg
-            word_audio = AudioSegment.from_mp3(word_audio)
-            word_audio = word_audio.fade_in(100).fade_out(100)
-            meaning_audio = AudioSegment.from_mp3(meaning_audio).fade_in(100).fade_out(100)
-            meaning_audio = meaning_audio.fade_in(100).fade_out(100)
-
-            interval = AudioSegment.silent(duration=self.args.interval, frame_rate=word_audio.frame_rate)
-            interval = interval.fade_in(100).fade_out(100)
-            inner_interval = AudioSegment.silent(duration=self.args.inner_interval, frame_rate=meaning_audio.frame_rate)
-            inner_interval = inner_interval.fade_in(100).fade_out(100)
-
             for _ in range(self.args.repeat_times):
-                audio_segments.extend([interval, word_audio, inner_interval, meaning_audio])
+                for j, read_content in enumerate(read_items):
+                    audio_filepath = self.generate_audio(read_content)
+                    # 如果报错，请执行：conda install -c conda-forge ffmpeg
+                    audio = AudioSegment.from_mp3(audio_filepath)
+                    audio = audio.fade_in(100).fade_out(100)
+                    curr_audio_segment.append(audio)
+
+                    interval = AudioSegment.silent(duration=self.args.inner_interval, frame_rate=audio.frame_rate)
+                    curr_audio_segment.append(interval)
+
+            # 两个单词之间增加空白
+            silent_duration = max(self.args.interval - self.args.inner_interval, 100)
+            interval = AudioSegment.silent(duration=self.args.inner_interval,
+                                           frame_rate=audio_segments[-1].frame_rate)
+            curr_audio_segment.append(interval)
 
             # 计算本次的音频时长(ms)
-            audio_duration = len(interval) + len(word_audio) + len(inner_interval) + len(meaning_audio)
-            total_duration += audio_duration
+            audio_duration = sum_list_total_len(curr_audio_segment)
 
             # 生成视频
-            image = self.generate_image(row)  # 生成图片
+            image = self.generate_image(show_items)  # 生成图片
             video = self.generate_video(video, image, audio_duration + self.args.interval)
 
             # 输出到文件
-            if total_duration >= self.args.max_minutes * 60 * 1000 or i == len(self.data) - 1:
+            if total_duration >= self.args.max_minutes * 60 * 1000 or i == len(self.data_list[0]) - 1:
                 merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
                 merged_audio = sum(audio_segments)
                 merged_audio.export(str(merged_audio_file), format("wav"))
