@@ -48,7 +48,8 @@ def is_null(obj):
 
     raise RuntimeError("不支持的obj类型：" + str(type(obj)))
 
-def sum_list_total_len(obj_list:list):
+
+def sum_list_total_len(obj_list: list):
     """
     统计list每个元素的总长度之和
     """
@@ -57,6 +58,14 @@ def sum_list_total_len(obj_list:list):
         total_len += len(item)
 
     return total_len
+
+
+def has_chinese(content: str):
+    for char in content:
+        if '\u4e00' <= char <= '\u9fff':
+            return True
+
+    return False
 
 
 class GenerateVideo(object):
@@ -160,8 +169,10 @@ class GenerateVideo(object):
             return cache_file
 
         if lang is None:
-            # todo 判断语言
-            pass
+            if has_chinese(content):
+                lang = 'en'
+            else:
+                lang = 'zh-CN'
 
         tts = gTTS(content, lang=lang)
         tts.save(cache_file)
@@ -260,7 +271,7 @@ class GenerateVideo(object):
         video: cv2.VideoWriter = None
         audio_segments = []
         curr_audio_segment = []
-        for i, (read_items, lrc_items, show_items) in tqdm(self.data_list, total=len(self.data_list)):
+        for i, (read_items, lrc_items, show_items) in tqdm(enumerate(self.data_list), total=len(self.data_list)):
             index = i + 1
             if start_index is None:
                 start_index = str(index)
