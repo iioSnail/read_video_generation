@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import List
 
 import cv2
-import re
 import pandas as pd
 
 from gtts import gTTS
@@ -91,10 +90,12 @@ class GenerateVideo(object):
                             help='需要在音频歌词中展示的列，多个列用逗号分隔，若使用+号。例如：单词+释义,详细释义')
         parser.add_argument('--show-columns', type=str, default='序号+单词+音标,详细释义,例句,例句释义',
                             help="需要在视频中展示的列，多个列以逗号分割，若使用+号，两列将展示到一行。例如：序号+单词+音标,详细释义,例句,例句中文")
+        parser.add_argument('--from-line', type=int, default=1, help="从excel哪一行开始（包含该行）")
+        parser.add_argument('--until-line', type=int, default=-1, help="到excel哪一行结束（包含该行）。-1表示到文件结尾")
         parser.add_argument('--repeat-times', type=int, default=2, help='重复次数')
         parser.add_argument('--interval', type=int, default=1000, help='两个单词的间隔时间(ms)')
         parser.add_argument('--inner-interval', type=int, default=500, help='单词和释义的间隔时间(ms)')
-        parser.add_argument('--max-minutes', type=int, default=5, help='单个音频最大时长(分钟)')
+        parser.add_argument('--max-minutes', type=int, default=30, help='单个音/视频最大时长(分钟)')
         parser.add_argument('--video', action='store_true', default=True, help='生成视频')
         parser.add_argument('--no-video', dest='video', action='store_false', help='不生成视频')
         parser.add_argument('--background-color', type=str, default='black', help='视频背景色')
@@ -137,6 +138,12 @@ class GenerateVideo(object):
 
         data_list = []
         for i, row in data.iterrows():
+            if i + 1 < self.args.from_line:
+                continue
+
+            if self.args.until_line > 0 and i + 1 > self.args.until_line:
+                break
+
             read = []
             for col in read_columns:
                 read.append(_clean_content(row[col]))
@@ -170,7 +177,7 @@ class GenerateVideo(object):
 
         if lang is None:
             if has_chinese(content):
-                lang = 'zh-CN'
+                lang = 'zh'
             else:
                 lang = 'en'
 
@@ -314,7 +321,7 @@ class GenerateVideo(object):
 
             # 输出到文件
             if sum_list_total_len(audio_segments) >= self.args.max_minutes * 60 * 1000 or i == len(
-                    self.data_list[0]) - 1:
+                    self.data_list) - 1:
                 merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
                 merged_audio = sum(audio_segments)
                 merged_audio.export(str(merged_audio_file), format("wav"))
