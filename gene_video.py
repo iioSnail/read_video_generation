@@ -9,7 +9,10 @@ from typing import List
 import cv2
 import pandas as pd
 
+from mutagen.id3 import USLT, Encoding, ID3, TIT2, TALB, TCOM
+
 from gtts import gTTS
+from mutagen.mp3 import MP3
 from pydub import AudioSegment
 from tqdm import tqdm
 from PIL import Image, ImageDraw, ImageFont
@@ -81,12 +84,20 @@ class GenerateVideo(object):
         os.makedirs(self.cache_dir / 'video', exist_ok=True)
         self.temp_video = self.cache_dir / 'video' / 'temp_video.mp4'
 
+        self.filename = Path(self.args.filename).name.split(".")[0]
+
+        self.lrc_list = [
+            "[ar:iioSnail]",  # 作者
+            "[al:%s]" % self.filename,  # 专辑（用文件名作为专辑名）
+            "[by:iioSnail]",  # 制作人
+        ]  # 歌词
+
     def parse_args(self):
         parser = argparse.ArgumentParser()
         parser.add_argument('--filename', type=str, default='./samples/coca20000.xlsx', help='单词文件的路径')
         parser.add_argument('--read-columns', type=str, default='单词,基本释义',
                             help="需要朗读的列，多个列用逗号分隔。例如：单词,基本释义,例句")
-        parser.add_argument('--lrc-columns', type=str, default='单词+基本释义,详细释义',
+        parser.add_argument('--lrc-columns', type=str, default='单词+基本释义',
                             help='需要在音频歌词中展示的列，多个列用逗号分隔，若使用+号。例如：单词+释义,详细释义')
         parser.add_argument('--show-columns', type=str, default='序号+单词+音标,详细释义,例句,例句释义',
                             help="需要在视频中展示的列，多个列以逗号分割，若使用+号，两列将展示到一行。例如：序号+单词+音标,详细释义,例句,例句中文")
@@ -153,14 +164,14 @@ class GenerateVideo(object):
                 items = []
                 for col in col_list:
                     items.append(_clean_content(row[col]))
-                lrc.append(' '.join(items))
+                lrc.append('  '.join(items))
 
             show = []
             for col_list in show_columns:
                 items = []
                 for col in col_list:
                     items.append(_clean_content(row[col]))
-                show.append(' '.join(items))
+                show.append('  '.join(items))
 
             data_list.append((read, lrc, show))
 
@@ -225,7 +236,7 @@ class GenerateVideo(object):
 
         bbox = draw.multiline_textbbox((0, 0, width, height), text, font=font)
 
-        text_y = (height - bbox[3]) // 2
+        text_y = (height - bbox[3]) // len(lines)
 
         lines = text.split('\n')
         for line in lines:
@@ -261,6 +272,22 @@ class GenerateVideo(object):
 
         return video
 
+    def add_lrc(self, lrc_list: list, timer: int, content):
+        """
+        增添歌词
+        :param timer: 时间节点（毫秒）
+        :param content: 歌词内容
+        """
+        minutes = timer // 60_000
+        seconds = timer // 1000 % 60
+        sub_seconds = timer % 1000 // 10
+        if type(content) == str:
+            lrc_list.append("[%02d:%02d.%02d]%s" % (minutes, seconds, sub_seconds, content))
+
+        if type(content) == list:
+            for content_item in content:
+                lrc_list.append("[%02d:%02d.%02d]%s" % (minutes, seconds, sub_seconds, content_item))
+
     def merge_audio_video(self, audio_path, video_path, output_path):
         audio = str(audio_path)
         video = str(video_path)
@@ -272,10 +299,31 @@ class GenerateVideo(object):
         video.write_videofile(str(output_path), fps=10, threads=cpu_count(), logger=None)
         video.close()
 
+    def build_in_lrc(self, filename, lrc_list):
+        """
+        将歌词嵌入到mp3文件中。但不是所有音乐软件都识别
+        todo 搞了好久，搞不出来
+        :param filename: 文件名路径
+        :param lrc_list: 歌词列表
+        """
+        audio = MP3(filename, ID3=ID3)
+
+        if not audio.tags:
+            audio.add_tags()
+
+        uslt_frame = USLT(encoding=3, lang='eng', text='\n'.join(lrc_list))
+
+        audio.tags["TALB"] = TALB(encoding=3, text=self.filename)  # 专辑
+        audio.tags["TCOM"] = TCOM(encoding=3, text='iioSnail')  # 作曲家
+        audio.tags['USLT'] = uslt_frame
+
+        audio.save()
+
     def generate(self):
         start_index = None
         video: cv2.VideoWriter = None
         audio_segments = []
+        lrc_list = self.lrc_list.copy()
         for i, (read_items, lrc_items, show_items) in tqdm(enumerate(self.data_list), total=len(self.data_list)):
             curr_audio_segments = []
             index = i + 1
@@ -298,6 +346,7 @@ class GenerateVideo(object):
                         interval = AudioSegment.silent(duration=self.args.interval,
                                                        frame_rate=audio.frame_rate)
                         audio_segments.append(interval)
+                        curr_audio_segments.append(interval)
 
                     audio_segments.append(audio)
 
@@ -316,15 +365,25 @@ class GenerateVideo(object):
             audio_duration = sum_list_total_len(curr_audio_segments)
 
             # 生成视频
-            image = self.generate_image(show_items)  # 生成图片
-            video = self.generate_video(video, image, audio_duration + self.args.interval)
+            if self.args.video:
+                image = self.generate_image(show_items)  # 生成图片
+                video = self.generate_video(video, image, audio_duration)
+
+            total_audio_duration = sum_list_total_len(audio_segments)
+            # 生成歌词
+            self.add_lrc(lrc_list, total_audio_duration - audio_duration, lrc_items)
 
             # 输出到文件
-            if sum_list_total_len(audio_segments) >= self.args.max_minutes * 60 * 1000 or i == len(
+            if total_audio_duration >= self.args.max_minutes * 60 * 1000 or i == len(
                     self.data_list) - 1:
-                merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
+                # 生成歌词
+                title = f'{start_index}-{index}'
+                merged_audio_file = self.output_dir / f'{title}.mp3'
                 merged_audio = sum(audio_segments)
-                merged_audio.export(str(merged_audio_file), format("wav"))
+                merged_audio.export(str(merged_audio_file), format("mp3"))
+                self.build_in_lrc(str(merged_audio_file), lrc_list)
+                with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
+                    f.write('\n'.join(lrc_list))
 
                 print("\n生成音频文件：", str(merged_audio_file))
 
@@ -346,6 +405,7 @@ class GenerateVideo(object):
                 audio_segments = []
                 start_index = None
                 video = None
+                lrc_list = self.lrc_list.copy()
 
 
 if __name__ == '__main__':
