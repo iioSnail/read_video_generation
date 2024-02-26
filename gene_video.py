@@ -171,7 +171,7 @@ class GenerateVideo(object):
                 items = []
                 for col in col_list:
                     items.append(_clean_content(row[col]))
-                show.append(' '.join(items))
+                show.append('  '.join(items))
 
             data_list.append((read, lrc, show))
 
