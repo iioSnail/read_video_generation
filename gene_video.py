@@ -280,7 +280,12 @@ class GenerateVideo(object):
         minutes = timer // 60_000
         seconds = timer // 1000 % 60
         sub_seconds = timer % 1000 // 10
-        lrc_list.append("[%s:%s.%s]%s" % (minutes, seconds, sub_seconds, content))
+        if type(content) == str:
+            lrc_list.append("[%02d:%02d.%02d]%s" % (minutes, seconds, sub_seconds, content))
+
+        if type(content) == list:
+            for content_item in content:
+                lrc_list.append("[%02d:%02d.%02d]%s" % (minutes, seconds, sub_seconds, content_item))
 
     def merge_audio_video(self, audio_path, video_path, output_path):
         audio = str(audio_path)
@@ -380,6 +385,9 @@ class GenerateVideo(object):
                 merged_audio = sum(audio_segments)
                 merged_audio.export(str(merged_audio_file), format("mp3"), tags=dict(lrc_tags))
                 self.build_in_lrc(str(merged_audio_file), lrc_list)
+
+                with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
+                    f.write('\n'.join(lrc_list))
 
                 print("\n生成音频文件：", str(merged_audio_file))
 
