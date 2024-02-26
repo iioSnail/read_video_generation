@@ -8,6 +8,7 @@ from typing import List
 
 import cv2
 import pandas as pd
+import eyed3
 
 from gtts import gTTS
 from pydub import AudioSegment
@@ -83,7 +84,8 @@ class GenerateVideo(object):
 
         self.lrc_list = [
             "[ar:iioSnail]",  # 作者
-            "[al:%s]" % Path(self.args.filename).name.split(".")[0]  # 专辑（文件名）
+            "[al:%s]" % Path(self.args.filename).name.split(".")[0],  # 专辑（用文件名作为专辑名）
+            "[by:iioSnail]",  # 制作人
         ]  # 歌词
 
     def parse_args(self):
@@ -266,7 +268,7 @@ class GenerateVideo(object):
 
         return video
 
-    def add_lrc(self, timer: int, content):
+    def add_lrc(self, lrc_list: list, timer: int, content):
         """
         增添歌词
         :param timer: 时间节点（毫秒）
@@ -274,7 +276,8 @@ class GenerateVideo(object):
         """
         minutes = timer // 60_000
         seconds = timer // 1000 % 60
-        sub_seconds = timer // 100000 % 100
+        sub_seconds = timer % 1000 // 10
+        lrc_list.append("[%s:%s:%s]%s" % (minutes, seconds, sub_seconds, content))
 
     def merge_audio_video(self, audio_path, video_path, output_path):
         audio = str(audio_path)
@@ -291,6 +294,7 @@ class GenerateVideo(object):
         start_index = None
         video: cv2.VideoWriter = None
         audio_segments = []
+        lrc_list = self.lrc_list.copy()
         for i, (read_items, lrc_items, show_items) in tqdm(enumerate(self.data_list), total=len(self.data_list)):
             curr_audio_segments = []
             index = i + 1
@@ -335,12 +339,21 @@ class GenerateVideo(object):
             image = self.generate_image(show_items)  # 生成图片
             video = self.generate_video(video, image, audio_duration)
 
+            total_audio_duration = sum_list_total_len(audio_segments)
+            # 生成歌词
+            self.add_lrc(lrc_list, total_audio_duration, lrc_items)
+
             # 输出到文件
-            if sum_list_total_len(audio_segments) >= self.args.max_minutes * 60 * 1000 or i == len(
+            if total_audio_duration >= self.args.max_minutes * 60 * 1000 or i == len(
                     self.data_list) - 1:
+                # 生成歌词
+                lrc_list.insert(0, f"[ti:]{start_index}-{index}")  # 歌曲名
+                lrc = eyed3.id3.tag.Tag()
+                lrc.lyrics.set(eyed3.id3.frames.LyricsFrame('\n'.join(lrc_list)))
+
                 merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
                 merged_audio = sum(audio_segments)
-                merged_audio.export(str(merged_audio_file), format("wav"))
+                merged_audio.export(str(merged_audio_file), format("wav"), tags=lrc)
 
                 print("\n生成音频文件：", str(merged_audio_file))
 
@@ -362,6 +375,7 @@ class GenerateVideo(object):
                 audio_segments = []
                 start_index = None
                 video = None
+                lrc_list = self.lrc_list.copy()
 
 
 if __name__ == '__main__':
