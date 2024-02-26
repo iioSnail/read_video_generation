@@ -8,7 +8,8 @@ from typing import List
 
 import cv2
 import pandas as pd
-import eyed3
+
+from mutagen.id3 import USLT, Encoding, ID3, TIT2, TALB, TCOM
 
 from gtts import gTTS
 from pydub import AudioSegment
@@ -82,9 +83,11 @@ class GenerateVideo(object):
         os.makedirs(self.cache_dir / 'video', exist_ok=True)
         self.temp_video = self.cache_dir / 'video' / 'temp_video.mp4'
 
+        self.filename = Path(self.args.filename).name.split(".")[0]
+
         self.lrc_list = [
             "[ar:iioSnail]",  # 作者
-            "[al:%s]" % Path(self.args.filename).name.split(".")[0],  # 专辑（用文件名作为专辑名）
+            "[al:%s]" % self.filename,  # 专辑（用文件名作为专辑名）
             "[by:iioSnail]",  # 制作人
         ]  # 歌词
 
@@ -347,13 +350,18 @@ class GenerateVideo(object):
             if total_audio_duration >= self.args.max_minutes * 60 * 1000 or i == len(
                     self.data_list) - 1:
                 # 生成歌词
-                lrc_list.insert(0, f"[ti:]{start_index}-{index}")  # 歌曲名
-                lrc = eyed3.id3.tag.Tag()
-                lrc.lyrics.set(eyed3.id3.frames.LyricsFrame('\n'.join(lrc_list)))
+                title = f'{start_index}-{index}'
+                lrc_list.insert(0, f"[ti:]{title}")  # 歌曲名
+                lrc_tags = ID3()
+                lrc_tags["TIT2"] = TIT2(encoding=3, text=title)  # 标题
+                lrc_tags["TALB"] = TALB(encoding=3, text=self.filename)  # 专辑
+                lrc_tags["TCOM"] = TCOM(encoding=3, text='iioSnail')  # 作曲家
+                lrc_tags.setall("USLT", [USLT(encoding=Encoding.UTF8, lang='chi', format=2,
+                                              type=1, text='\n'.join(lrc_list))])  # 汉字内嵌歌词
 
-                merged_audio_file = self.output_dir / f'{start_index}-{index}.wav'
+                merged_audio_file = self.output_dir / f'{title}.wav'
                 merged_audio = sum(audio_segments)
-                merged_audio.export(str(merged_audio_file), format("wav"), tags=lrc)
+                merged_audio.export(str(merged_audio_file), format("wav"), tags=lrc_tags)
 
                 print("\n生成音频文件：", str(merged_audio_file))
 

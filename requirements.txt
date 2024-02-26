@@ -2,3 +2,4 @@ gTTS
 pydub
 moviepy
 pandas
+mutagen
