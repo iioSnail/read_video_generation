@@ -293,6 +293,22 @@ class GenerateVideo(object):
         video.write_videofile(str(output_path), fps=10, threads=cpu_count(), logger=None)
         video.close()
 
+    def build_in_lrc(self, filename, lrc_list):
+        """
+        将歌词嵌入到mp3文件中
+        :param filename: 文件名路径
+        :param lrc_list: 歌词列表
+        """
+        tags = ID3(filename)
+
+        tags.delall("USLT::eng")
+        # 英语内嵌歌词
+        tags.setall("USLT", [USLT(encoding=Encoding.UTF8, lang='eng', format=2, type=1, text='\n'.join(lrc_list))])
+        # 汉字内嵌歌词
+        tags.setall("USLT", [USLT(encoding=Encoding.UTF8, lang='chi', format=2, type=1, text='\n'.join(lrc_list))])
+
+        tags.save(v2_version=3)
+
     def generate(self):
         start_index = None
         video: cv2.VideoWriter = None
@@ -339,8 +355,9 @@ class GenerateVideo(object):
             audio_duration = sum_list_total_len(curr_audio_segments)
 
             # 生成视频
-            image = self.generate_image(show_items)  # 生成图片
-            video = self.generate_video(video, image, audio_duration)
+            if self.args.video:
+                image = self.generate_image(show_items)  # 生成图片
+                video = self.generate_video(video, image, audio_duration)
 
             total_audio_duration = sum_list_total_len(audio_segments)
             # 生成歌词
@@ -351,17 +368,13 @@ class GenerateVideo(object):
                     self.data_list) - 1:
                 # 生成歌词
                 title = f'{start_index}-{index}'
-                lrc_list.insert(0, f"[ti:]{title}")  # 歌曲名
                 lrc_tags = ID3()
-                lrc_tags["TIT2"] = TIT2(encoding=3, text=title)  # 标题
                 lrc_tags["TALB"] = TALB(encoding=3, text=self.filename)  # 专辑
                 lrc_tags["TCOM"] = TCOM(encoding=3, text='iioSnail')  # 作曲家
-                lrc_tags.setall("USLT", [USLT(encoding=Encoding.UTF8, lang='chi', format=2,
-                                              type=1, text='\n'.join(lrc_list))])  # 汉字内嵌歌词
-
-                merged_audio_file = self.output_dir / f'{title}.wav'
+                merged_audio_file = self.output_dir / f'{title}.mp3'
                 merged_audio = sum(audio_segments)
-                merged_audio.export(str(merged_audio_file), format("wav"), tags=lrc_tags)
+                merged_audio.export(str(merged_audio_file), format("mp3"), tags=lrc_tags)
+                self.build_in_lrc(str(merged_audio_file), lrc_list)
 
                 print("\n生成音频文件：", str(merged_audio_file))
 
