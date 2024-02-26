@@ -313,6 +313,7 @@ class GenerateVideo(object):
                         interval = AudioSegment.silent(duration=self.args.interval,
                                                        frame_rate=audio.frame_rate)
                         audio_segments.append(interval)
+                        curr_audio_segments.append(interval)
 
                     audio_segments.append(audio)
 
@@ -332,7 +333,7 @@ class GenerateVideo(object):
 
             # 生成视频
             image = self.generate_image(show_items)  # 生成图片
-            video = self.generate_video(video, image, audio_duration + self.args.interval)
+            video = self.generate_video(video, image, audio_duration)
 
             # 输出到文件
             if sum_list_total_len(audio_segments) >= self.args.max_minutes * 60 * 1000 or i == len(
