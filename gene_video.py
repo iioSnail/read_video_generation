@@ -61,6 +61,11 @@ class GenerateVideo(object):
         os.makedirs(self.cache_dir / 'video', exist_ok=True)
         self.temp_video = self.cache_dir / 'video' / 'temp_video.mp4'
 
+        self.lrc_list = [
+            "[ar:iioSnail]",  # 作者
+            "[al:%s]" % Path(self.args.filename).name.split(".")[0]  # 专辑（文件名）
+        ]  # 歌词
+
     def parse_args(self):
         parser = argparse.ArgumentParser()
         parser.add_argument('--filename', type=str, default='./words.xlsx', help='单词文件的路径')
@@ -191,6 +196,16 @@ class GenerateVideo(object):
             video.write(image)
 
         return video
+
+    def add_lrc(self, timer: int, content):
+        """
+        增添歌词
+        :param timer: 时间节点（毫秒）
+        :param content: 歌词内容
+        """
+        minutes = timer // 60_000
+        seconds = timer // 1000 % 60
+        sub_seconds = timer // 100000 % 100
 
     def merge_audio_video(self, audio_path, video_path, output_path):
         audio = str(audio_path)
