@@ -223,6 +223,9 @@ class GenerateVideo(object):
         """
         生成该行的视频图片
         """
+        if not self.args.video:
+            return None
+
         text = '\n'.join(lines)
 
         font_file = "./assets/font.TTF"
@@ -251,9 +254,12 @@ class GenerateVideo(object):
 
         return filename
 
-    def generate_video(self, video, image, duration: int) -> cv2.VideoWriter:
+    def generate_video(self, video, image, duration: int):
+        """
+        返回两个值，一个是视频。一个是本次损失的毫秒数。要不然每个视频损失一点，到后面就会对不上。
+        """
         if not self.args.video:
-            return None
+            return None, 0
 
         video_file = self.temp_video
 
@@ -265,12 +271,16 @@ class GenerateVideo(object):
             video = cv2.VideoWriter(str(video_file), cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), frame_size,
                                     (width, height))
 
+        # 3532 / 1000 = 3.532 * 10 = 35.32 = 32ms
+        #
         frame = int(duration / 1000 * frame_size)
+        loss = duration - (1000 / frame_size) * frame
+
         image = cv2.imread(str(image))
         for _ in range(frame):
             video.write(image)
 
-        return video
+        return video, loss
 
     def add_lrc(self, lrc_list: list, timer: int, content):
         """
@@ -324,6 +334,7 @@ class GenerateVideo(object):
         video: cv2.VideoWriter = None
         audio_segments = []
         lrc_list = self.lrc_list.copy()
+        loss = 0
         for i, (read_items, lrc_items, show_items) in tqdm(enumerate(self.data_list), total=len(self.data_list)):
             curr_audio_segments = []
             index = i + 1
@@ -341,6 +352,7 @@ class GenerateVideo(object):
                     audio = AudioSegment.from_mp3(audio_filepath)
                     audio = audio.fade_in(100).fade_out(100)
                     curr_audio_segments.append(audio)
+                    audio_segments.append(audio)
                     if len(audio_segments) <= 0:
                         # 音频一开始先增添一小段静音
                         interval = AudioSegment.silent(duration=self.args.interval,
@@ -348,7 +360,6 @@ class GenerateVideo(object):
                         audio_segments.append(interval)
                         curr_audio_segments.append(interval)
 
-                    audio_segments.append(audio)
 
                     interval = AudioSegment.silent(duration=self.args.inner_interval, frame_rate=audio.frame_rate)
                     curr_audio_segments.append(interval)
@@ -365,9 +376,8 @@ class GenerateVideo(object):
             audio_duration = sum_list_total_len(curr_audio_segments)
 
             # 生成视频
-            if self.args.video:
-                image = self.generate_image(show_items)  # 生成图片
-                video = self.generate_video(video, image, audio_duration)
+            image = self.generate_image(show_items)  # 生成图片
+            video, loss = self.generate_video(video, image, audio_duration + loss)
 
             total_audio_duration = sum_list_total_len(audio_segments)
             # 生成歌词
@@ -376,12 +386,12 @@ class GenerateVideo(object):
             # 输出到文件
             if total_audio_duration >= self.args.max_minutes * 60 * 1000 or i == len(
                     self.data_list) - 1:
-                # 生成歌词
+
                 title = f'{start_index}-{index}'
-                merged_audio_file = self.output_dir / f'{title}.mp3'
+                merged_audio_file = self.output_dir / f'{title}.wav'
                 merged_audio = sum(audio_segments)
-                merged_audio.export(str(merged_audio_file), format("mp3"))
-                self.build_in_lrc(str(merged_audio_file), lrc_list)
+                merged_audio.export(str(merged_audio_file), format("wav"))
+                # 生成歌词
                 with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
                     f.write('\n'.join(lrc_list))
 
