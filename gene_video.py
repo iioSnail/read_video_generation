@@ -371,7 +371,7 @@ class GenerateVideo(object):
 
             total_audio_duration = sum_list_total_len(audio_segments)
             # 生成歌词
-            self.add_lrc(lrc_list, total_audio_duration, lrc_items)
+            self.add_lrc(lrc_list, total_audio_duration - audio_duration, lrc_items)
 
             # 输出到文件
             if total_audio_duration >= self.args.max_minutes * 60 * 1000 or i == len(
