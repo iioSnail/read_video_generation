@@ -236,7 +236,7 @@ class GenerateVideo(object):
 
         bbox = draw.multiline_textbbox((0, 0, width, height), text, font=font)
 
-        text_y = (height - bbox[3]) // 2
+        text_y = (height - bbox[3]) // len(lines)
 
         lines = text.split('\n')
         for line in lines:
@@ -301,7 +301,8 @@ class GenerateVideo(object):
 
     def build_in_lrc(self, filename, lrc_list):
         """
-        将歌词嵌入到mp3文件中
+        将歌词嵌入到mp3文件中。但不是所有音乐软件都识别
+        todo 搞了好久，搞不出来
         :param filename: 文件名路径
         :param lrc_list: 歌词列表
         """
@@ -381,8 +382,8 @@ class GenerateVideo(object):
                 merged_audio = sum(audio_segments)
                 merged_audio.export(str(merged_audio_file), format("mp3"))
                 self.build_in_lrc(str(merged_audio_file), lrc_list)
-                # with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
-                #     f.write('\n'.join(lrc_list))
+                with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
+                    f.write('\n'.join(lrc_list))
 
                 print("\n生成音频文件：", str(merged_audio_file))
 
