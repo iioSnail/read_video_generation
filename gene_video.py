@@ -12,6 +12,7 @@ import pandas as pd
 from mutagen.id3 import USLT, Encoding, ID3, TIT2, TALB, TCOM
 
 from gtts import gTTS
+from mutagen.mp3 import MP3
 from pydub import AudioSegment
 from tqdm import tqdm
 from PIL import Image, ImageDraw, ImageFont
@@ -96,7 +97,7 @@ class GenerateVideo(object):
         parser.add_argument('--filename', type=str, default='./samples/coca20000.xlsx', help='单词文件的路径')
         parser.add_argument('--read-columns', type=str, default='单词,基本释义',
                             help="需要朗读的列，多个列用逗号分隔。例如：单词,基本释义,例句")
-        parser.add_argument('--lrc-columns', type=str, default='单词+基本释义,详细释义',
+        parser.add_argument('--lrc-columns', type=str, default='单词+基本释义',
                             help='需要在音频歌词中展示的列，多个列用逗号分隔，若使用+号。例如：单词+释义,详细释义')
         parser.add_argument('--show-columns', type=str, default='序号+单词+音标,详细释义,例句,例句释义',
                             help="需要在视频中展示的列，多个列以逗号分割，若使用+号，两列将展示到一行。例如：序号+单词+音标,详细释义,例句,例句中文")
@@ -304,20 +305,18 @@ class GenerateVideo(object):
         :param filename: 文件名路径
         :param lrc_list: 歌词列表
         """
-        tags = ID3(filename)
+        audio = MP3(filename, ID3=ID3)
 
-        # 专辑
-        tags["TALB"] = TALB(encoding=3, text=self.filename)
-        # 作曲家
-        tags["TCOM"] = TCOM(encoding=3, text='iioSnail')
+        if not audio.tags:
+            audio.add_tags()
 
-        tags.delall("USLT::eng")
-        # 英语内嵌歌词
-        tags.setall("USLT", [USLT(encoding=Encoding.UTF8, lang='eng', format=2, type=1, text='\n'.join(lrc_list))])
-        # 汉字内嵌歌词
-        tags.setall("USLT", [USLT(encoding=Encoding.UTF8, lang='chi', format=2, type=1, text='\n'.join(lrc_list))])
+        uslt_frame = USLT(encoding=3, lang='eng', text='\n'.join(lrc_list))
 
-        tags.save(v2_version=3)
+        audio.tags["TALB"] = TALB(encoding=3, text=self.filename)  # 专辑
+        audio.tags["TCOM"] = TCOM(encoding=3, text='iioSnail')  # 作曲家
+        audio.tags['USLT'] = uslt_frame
+
+        audio.save()
 
     def generate(self):
         start_index = None
@@ -378,16 +377,12 @@ class GenerateVideo(object):
                     self.data_list) - 1:
                 # 生成歌词
                 title = f'{start_index}-{index}'
-                lrc_tags = ID3()
-                lrc_tags["TALB"] = TALB(encoding=3, text=self.filename)  # 专辑
-                lrc_tags["TCOM"] = TCOM(encoding=3, text='iioSnail')  # 作曲家
                 merged_audio_file = self.output_dir / f'{title}.mp3'
                 merged_audio = sum(audio_segments)
-                merged_audio.export(str(merged_audio_file), format("mp3"), tags=dict(lrc_tags))
+                merged_audio.export(str(merged_audio_file), format("mp3"))
                 self.build_in_lrc(str(merged_audio_file), lrc_list)
-
-                with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
-                    f.write('\n'.join(lrc_list))
+                # with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
+                #     f.write('\n'.join(lrc_list))
 
                 print("\n生成音频文件：", str(merged_audio_file))
 
