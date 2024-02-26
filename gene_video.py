@@ -280,7 +280,7 @@ class GenerateVideo(object):
         minutes = timer // 60_000
         seconds = timer // 1000 % 60
         sub_seconds = timer % 1000 // 10
-        lrc_list.append("[%s:%s:%s]%s" % (minutes, seconds, sub_seconds, content))
+        lrc_list.append("[%s:%s.%s]%s" % (minutes, seconds, sub_seconds, content))
 
     def merge_audio_video(self, audio_path, video_path, output_path):
         audio = str(audio_path)
@@ -300,6 +300,11 @@ class GenerateVideo(object):
         :param lrc_list: 歌词列表
         """
         tags = ID3(filename)
+
+        # 专辑
+        tags["TALB"] = TALB(encoding=3, text=self.filename)
+        # 作曲家
+        tags["TCOM"] = TCOM(encoding=3, text='iioSnail')
 
         tags.delall("USLT::eng")
         # 英语内嵌歌词
@@ -373,7 +378,7 @@ class GenerateVideo(object):
                 lrc_tags["TCOM"] = TCOM(encoding=3, text='iioSnail')  # 作曲家
                 merged_audio_file = self.output_dir / f'{title}.mp3'
                 merged_audio = sum(audio_segments)
-                merged_audio.export(str(merged_audio_file), format("mp3"), tags=lrc_tags)
+                merged_audio.export(str(merged_audio_file), format("mp3"), tags=dict(lrc_tags))
                 self.build_in_lrc(str(merged_audio_file), lrc_list)
 
                 print("\n生成音频文件：", str(merged_audio_file))
