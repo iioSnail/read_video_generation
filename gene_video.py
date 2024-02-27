@@ -340,7 +340,7 @@ class GenerateVideo(object):
             curr_audio_segments = []
             index = i + 1
             if start_index is None:
-                start_index = str(index)
+                start_index = index
 
             if len(read_items) <= 0:
                 continue
