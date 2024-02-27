@@ -393,18 +393,20 @@ class GenerateVideo(object):
                 merged_audio = sum(audio_segments)
                 merged_audio += self.args.add_volume  # 加减音量
                 merged_audio.export(str(merged_audio_file), format("wav"))
+                lrc_file = self.output_dir / f'{title}.lrc'
                 # 生成歌词
-                with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
+                with open(lrc_file, 'w', encoding='utf-8') as f:
                     f.write('\n'.join(lrc_list))
 
                 print("\n生成音频文件：", str(merged_audio_file))
+                print("\n生成歌词文件：", str(lrc_file))
 
                 if self.args.video:
                     video.release()
 
-                    cache_video_file = self.cache_dir / 'video' / f'{start_index}-{index}.mp4'
+                    cache_video_file = self.cache_dir / 'video' / f'{title}.mp4'
                     shutil.move(self.temp_video, cache_video_file)
-                    video_file = self.output_dir / f'{start_index}-{index}.mp4'
+                    video_file = self.output_dir / f'{title}.mp4'
 
                     # 合并音频视频
                     start_time = time.time()
