@@ -109,6 +109,7 @@ class GenerateVideo(object):
         parser.add_argument('--max-minutes', type=int, default=30, help='单个音/视频最大时长(分钟)')
         parser.add_argument('--video', action='store_true', default=True, help='生成视频')
         parser.add_argument('--no-video', dest='video', action='store_false', help='不生成视频')
+        parser.add_argument('--add-volume', type=int, default=0, help='加减音量（分贝）。例如：10是音量加10分贝，-10是减10分贝')
         parser.add_argument('--background-color', type=str, default='black', help='视频背景色')
         parser.add_argument('--font-color', type=str, default='white', help='文字颜色')
         parser.add_argument('--video-width', type=int, default=1920, help='视频宽')
@@ -360,7 +361,6 @@ class GenerateVideo(object):
                         audio_segments.append(interval)
                         curr_audio_segments.append(interval)
 
-
                     interval = AudioSegment.silent(duration=self.args.inner_interval, frame_rate=audio.frame_rate)
                     curr_audio_segments.append(interval)
                     audio_segments.append(interval)
@@ -387,9 +387,11 @@ class GenerateVideo(object):
             if total_audio_duration >= self.args.max_minutes * 60 * 1000 or i == len(
                     self.data_list) - 1:
 
-                title = f'{start_index}-{index}'
+                offset = max(self.args.from_line - 1, 0)  # 如果不是从第1行开始的，那么标题名字也跟着往后偏移
+                title = f'{start_index + offset}-{index + offset}'
                 merged_audio_file = self.output_dir / f'{title}.wav'
                 merged_audio = sum(audio_segments)
+                merged_audio += self.args.add_volume  # 加减音量
                 merged_audio.export(str(merged_audio_file), format("wav"))
                 # 生成歌词
                 with open(self.output_dir / f'{title}.lrc', 'w', encoding='utf-8') as f:
