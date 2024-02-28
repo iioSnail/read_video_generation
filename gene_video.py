@@ -192,7 +192,10 @@ class GenerateVideo(object):
         cache_file = audio_dir / (_clean_content(content, ('\\', '/', ':', '*', '?', '"', '<', '>', '|')) + '.mp3')
 
         if os.path.exists(cache_file):
-            return cache_file
+            try:
+                return AudioSegment.from_mp3(cache_file)
+            except:
+                print(f"[WARN]“{str(cache_file)}”缓存有问题，重新获取!")
 
         if lang is None:
             if has_chinese(content):
@@ -203,7 +206,8 @@ class GenerateVideo(object):
         tts = gTTS(content, lang=lang)
         tts.save(cache_file)
 
-        return cache_file
+        # 如果报错，请执行：conda install -c conda-forge ffmpeg
+        return AudioSegment.from_mp3(cache_file)
 
     def _auto_font_size(self, text, font_file):
         """
@@ -359,9 +363,7 @@ class GenerateVideo(object):
             # 生成音频
             for _ in range(self.args.repeat_times):
                 for j, read_content in enumerate(read_items):
-                    audio_filepath = self.generate_audio(read_content)
-                    # 如果报错，请执行：conda install -c conda-forge ffmpeg
-                    audio = AudioSegment.from_mp3(audio_filepath)
+                    audio = self.generate_audio(read_content)
                     audio = audio.fade_in(100).fade_out(100)
                     curr_audio_segments.append(audio)
                     audio_segments.append(audio)
