@@ -2,6 +2,7 @@ import os
 import argparse
 import shutil
 import time
+import hashlib
 from multiprocessing import cpu_count
 from pathlib import Path
 from typing import List
@@ -68,6 +69,12 @@ def has_chinese(content: str):
             return True
 
     return False
+
+
+def md5(content: str):
+    md = hashlib.md5()
+    md.update(content.encode('utf-8'))
+    return md.hexdigest()
 
 
 class GenerateVideo(object):
@@ -229,6 +236,12 @@ class GenerateVideo(object):
 
         text = '\n'.join(lines)
 
+        os.makedirs(self.cache_dir / 'image', exist_ok=True)
+        cache_file = self.cache_dir / 'image' / f'{md5(text)}.png'
+
+        if os.path.exists(cache_file):
+            return cache_file
+
         font_file = "./assets/font.TTF"
         font_size = self._auto_font_size(text, font_file)
         font = ImageFont.truetype(font_file, font_size)
@@ -249,11 +262,9 @@ class GenerateVideo(object):
             draw.text(((width - line_width) // 2, text_y), line, font=font, fill=self.args.font_color)
             text_y += line_height + line_spacing  # Move to the next line
 
-        os.makedirs(self.cache_dir / 'image', exist_ok=True)
-        filename = self.cache_dir / 'image' / f'{lines[0]}.png'  # todo
-        image.save(filename)
+        image.save(cache_file)
 
-        return filename
+        return cache_file
 
     def generate_video(self, video, image, duration: int):
         """
