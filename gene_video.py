@@ -133,7 +133,12 @@ class GenerateVideo(object):
         if not os.path.exists(self.args.filename):
             raise RuntimeError("找不到单词文件: " + self.args.filename)
 
-        data = pd.read_excel(self.args.filename, dtype=str)
+        if self.args.filename.endswith(".xlsx") or "".endswith(".xls"):
+            data = pd.read_excel(self.args.filename, dtype=str)
+        elif self.args.filename.endswith(".csv"):
+            data = pd.read_csv(self.args.filename, dtype=str)
+        else:
+            raise RuntimeError("不支持的文件格式：" + self.args.filename)
 
         read_columns = self.args.read_columns.split(',')
         lrc_columns = self.args.lrc_columns.split(',')
