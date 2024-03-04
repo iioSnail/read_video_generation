@@ -194,7 +194,14 @@ class GenerateVideo(object):
         audio_dir = self.cache_dir / 'audio'
         os.makedirs(audio_dir, exist_ok=True)
 
-        cache_file = audio_dir / (_clean_content(content, ('\\', '/', ':', '*', '?', '"', '<', '>', '|')) + '.mp3')
+        old_cache_file = audio_dir / (_clean_content(content, ('\\', '/', ':', '*', '?', '"', '<', '>', '|')) + '.mp3')
+        cache_file = audio_dir / (md5(content) + '.mp3')
+
+        if os.path.exists(old_cache_file):
+            try:
+                return AudioSegment.from_mp3(old_cache_file)
+            except:
+                print(f"[WARN]“{str(old_cache_file)}”缓存有问题，重新获取!")
 
         if os.path.exists(cache_file):
             try:
