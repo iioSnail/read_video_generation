@@ -375,6 +375,9 @@ class GenerateVideo(object):
             # 生成音频
             for _ in range(self.args.repeat_times):
                 for j, read_content in enumerate(read_items):
+                    if is_null(read_content):
+                        continue
+
                     audio = self.generate_audio(read_content)
                     audio = audio.fade_in(100).fade_out(100)
                     curr_audio_segments.append(audio)
