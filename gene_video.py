@@ -217,7 +217,7 @@ class GenerateVideo(object):
                 lang = 'en'
 
         try:
-            tts = gTTS(content, lang=lang)
+            tts = gTTS(content, lang=lang, tld='us')
             tts.save(cache_file)
         except:
             print("[WARN]Google TTS异常，等待一段时间后重试!")
