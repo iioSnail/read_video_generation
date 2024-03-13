@@ -162,6 +162,7 @@ class GenerateVideo(object):
 
         data_list = []
         for i, row in data.iterrows():
+            i = int(i)
             if i + 1 < self.args.from_line:
                 continue
 
