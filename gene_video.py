@@ -216,8 +216,13 @@ class GenerateVideo(object):
             else:
                 lang = 'en'
 
-        tts = gTTS(content, lang=lang)
-        tts.save(cache_file)
+        try:
+            tts = gTTS(content, lang=lang)
+            tts.save(cache_file)
+        except:
+            print("[WARN]Google TTS异常，等待一段时间后重试!")
+            time.sleep(20)
+            return self.generate_audio(content, lang)
 
         # 如果报错，请执行：conda install -c conda-forge ffmpeg
         return AudioSegment.from_mp3(cache_file)
