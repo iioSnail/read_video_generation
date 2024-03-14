@@ -125,7 +125,7 @@ class GenerateVideo(object):
         parser.add_argument('--cache-dir', type=str, default='./drive/MyDrive/cache/', help='生成的临时文件存放的目录')
         parser.add_argument('--output-dir', type=str, default='./drive/MyDrive/outputs/', help='输出文件的目录')
         parser.add_argument('--cache', action='store_true', default=True, help='使用缓存')
-        parser.add_argument('--no-cache', dest='video', action='store_false', help='不使用缓存')
+        parser.add_argument('--no-cache', dest='cache', action='store_false', help='不使用缓存')
 
         args = parser.parse_known_args()[0]
 
