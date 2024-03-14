@@ -2,10 +2,6 @@
 
 自动生成读单词的视频，效果如下：[样例视频](https://github.com/iioSnail/read_video_generation/raw/main/samples/samples.mp4)
 
-# 使用方式
-
-使用colab生成：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/iioSnail/read_video_generation/blob/master/colab.ipynb)
-
 # 详细参数
 
 ```
