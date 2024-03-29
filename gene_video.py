@@ -239,9 +239,6 @@ class GenerateVideo(object):
         # 如果报错，请执行：conda install -c conda-forge ffmpeg
         audio = AudioSegment.from_mp3(cache_file)
 
-        if self.args.low_pass_filter > 0:
-            audio = audio.low_pass_filter(self.args.low_pass_filter)
-
         return audio
 
     def _auto_font_size(self, text, font_file):
@@ -402,6 +399,10 @@ class GenerateVideo(object):
                         continue
 
                     audio = self.generate_audio(read_content)
+                    if self.args.low_pass_filter > 0:
+                        # 去掉高音部分
+                        audio = audio.low_pass_filter(self.args.low_pass_filter)
+
                     audio = audio.fade_in(100).fade_out(100)
                     curr_audio_segments.append(audio)
                     audio_segments.append(audio)
