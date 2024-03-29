@@ -21,6 +21,8 @@ optional arguments:
                         单个音频最大时长(分钟)
   --video               生成视频
   --no-video            不生成视频
+  --add-volume          加减音量（分贝）。例如：10是音量加10分贝，-10是减10分贝
+  --low-pass-filter     过滤高音部分（护耳）。例如：8000表示过滤掉频率超过8k的频率
   --background-color BACKGROUND_COLOR
                         视频背景色
   --font-color FONT_COLOR

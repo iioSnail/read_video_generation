@@ -117,6 +117,7 @@ class GenerateVideo(object):
         parser.add_argument('--video', action='store_true', default=True, help='生成视频')
         parser.add_argument('--no-video', dest='video', action='store_false', help='不生成视频')
         parser.add_argument('--add-volume', type=int, default=0, help='加减音量（分贝）。例如：10是音量加10分贝，-10是减10分贝')
+        parser.add_argument('--low-pass-filter', type=int, default=-1, help='过滤高音部分（护耳）。例如：8000表示过滤掉频率超过8k的频率')
         parser.add_argument('--background-color', type=str, default='black', help='视频背景色')
         parser.add_argument('--font-color', type=str, default='white', help='文字颜色')
         parser.add_argument('--video-width', type=int, default=1920, help='视频宽')
@@ -219,6 +220,15 @@ class GenerateVideo(object):
                 lang = 'en'
 
         try:
+            """
+            常用tld:
+            English (United Kingdom): co.uk
+            English (United States): us
+            French (France): fr
+            Mandarin (China Mainland): any
+            Mandarin (Taiwan): any
+            
+            """
             tts = gTTS(content, lang=lang, tld='us')
             tts.save(cache_file)
         except:
@@ -227,7 +237,12 @@ class GenerateVideo(object):
             return self.generate_audio(content, lang)
 
         # 如果报错，请执行：conda install -c conda-forge ffmpeg
-        return AudioSegment.from_mp3(cache_file)
+        audio = AudioSegment.from_mp3(cache_file)
+
+        if self.args.low_pass_filter > 0:
+            audio = audio.low_pass_filter(self.args.low_pass_filter)
+
+        return audio
 
     def _auto_font_size(self, text, font_file):
         """
