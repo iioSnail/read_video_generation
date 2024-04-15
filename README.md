@@ -2,6 +2,14 @@
 
 自动生成读单词的视频，效果如下：[样例视频](https://github.com/iioSnail/read_video_generation/raw/main/samples/samples.mp4)
 
+> 由于生成单词需要访问Google Translation，因此需要科学上网
+
+# 使用方式
+
+使用colab生成：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/iioSnail/read_video_generation/blob/master/colab.ipynb)
+
+> Colab是Google的AI训练平台。我们免费可以使用该平台的计算资源，割资本主义韭菜。
+
 # 详细参数
 
 ```
@@ -40,5 +48,10 @@ optional arguments:
 
 ```
 
+# 代办事项
 
 - [ ] 根据每行的情况自动调整字体大小 
+- [ ] 支持增加背景图片，而非单调的颜色
+- [ ] 增加英文文档
+- [ ] 增加样例视频
+- [ ] 视频生成加速，现在太慢了 
