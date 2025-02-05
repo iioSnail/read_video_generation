@@ -1,5 +1,2 @@
-gTTS
-pydub
-moviepy
-pandas
-mutagen
+edge-tts
+audioread
