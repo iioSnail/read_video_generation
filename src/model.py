@@ -8,11 +8,13 @@ class FrameElement:
     y_coord: float  # 0~1
     coord_type: str  # top-left or center. Default: center
     font_size: int  # px. default: 18
+    font_color: str  # Default: white
     content: str  # text content. For example: Hello world
 
     def __post_init__(self):
         self.coord_type = 'center' if self.coord_type is None else self.coord_type
         self.font_size = 18 if self.font_size is None else self.font_size
+        self.font_color = "white" if self.font_color is None else self.font_color
 
 
 @dataclass
@@ -53,10 +55,9 @@ class Video:
     width: int
     height: int
     framerate: int
+    interval: int  # The silence duration between two chunk. Unit: ms
 
     chunks: List[Chunk]
-
-    interval: int  # The silence duration between two chunk. Unit: ms
 
     def __post_init__(self):
         self.framerate = 24 if self.framerate is None else self.framerate
@@ -68,11 +69,12 @@ class Video:
         for data_item in data_dict:
             frame_elements = [
                 FrameElement(
-                    x_coord=element['x_coord'],
-                    y_coord=element['y_coord'],
-                    coord_type=element['coord_type'],
-                    font_size=element['font_size'],
-                    content=element['content']
+                    x_coord=element.get("x_coord"),
+                    y_coord=element.get("y_coord"),
+                    coord_type=element.get("coord_type"),
+                    font_size=element.get("font_size"),
+                    font_color=element.get("font_color"),
+                    content=element.get("content")
                 )
                 for element in data_item['frame']['elements']
             ]
@@ -81,10 +83,10 @@ class Video:
 
             audio_elements = [
                 AudioElement(
-                    text=element['text'],
-                    tts_name=element['tts_name'],
-                    before_silence=element['before_silence'],
-                    after_silence=element['after_silence'],
+                    text=element.get("text"),
+                    tts_name=element.get("tts_name"),
+                    before_silence=element.get('before_silence'),
+                    after_silence=element.get('after_silence'),
                 )
                 for element in data_item['audio']['elements']
             ]

@@ -19,7 +19,7 @@ class FrameGenerator:
         self.cache_dir = Path(cache_dir)
         os.makedirs(self.cache_dir, exist_ok=True)
 
-        self.background = "red"
+        self.background = "black"
         self.font_file = "./assets/font.TTF"
 
     def generate(self):
@@ -46,8 +46,8 @@ class FrameGenerator:
                 y -= text_height // 2
 
             # Draw the text on the image
-            draw.text((x, y), element.content, font=font, fill="black")
+            draw.text((x, y), element.content, font=font, fill=element.font_color)
 
         image.save(file)
 
-        return image, filename
+        return file, filename
