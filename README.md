@@ -4,7 +4,7 @@
 
 生成的视频样例：
 
-[![Sample Video](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/assets/background.png)](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4)
+<video src='https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4' width=180>视频加载失败，请点击[链接下载查看](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4) </video>
 
 ## 使用样例
 
