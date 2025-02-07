@@ -4,7 +4,8 @@
 
 生成的视频样例：
 
-<video src='https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4' width=180>视频加载失败，请点击[链接下载查看](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4) </video>
+https://github.com/user-attachments/assets/d10fa44d-649c-4c4d-abf4-4b9b3bd64930
+
 
 ## 使用样例
 
@@ -88,40 +89,40 @@ optional arguments:
 
 ## 文字转语音样例
 
-本项目使用的是 [edge-tts](https://github.com/rany2/edge-tts) 来进行文字转语音。以下样例供大家参考:
+本项目使用的是 [edge-tts]([链接](https://github.com/rany2/edge-tts) 来进行文字转语音。以下样例供大家参考:
 
 | Name | Gender | Language | audio |
 |---------|-----------|------------|-------|
-| en-US-AnaNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AnaNeural.mp3"></audio> |
-| en-US-AndrewMultilingualNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AndrewMultilingualNeural.mp3"></audio> |
-| en-US-AndrewNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AndrewNeural.mp3"></audio> |
-| en-US-AriaNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AriaNeural.mp3"></audio> |
-| en-US-AvaMultilingualNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AvaMultilingualNeural.mp3"></audio> |
-| en-US-AvaNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AvaNeural.mp3"></audio> |
-| en-US-BrianMultilingualNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-BrianMultilingualNeural.mp3"></audio> |
-| en-US-BrianNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-BrianNeural.mp3"></audio> |
-| en-US-ChristopherNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-ChristopherNeural.mp3"></audio> |
-| en-US-EmmaMultilingualNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-EmmaMultilingualNeural.mp3"></audio> |
-| en-US-EmmaNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-EmmaNeural.mp3"></audio> |
-| en-US-EricNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-EricNeural.mp3"></audio> |
-| en-US-GuyNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-GuyNeural.mp3"></audio> |
-| en-US-JennyNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-JennyNeural.mp3"></audio> |
-| en-US-MichelleNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-MichelleNeural.mp3"></audio> |
-| en-US-RogerNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-RogerNeural.mp3"></audio> |
-| en-US-SteffanNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-SteffanNeural.mp3"></audio> |
-| es-US-AlonsoNeural | Male | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/es-US-AlonsoNeural.mp3"></audio> |
-| es-US-PalomaNeural | Female | US | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/es-US-PalomaNeural.mp3"></audio> |
-| zh-CN-XiaoxiaoNeural | Female | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-XiaoxiaoNeural.mp3"></audio> |
-| zh-CN-XiaoyiNeural | Female | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-XiaoyiNeural.mp3"></audio> |
-| zh-CN-YunjianNeural | Male | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunjianNeural.mp3"></audio> |
-| zh-CN-YunxiNeural | Male | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunxiNeural.mp3"></audio> |
-| zh-CN-YunxiaNeural | Male | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunxiaNeural.mp3"></audio> |
-| zh-CN-YunyangNeural | Male | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunyangNeural.mp3"></audio> |
-| zh-CN-liaoning-XiaobeiNeural | Female | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-liaoning.mp3"></audio> |
-| zh-CN-shaanxi-XiaoniNeural | Female | CN | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-shaanxi.mp3"></audio> |
-| zh-TW-HsiaoChenNeural | Female | TW | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoChenNeural.mp3"></audio> |
-| zh-TW-HsiaoYuNeural | Female | TW | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoYuNeural.mp3"></audio> |
-| zh-TW-YunJheNeural | Male | TW | <audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-YunJheNeural.mp3"></audio>
+| en-US-AnaNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AnaNeural.mp3) |
+| en-US-AndrewMultilingualNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AndrewMultilingualNeural.mp3) |
+| en-US-AndrewNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AndrewNeural.mp3) |
+| en-US-AriaNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AriaNeural.mp3) |
+| en-US-AvaMultilingualNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AvaMultilingualNeural.mp3) |
+| en-US-AvaNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AvaNeural.mp3) |
+| en-US-BrianMultilingualNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-BrianMultilingualNeural.mp3) |
+| en-US-BrianNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-BrianNeural.mp3) |
+| en-US-ChristopherNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-ChristopherNeural.mp3) |
+| en-US-EmmaMultilingualNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-EmmaMultilingualNeural.mp3) |
+| en-US-EmmaNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-EmmaNeural.mp3) |
+| en-US-EricNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-EricNeural.mp3) |
+| en-US-GuyNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-GuyNeural.mp3) |
+| en-US-JennyNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-JennyNeural.mp3) |
+| en-US-MichelleNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-MichelleNeural.mp3) |
+| en-US-RogerNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-RogerNeural.mp3) |
+| en-US-SteffanNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-SteffanNeural.mp3) |
+| es-US-AlonsoNeural | Male | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/es-US-AlonsoNeural.mp3) |
+| es-US-PalomaNeural | Female | US | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/es-US-PalomaNeural.mp3) |
+| zh-CN-XiaoxiaoNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-XiaoxiaoNeural.mp3) |
+| zh-CN-XiaoyiNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-XiaoyiNeural.mp3) |
+| zh-CN-YunjianNeural | Male | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunjianNeural.mp3) |
+| zh-CN-YunxiNeural | Male | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunxiNeural.mp3) |
+| zh-CN-YunxiaNeural | Male | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunxiaNeural.mp3) |
+| zh-CN-YunyangNeural | Male | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunyangNeural.mp3) |
+| zh-CN-liaoning-XiaobeiNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-liaoning.mp3) |
+| zh-CN-shaanxi-XiaoniNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-shaanxi.mp3) |
+| zh-TW-HsiaoChenNeural | Female | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoChenNeural.mp3) |
+| zh-TW-HsiaoYuNeural | Female | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoYuNeural.mp3) |
+| zh-TW-YunJheNeural | Male | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-YunJheNeural.mp3)
 
 ## 代办事项
 
