@@ -4,7 +4,10 @@
 
 生成的视频样例：
 
+
+
 https://github.com/user-attachments/assets/d10fa44d-649c-4c4d-abf4-4b9b3bd64930
+
 
 
 ## 使用样例
@@ -89,7 +92,7 @@ optional arguments:
 
 ## 文字转语音样例
 
-本项目使用的是 [edge-tts]([链接](https://github.com/rany2/edge-tts) 来进行文字转语音。以下样例供大家参考:
+本项目使用的是 [edge-tts](https://github.com/rany2/edge-tts) 来进行文字转语音。以下样例供大家参考:
 
 | Name | Gender | Language | audio |
 |---------|-----------|------------|-------|
