@@ -30,7 +30,7 @@ class AudioElement:
     after_silence: int  # Add silence before the audio. Unit: ms
 
     def __post_init__(self):
-        self.tts_name = 'en-US-AnaNeural' if self.tts_name is None else self.tts_name
+        self.tts_name = 'en-US-AriaNeural' if self.tts_name is None else self.tts_name
         self.before_silence = 0 if self.before_silence is None else self.before_silence
         self.after_silence = 0 if self.after_silence is None else self.after_silence
 

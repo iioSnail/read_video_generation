@@ -3,12 +3,13 @@ import time
 from pathlib import Path
 
 from src.model import Audio, AudioElement
-from src.util import md5, exec_cmd
+from src.util import md5, exec_cmd, file_exists
 
 
 class AudioGenerator:
 
-    def __init__(self, audio: Audio, cache_dir="./cache/"):
+    def __init__(self, audio: Audio, args, cache_dir="./cache/"):
+        self.args = args
         self.cache_dir = Path(cache_dir) / 'audio'
         os.makedirs(self.cache_dir, exist_ok=True)
 
@@ -17,10 +18,13 @@ class AudioGenerator:
     def _tts(self, audio: AudioElement):
         filename = md5(audio.text + "_" + audio.tts_name)
         file = str(self.cache_dir / (filename + ".mp3"))
-        if os.path.exists(file):
+        if file_exists(file):
             return file, filename
 
         cmd = f'edge-tts --text "{audio.text}" -v {audio.tts_name} --write-media {file}'
+        if self.args.proxy is not None:
+            cmd += " --proxy " + self.args.proxy
+
         exec_cmd(cmd, file, "Fail to generate audio file with edge-tts. Please check you network.")
 
         time.sleep(0.05)
@@ -37,7 +41,7 @@ class AudioGenerator:
         old_file = file
         file = str(self.cache_dir / (filename + ".mp3"))
 
-        if os.path.exists(file):
+        if file_exists(file):
             return file, filename
 
         delay_list = []
@@ -55,7 +59,7 @@ class AudioGenerator:
     def generate(self):
         # Generate silence audio file.
         silence_file = str(self.cache_dir / f"silence_{self.audio.interval}.mp3")
-        if not os.path.exists(silence_file):
+        if not file_exists(silence_file):
             cmd = f"ffmpeg -f lavfi -t {round(self.audio.interval / 1000, 3)} -i anullsrc=r=44100:cl=stereo {silence_file}"
             exec_cmd(cmd, silence_file, "Fail to generate silent audio file.")
 
@@ -73,7 +77,7 @@ class AudioGenerator:
         filename = md5(f'_{self.audio.interval}_'.join(filename_list))
         file = str(self.cache_dir / (filename + ".mp3"))
 
-        if os.path.exists(file):
+        if file_exists(file):
             return file, filename
 
         merge_txt = str(self.cache_dir / 'merge.txt')

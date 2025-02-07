@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 from dataclasses import asdict
 
 from src.model import Frame
-from src.util import md5
+from src.util import md5, file_exists
 
 
 class FrameGenerator:
@@ -28,7 +28,7 @@ class FrameGenerator:
 
         filename = md5(json.dumps(asdict(self.frame))) + ".jpg"
         file = str(self.cache_dir / filename)
-        if os.path.exists(file):
+        if file_exists(file):
             return file, filename
 
         for element in self.frame.elements:

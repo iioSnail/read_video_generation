@@ -1,65 +1,92 @@
-# read_video_generation
+# Read Video Generation
 
-自动生成读单词的视频，效果如下：[样例视频](https://github.com/iioSnail/read_video_generation/raw/main/samples/samples.mp4)
+本项目可以帮助用户快速生成自定义的“阅读视频”，即视频中仅包含简单的文字和语音。
 
-> 由于生成单词需要访问Google Translation，因此需要科学上网
+结果视频样例：
 
-# 使用方式
-
-使用colab生成：[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/iioSnail/read_video_generation/blob/master/colab.ipynb)
-
-> Colab是Google的AI训练平台。我们免费可以使用该平台的计算资源，割资本主义韭菜。
-
+TODO
 
 # 使用样例
 
 ```shell
-python gene_video.py --file ./samples/read_sentence.json
+python gene_video.py --file ./samples/read_sentence.json  --output output.mp4
 ```
 
+# 使用说明
 
-# 详细参数
+## 参数说明
+
+生成视频需要传如下参数：
+
 
 ```
->> python gene_video.py -h
-usage: gene_video.py [-h] [--filename FILENAME] [--repeat-times REPEAT_TIMES] [--interval INTERVAL] [--inner-interval INNER_INTERVAL] [--max-minutes MAX_MINUTES] [--video] [--no-video] [--background-color BACKGROUND_COLOR]
-                     [--font-color FONT_COLOR] [--video-width VIDEO_WIDTH] [--video-height VIDEO_HEIGHT] [--max-font-size MAX_FONT_SIZE] [--cache-dir CACHE_DIR] [--output-dir OUTPUT_DIR]
+(base) D:\PythonProjects\read_video_generation>python gene_video.py -h
+usage: gene_video.py [-h] --file FILE [--output OUTPUT] [--interval INTERVAL] [--background BACKGROUND] [--width WIDTH] [--height HEIGHT] [--framerate FRAMERATE] [--cache-dir CACHE_DIR] [--proxy PROXY]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  --filename FILENAME   单词文件的路径
-  --repeat-times REPEAT_TIMES
-                        重复次数
-  --interval INTERVAL   两个单词的间隔时间(ms)
-  --inner-interval INNER_INTERVAL
-                        单词和释义的间隔时间(ms)
-  --max-minutes MAX_MINUTES
-                        单个音频最大时长(分钟)
-  --video               生成视频
-  --no-video            不生成视频
-  --add-volume          加减音量（分贝）。例如：10是音量加10分贝，-10是减10分贝
-  --low-pass-filter     过滤高音部分（护耳）。例如：8000表示过滤掉频率超过8k的频率
-  --background-color BACKGROUND_COLOR
-                        视频背景色
-  --font-color FONT_COLOR
-                        文字颜色
-  --video-width VIDEO_WIDTH
-                        视频宽
-  --video-height VIDEO_HEIGHT
-                        视频高
-  --max-font-size MAX_FONT_SIZE
-                        最大字体大小
-  --cache-dir CACHE_DIR
-                        生成的临时文件存放的目录
-  --output-dir OUTPUT_DIR
-                        输出文件的目录
-
+  --file FILE           JSON文件的路径，该文件描述了具体的视频内容
+  --output OUTPUT       输出文件的路径。例如：output.mp4
+  --interval INTERVAL   两段视频之间间隔多少秒。默认为500ms
+  --background BACKGROUND
+                        视频的背景图片（尽量和视频宽高保持一致，否则会被拉伸）. 默认值: ./assert/background.png
+  --width WIDTH         视频的宽度。 默认值: 1920
+  --height HEIGHT       视频的高度. 默认值: 1080
+  --framerate FRAMERATE
+                        视频的帧率. 默认值: 24
+  --cache-dir CACHE_DIR 缓存目录. 视频生成过程中会产生一些中间文件，会被存在该目录下。若生成中断或报错，则部分内容不用重复生成。
+  --proxy PROXY         edge-tts的代理。文本转语音需要调用微软的API，中国网络你懂得，可能需要上代理。样例: http://127.0.0.1:1080
 ```
+
+## 构造JSON
+
+用户在使用前需要构造一个json文件来描述视频的具体内容，样例如下：
+
+```json5
+[  // json为一个list，每一项包含一张图片和一段音频。
+  {
+    "frame": {  // frame描述了当前图片展示的内容
+      "elements": [  // elements为list，里面描述了不同位置展示的不同文字。
+        {
+          "x_coord": 0.05,  // 当前文本在哪个位置展示。该坐标为相对坐标，即左上角是(0,0)，右下角是(1,1)
+          "y_coord": 0.05,
+          "coord_type": "top-left",  // 坐标类型。top-left: (x,y)对应当前元素的左上角。center: (x,y)对应元素的中心
+          "font_size": 80,  // 字体大小
+          "font_color": "white",  // 字体颜色
+          "content": "1"  // 文本内容
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "I've heard about that one"
+        }
+      ]
+    },
+    "audio": {  // audio描述了当前项的音频如何展示
+      "elements": [  // 通常一张图片可能会对应多段音频。因此这里是list
+        {
+          "text": "I've heard about that one",  // 朗读的文本
+          "tts_name": "en-US-AriaNeural",  // 使用谁的声音
+          "before_silence": 200,  // 在读这段文字前，插入200ms的无声音频
+          "after_silence": 500  // 在读完这段文字后，插入500ms的无声音频
+        },
+        {
+          "text": "我听说过那个",
+          "tts_name": "zh-CN-YunyangNeural",
+          "after_silence": 200
+        }
+      ],
+      "interval": 1000  // elements中的每段音频间隔多久。若指定该值，通常就不用再指定“before_silence”和“after_silence”。
+    }
+  }
+  // ...
+]
+```
+
 
 # 代办事项
 
-- [ ] 根据每行的情况自动调整字体大小 
-- [ ] 支持增加背景图片，而非单调的颜色
 - [ ] 增加英文文档
 - [ ] 增加样例视频
-- [ ] 视频生成加速，现在太慢了 

@@ -9,8 +9,18 @@ def md5(text) -> str:
 
 
 def remove_file(file):
-    if os.path.exists(file):
+    if file_exists(file):
         os.remove(file)
+
+
+def file_exists(file):
+    if not os.path.exists(file):
+        return False
+
+    if os.path.getsize(file) <= 0:
+        return False
+
+    return True
 
 
 def resize_image(image_path: str, width: int, height: int, output_path: str):
@@ -31,4 +41,4 @@ def exec_cmd(cmd, output_file=None, error_msg=None):
 
     if error_msg is None:
         error_msg = f"Fail to generate file: {str(output_file)}"
-    assert os.path.exists(output_file), error_msg
+    assert file_exists(output_file), error_msg

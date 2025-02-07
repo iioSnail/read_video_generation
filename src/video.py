@@ -6,7 +6,7 @@ import audioread
 from src.audio import AudioGenerator
 from src.frame import FrameGenerator
 from src.model import Video, Chunk
-from src.util import md5, remove_file, resize_image, exec_cmd
+from src.util import md5, remove_file, resize_image, exec_cmd, file_exists
 
 
 class VideoGenerator:
@@ -23,7 +23,7 @@ class VideoGenerator:
         frame_generator = FrameGenerator(chunk.frame, self.video.width, self.video.height, cache_dir=self.args.cache_dir)
         image_file, image_filename = frame_generator.generate()
 
-        audio_generator = AudioGenerator(chunk.audio, cache_dir=self.args.cache_dir)
+        audio_generator = AudioGenerator(chunk.audio, self.args, cache_dir=self.args.cache_dir)
         audio_file, audio_filename = audio_generator.generate()
 
         with audioread.audio_open(audio_file) as f:
@@ -32,7 +32,7 @@ class VideoGenerator:
         filename = md5(image_filename + audio_filename) + ".mp4"
         file = str(self.cache_dir / filename)
 
-        if os.path.exists(file):
+        if file_exists(file):
             return file, filename
 
         temp_mp4_file = str(self.cache_dir / (audio_filename + ".mp4"))

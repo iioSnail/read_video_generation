@@ -1,0 +1,134 @@
+[
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "top-left",
+          "font_size": 80,
+          "font_color": "white",
+          "content": "1"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "I've heard about that one"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.6,
+          "coord_type": "center",
+          "font_size": 80,
+          "font_color": "white",
+          "content": "我听说过那个"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "I've heard about that one",
+          "tts_name": "en-US-AriaNeural"
+        },
+        {
+          "text": "I've heard about that one",
+          "tts_name": "en-US-AriaNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "I've heard about that one",
+          "tts_name": "en-US-ChristopherNeural"
+        },
+        {
+          "text": "I've heard about that one",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "我听说过那个",
+          "tts_name": "zh-CN-YunyangNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "I've heard about that one",
+          "tts_name": "en-US-AriaNeural"
+        },
+        {
+          "text": "I've heard about that one",
+          "tts_name": "en-US-AriaNeural"
+        }
+      ],
+      "interval": 1000
+    }
+  },
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "top-left",
+          "font_size": 80,
+          "font_color": "white",
+          "content": "2"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "That might motivate me to actually go."
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.6,
+          "coord_type": "center",
+          "font_size": 80,
+          "font_color": "white",
+          "content": "这可能会促使我真的去"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "That might motivate me to actually go.",
+          "tts_name": "en-US-AriaNeural"
+        },
+        {
+          "text": "That might motivate me to actually go.",
+          "tts_name": "en-US-AriaNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "That might motivate me to actually go.",
+          "tts_name": "en-US-ChristopherNeural"
+        },
+        {
+          "text": "That might motivate me to actually go.",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "这可能会促使我真的去",
+          "tts_name": "zh-CN-YunyangNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "That might motivate me to actually go.",
+          "tts_name": "en-US-AriaNeural"
+        },
+        {
+          "text": "That might motivate me to actually go.",
+          "tts_name": "en-US-AriaNeural"
+        }
+      ],
+      "interval": 1000
+    }
+  }
+]
