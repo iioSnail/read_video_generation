@@ -6,22 +6,24 @@ import audioread
 from src.audio import AudioGenerator
 from src.frame import FrameGenerator
 from src.model import Video, Chunk
-from src.util import md5, remove_file
+from src.util import md5, remove_file, resize_image, exec_cmd
 
 
 class VideoGenerator:
 
-    def __init__(self, video: Video, output_file, cache_dir="./cache/chunk/"):
+    def __init__(self, video: Video, args, cache_dir="./cache"):
         self.video = video
-        self.output_file = output_file
-        self.cache_dir = Path(cache_dir)
+        self.args = args
+        self.output_file = self.args.output
+        self.cache_dir = Path(cache_dir) / "chunk"
+
         os.makedirs(self.cache_dir, exist_ok=True)
 
     def generate_one(self, chunk: Chunk):
-        frame_generator = FrameGenerator(chunk.frame, self.video.width, self.video.height)
+        frame_generator = FrameGenerator(chunk.frame, self.video.width, self.video.height, cache_dir=self.args.cache_dir)
         image_file, image_filename = frame_generator.generate()
 
-        audio_generator = AudioGenerator(chunk.audio)
+        audio_generator = AudioGenerator(chunk.audio, cache_dir=self.args.cache_dir)
         audio_file, audio_filename = audio_generator.generate()
 
         with audioread.audio_open(audio_file) as f:
@@ -36,15 +38,11 @@ class VideoGenerator:
         temp_mp4_file = str(self.cache_dir / (audio_filename + ".mp4"))
         remove_file(temp_mp4_file)
         cmd = f'ffmpeg -loop 1 -i {image_file} -c:v libx264 -t {duration} -vf "scale={self.video.width}:{self.video.height}" -pix_fmt yuv420p {temp_mp4_file}'
-        os.system(cmd)
-
-        assert os.path.exists(temp_mp4_file), "Fail to convert image to video."
+        exec_cmd(cmd, temp_mp4_file, "Fail to convert image to video.")
 
         remove_file(file)
         cmd = f"ffmpeg -i {temp_mp4_file} -i {audio_file} -c:v copy -c:a aac -b:a 192k {file}"
-        os.system(cmd)
-
-        assert os.path.exists(file), "Fail to merge audio and video."
+        exec_cmd(cmd, file, "Fail to merge audio and video.")
 
         return file, filename
 
@@ -63,9 +61,17 @@ class VideoGenerator:
             for filename in filenames:
                 f.write(f"file '{filename}'\n")
 
+        file = self.cache_dir / "temp_output.mp4"
+        remove_file(file)
+        cmd = f'ffmpeg -f concat -safe 0 -i {tmp_list_file} -c copy {file}'
+        exec_cmd(cmd, file, "Fail to merge videos.")
+
+        # Add background
+        bg_file = str(self.cache_dir / 'background.jpg')
+        resize_image(self.video.background_image, self.video.width, self.video.height, bg_file)
         remove_file(self.output_file)
-        cmd = f'ffmpeg -f concat -safe 0 -i {tmp_list_file} -c copy {self.output_file}'
-        os.system(cmd)
+        cmd = f'ffmpeg -i {file} -i {bg_file} -filter_complex "[0:v]colorkey=0x000000:0.1:0.2[ckout];[1:v][ckout]overlay[out]" -map "[out]" -map 0:a {self.output_file}'
+        exec_cmd(cmd, self.output_file, "Fail to add background to final video.")
 
         return self.output_file
 

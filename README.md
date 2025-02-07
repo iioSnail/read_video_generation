@@ -10,6 +10,14 @@
 
 > Colab是Google的AI训练平台。我们免费可以使用该平台的计算资源，割资本主义韭菜。
 
+
+# 使用样例
+
+```shell
+python gene_video.py --file ./samples/read_sentence.json
+```
+
+
 # 详细参数
 
 ```

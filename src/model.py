@@ -56,6 +56,7 @@ class Video:
     height: int
     framerate: int
     interval: int  # The silence duration between two chunk. Unit: ms
+    background_image: str
 
     chunks: List[Chunk]
 

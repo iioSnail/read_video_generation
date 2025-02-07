@@ -11,12 +11,12 @@ from src.util import md5
 
 class FrameGenerator:
 
-    def __init__(self, frame: Frame, width, height, cache_dir="./cache/image/"):
+    def __init__(self, frame: Frame, width, height, cache_dir="./cache/"):
         self.frame = frame
         self.width = width
         self.height = height
 
-        self.cache_dir = Path(cache_dir)
+        self.cache_dir = Path(cache_dir) / 'image'
         os.makedirs(self.cache_dir, exist_ok=True)
 
         self.background = "black"
