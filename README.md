@@ -4,7 +4,11 @@
 
 生成的视频样例：
 
-<video src='https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4' width=180>视频加载失败，请点击[链接下载查看](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4) </video>
+
+
+https://github.com/user-attachments/assets/d10fa44d-649c-4c4d-abf4-4b9b3bd64930
+
+
 
 ## 使用样例
 
