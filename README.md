@@ -2,9 +2,9 @@
 
 本项目可以帮助用户快速生成自定义的“阅读视频”，即视频中仅包含简单的文字和语音。
 
-结果视频样例：
+生成的视频样例：
 
-TODO
+[![Sample Video](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/assets/background.png)](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/mp4/read_sentence.mp4)
 
 ## 使用样例
 
