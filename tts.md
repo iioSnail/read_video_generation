@@ -2,7 +2,7 @@
 
 本项目使用的是 [edge-tts](https://github.com/rany2/edge-tts) 来进行文字转语音。以下样例供大家参考:
 
-<audio src="/test/audio.ogg"></audio>
+<audio src="https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/en-US-AnaNeural.mp3"></audio>
 
 | Name | Gender | Language | audio |
 |---------|-----------|------------|-------|
