@@ -121,8 +121,8 @@ optional arguments:
 | zh-CN-YunxiNeural | Male | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunxiNeural.mp3) |
 | zh-CN-YunxiaNeural | Male | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunxiaNeural.mp3) |
 | zh-CN-YunyangNeural | Male | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-YunyangNeural.mp3) |
-| zh-CN-liaoning-XiaobeiNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-liaoning.mp3) |
-| zh-CN-shaanxi-XiaoniNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-shaanxi.mp3) |
+| zh-CN-liaoning-XiaobeiNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-liaoning-XiaobeiNeural.mp3) |
+| zh-CN-shaanxi-XiaoniNeural | Female | CN | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-CN-shaanxi-XiaoniNeural.mp3) |
 | zh-TW-HsiaoChenNeural | Female | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoChenNeural.mp3) |
 | zh-TW-HsiaoYuNeural | Female | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoYuNeural.mp3) |
 | zh-TW-YunJheNeural | Male | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-YunJheNeural.mp3)
@@ -130,4 +130,4 @@ optional arguments:
 ## 代办事项
 
 - [ ] 增加英文文档
-- [ ] 增加样例视频
+- [ ] 暂不支持使用黑色字体
