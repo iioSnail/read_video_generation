@@ -59,7 +59,7 @@ class AudioGenerator:
     def generate(self):
         # Generate silence audio file.
         silence_file = str(self.cache_dir / f"silence_{self.audio.interval}.mp3")
-        if not file_exists(silence_file):
+        if self.audio.interval > 0 and not file_exists(silence_file):
             cmd = f"ffmpeg -f lavfi -t {round(self.audio.interval / 1000, 3)} -i anullsrc=r=44100:cl=stereo {silence_file}"
             exec_cmd(cmd, silence_file, "Fail to generate silent audio file.")
 
@@ -69,7 +69,9 @@ class AudioGenerator:
         for i, audio_item in enumerate(self.audio.elements):
             file, filename = self._generate_one(audio_item)
 
-            file_list.append(silence_file)
+            if self.audio.interval > 0:
+                file_list.append(silence_file)
+
             file_list.append(file)
 
             filename_list.append(filename)

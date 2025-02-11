@@ -1,5 +1,6 @@
 import hashlib
 import os
+import subprocess
 
 from PIL import Image
 
@@ -34,8 +35,11 @@ def resize_image(image_path: str, width: int, height: int, output_path: str):
         resized_img.save(output_path, format="JPEG")  # Explicitly set format
 
 
-def exec_cmd(cmd, output_file=None, error_msg=None):
-    os.system(cmd)
+def exec_cmd(cmd, output_file=None, error_msg=None, stdout=False):
+    if stdout:
+        subprocess.call(cmd)
+    else:
+        subprocess.call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     if output_file is None:
         return
 

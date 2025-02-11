@@ -1,0 +1,308 @@
+[
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "1"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 100,
+          "font_color": "white",
+          "content": "abandon"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.5,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "[əˈbændən]"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "Abandon",
+          "tts_name": "en-US-AriaNeural",
+          "before_silence": 500,
+          "after_silence": 0
+        },
+        {
+          "text": "Abandon",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 400
+        }
+      ]
+    }
+  },
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "1"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 100,
+          "font_color": "white",
+          "content": "abandon"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.5,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "[əˈbændən]"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.7,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "v.抛弃，舍弃，放弃"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "放弃",
+          "tts_name": "zh-CN-YunyangNeural",
+          "after_silence": 500
+        },
+        {
+          "text": "Abandon",
+          "tts_name": "en-US-AriaNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "Abandon",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 500
+        }
+      ]
+    }
+  },
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "2"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 100,
+          "font_color": "white",
+          "content": "ability"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.5,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "[əˈbɪlɪtɪ]"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "ability",
+          "tts_name": "en-US-AriaNeural",
+          "before_silence": 500,
+          "after_silence": 0
+        },
+        {
+          "text": "ability",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 400
+        }
+      ]
+    }
+  },
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "2"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 100,
+          "font_color": "white",
+          "content": "ability"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.5,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "[əˈbɪlɪtɪ]"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.7,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "n. 能力；才能"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "能力",
+          "tts_name": "zh-CN-YunyangNeural",
+          "after_silence": 500
+        },
+        {
+          "text": "ability",
+          "tts_name": "en-US-AriaNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "ability",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 500
+        }
+      ]
+    }
+  },
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "3"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 100,
+          "font_color": "white",
+          "content": "able"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.5,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "[ˈeɪb(ə)l]"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "able",
+          "tts_name": "en-US-AriaNeural",
+          "before_silence": 500,
+          "after_silence": 0
+        },
+        {
+          "text": "able",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 400
+        }
+      ]
+    }
+  },
+  {
+    "frame": {
+      "elements": [
+        {
+          "x_coord": 0.05,
+          "y_coord": 0.05,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "3"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.3,
+          "coord_type": "center",
+          "font_size": 100,
+          "font_color": "white",
+          "content": "able"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.5,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "[ˈeɪb(ə)l]"
+        },
+        {
+          "x_coord": 0.5,
+          "y_coord": 0.7,
+          "coord_type": "center",
+          "font_size": 90,
+          "font_color": "white",
+          "content": "a. 能够；有能力的"
+        }
+      ]
+    },
+    "audio": {
+      "elements": [
+        {
+          "text": "能够",
+          "tts_name": "zh-CN-YunyangNeural",
+          "after_silence": 500
+        },
+        {
+          "text": "able",
+          "tts_name": "en-US-AriaNeural",
+          "after_silence": 200
+        },
+        {
+          "text": "able",
+          "tts_name": "en-US-ChristopherNeural",
+          "after_silence": 500
+        }
+      ]
+    }
+  }
+]

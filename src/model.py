@@ -91,7 +91,7 @@ class Video:
                 )
                 for element in data_item['audio']['elements']
             ]
-            audio = Audio(elements=audio_elements, interval=data_item['audio']['interval'])
+            audio = Audio(elements=audio_elements, interval=data_item['audio'].get('interval'))
 
             chunks.append(Chunk(frame=frame, audio=audio))
 

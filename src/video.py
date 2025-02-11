@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import audioread
+from tqdm import tqdm
 
 from src.audio import AudioGenerator
 from src.frame import FrameGenerator
@@ -49,12 +50,13 @@ class VideoGenerator:
     def generate(self):
         files = []
         filenames = []
-        for chunk in self.video.chunks:
+        for chunk in tqdm(self.video.chunks, desc="Generating"):
             file, filename = self.generate_one(chunk)
 
             files.append(file)
             filenames.append(filename)
 
+        print("Start merge every pieces...")
         # Merge videos.
         tmp_list_file = str(self.cache_dir / "tmp_file_list.txt")
         with open(tmp_list_file, "w") as f:
@@ -64,14 +66,17 @@ class VideoGenerator:
         file = self.cache_dir / "temp_output.mp4"
         remove_file(file)
         cmd = f'ffmpeg -f concat -safe 0 -i {tmp_list_file} -c copy {file}'
-        exec_cmd(cmd, file, "Fail to merge videos.")
+        exec_cmd(cmd, file, "Fail to merge videos.", stdout=True)
 
+        print("Add background to the video...")
         # Add background
         bg_file = str(self.cache_dir / 'background.jpg')
         resize_image(self.video.background_image, self.video.width, self.video.height, bg_file)
         remove_file(self.output_file)
         cmd = f'ffmpeg -i {file} -i {bg_file} -filter_complex "[0:v]colorkey=0x000000:0.1:0.2[ckout];[1:v][ckout]overlay[out]" -map "[out]" -map 0:a {self.output_file}'
-        exec_cmd(cmd, self.output_file, "Fail to add background to final video.")
+        exec_cmd(cmd, self.output_file, "Fail to add background to final video.", stdout=True)
+
+        print("Success to generate video. The file is located at ", self.output_file)
 
         return self.output_file
 

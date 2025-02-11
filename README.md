@@ -14,6 +14,8 @@ https://github.com/user-attachments/assets/d10fa44d-649c-4c4d-abf4-4b9b3bd64930
 
 ```shell
 python gene_video.py --file ./samples/read_sentence.json  --output output.mp4
+
+python gene_video.py --file ./samples/read_words.json  --output output.mp4
 ```
 
 ## 使用说明
