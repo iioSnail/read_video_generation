@@ -401,7 +401,7 @@ couple,夫妇,n. 夫妇，一对,ˈkəpəl
 true,真的,a. 真的，真实的；忠诚的,tru
 action,行动,n. 行动,ˈækʃən
 carry,拿,vt. 拿，搬，带，提，抬，背，抱，运等,ˈkɛri
-data,资料,n. 资料，数据,ˈdætə
+data,数据,n. 资料，数据,ˈdætə
 space,空间,n. 空间,speɪs
 building,建筑物,n. 建筑物；房屋；大楼,ˈbɪldɪŋ
 activity,活动,n. 活动,ækˈtɪvɪti
@@ -426,14 +426,14 @@ bit,一点,n. 一点，一些，少量的,bɪt
 attack,攻击,vt. / n. 攻击，袭击,əˈtæk
 vote,选举,vi. 选举，投票,voʊt
 catch,接住,n.接住；捉住；赶上；染上（疾病）,kæʧ
-west,在西,"a. (在)西；向西,从西来的 ad. 在西方,向西方 n.西部",wɛst
-charge,要求收费,v. 要求收费；索价；将(电池)充电 n. 费用；价钱,ʧɑrʤ
+west,西方的,"a. 西；向西 ad. 在西方,西方的 n.西部",wɛst
+charge,充电,v. 要求收费；索价；将(电池)充电 n. 费用；价钱,ʧɑrʤ
 whose,谁的,pron. 谁的,huz
 eat,吃,v. 吃,it
-teach,教,"v. 教书,教",tiʧ
+teach,教导,"v. 教书，教，教导",tiʧ
 subject,主题,n. 主题；学科 a. 隶属的；受支配的,ˈsəbʤɪkt
 measure,测量,v. 量，测量,ˈmɛʒər
-press,压,"vt.压,按 n.新闻界,出版社",prɛs
+press,按压,"vt.压,按 n.新闻界,出版社",prɛs
 situation,形势,n. 形势，情况,ˌsɪʧuˈeɪʃən
 rise,上升,vi. 上升，上涨,raɪz
 industry,工业,n. 工业，产业,ˈɪndəstri
@@ -441,8 +441,8 @@ above,在上面,prep. 在……上面 a. 上面的 ad. 在……之上,əˈbəv
 type,打字,vt. 打字,taɪp
 describe,描写,vt. 描写，叙述,dɪˈskraɪb
 risk,危险,n./ v. 危险，风险，冒险,rɪsk
-near,近的,a. 近的 ad. 附近，邻近 prep. 在……附近，靠近,nɪr
-recent,近来的,a. 近来的，最近的,ˈrisənt
+near,附近的,a. 附近的 ad. 附近，邻近 prep. 在……附近，靠近,nɪr
+recent,最来的,a. 近来的，最近的,ˈrisənt
 middle,中间,n. 中间;当中;中级的,ˈmɪdəl
 hair,头发,n. 头发,hɛr
 itself,它自己,pron. 它自己,ˌɪtˈsɛlf
@@ -454,16 +454,16 @@ film,电影,n. 电影；影片；胶卷vt. 拍摄，把……拍成电影,fɪlm
 product,产品,n. 产品，制品,ˈprɑdəkt
 smile,微笑,n.& v. 微笑,smaɪl
 doctor,医生,n. 医生，大夫；博士,ˈdɔktər
-quite,完全,ad. 完全，十分,kwaɪt
+quite,完全地,adv. 完全地，十分地,kwaɪt
 green,绿色的,a. 绿色的；青的 n. 绿色,grin
-race,种族,n. 种族，民族 v. （速度）竞赛，比赛 n. 赛跑，竞赛,reɪs
+race,比赛,n. 种族，民族 v. （速度）竞赛，比赛 n. 赛跑，竞赛,reɪs
 drop,落下,n.滴 v.掉下.落下.投递.放弃,drɔp
-campaign,运动,n. 运动，战役,kæmˈpeɪn
-movie,口语电影,n.（口语）电影,ˈmuvi
-visit,参观,n.& vt. 参观，访问，拜访,ˈvɪzɪt
+campaign,政治运动,n. （社会、政治）运动，战役,kæmˈpeɪn
+movie,电影,n.（口语）电影,ˈmuvi
+visit,拜访,n.& vt. 参观，访问，拜访,ˈvɪzɪt
 short,短的,a. 短的；矮的,ʃɔrt
 list,清单,n. 一览表，清单,lɪst
-wrong,错误,"a.错误,不正常,有毛病的",rɔŋ
+wrong,错误的,"adj.错误的,不正常的,有毛病的",rɔŋ
 personal,个人的,a. 个人的，私人的,ˈpərsɪnəl
 certain,确定的,a. （未指明真实名称的）某…；确定的；一定会…,ˈsərtən
 draw,绘画,v. 绘画；绘制；拉，拖；提取（金钱）,drɔ
@@ -474,61 +474,61 @@ third,第三,num. 第三,θərd
 organization,组织,n. 组织，机构,ˌɔrgənəˈzeɪʃən
 single,单一的,a. 单一的，单个的,ˈsɪŋgəl
 bank,银行,n. （河海湖的）岸，堤 n. 银行,bæŋk
-red,红色红色的,n. 红色 a.红色的,rɛd
+red,红色的,n. 红色 a.红色的,rɛd
 evidence,证据,n. 证据，证明,ˈɛvədəns
 tree,树,n. 树,tri
 culture,文化,n. 文化,ˈkəlʧər
 store,商店,n. 商店 vt. 储藏，存储,stɔr
 simply,简单地,"ad.简单地,(加强语气)的确",ˈsɪmpli
 average,平均,a.平均；普通的 n.平均数,ˈævərɪʤ
-computer,电子计算机,n. 电子计算机,kəmˈpjutər
+computer,电脑,n. 电脑，电子计算机,kəmˈpjutər
 listen,听,"vi. 听,仔细听",ˈlɪsən
-energy,精力, n. 精力，能量,ˈɛnərʤi
+energy,能量, n. 精力，能量,ˈɛnərʤi
 pretty,漂亮的,a. 漂亮的，俊俏的,ˈprɪti
-nearly,将近,ad. 将近，几乎,ˈnɪrli
+nearly,几乎,ad. 将近，差不多，几乎,ˈnɪrli
 check,检查,n. 检查；批改 vt. 校对，核对； 检查；批改,ʧɛk
 attention,注意,n. 注意，关心,əˈtɛnʃən
 key,钥匙,n. 钥匙;答案;键;关键,ki
 century,世纪,n. 世纪，百年,ˈsɛnʧəri
 condition,条件,n. 条件，状况,kənˈdɪʃən
 dark,黑暗,n. 黑暗；暗处；日暮 a. 黑暗的；暗淡的；深色的,dɑrk
-benefit,优势,"n. / v.优势,益处,使…受益",ˈbɛnəfɪt
+benefit,使受益,"n. / v.优势,益处,使…受益",ˈbɛnəfɪt
 private,私人的,a. 私人的,ˈpraɪvət
 chance,机会,n. 机会，可能性,ʧæns
 choose,选择,vt. 选择,ʧuz
 summer,夏天,n. 夏天，夏季,ˈsəmər
 brother,兄弟,n. 兄；弟,ˈbrəðər
 period,时期,n. 时期，时代,ˈpɪriəd
-concern,涉及,v. / n. 涉及，关心,kənˈsərn
+concern,关心,v. / n. 涉及，关心,kənˈsərn
 population,人口,n. 人口，人数,ˌpɑpjəˈleɪʃən
-difficult,难,a.难；艰难；不易相处,ˈdɪfəkəlt
-wonder,对疑惑,"v. 对…疑惑，感到惊奇,想知道 n. 惊讶,惊叹;奇迹",ˈwəndər
-available,可获得的,a. 可获得的，有空的,əˈveɪləbəl
+difficult,困难的,a.困难的；不易相处的,ˈdɪfəkəlt
+wonder,想知道,"v. 对…疑惑，感到惊奇,想知道 n. 惊讶,惊叹",ˈwəndər
+available,可用的,a. 可用的，可获得的，有空的,əˈveɪləbəl
 term,学期,n. 学期;术语;条款;项,tərm
 trade,贸易,n.贸易 vt.用…进行交换,treɪd
-judge,裁判,n. 裁判；审判员；法官vt. 判断，断定,ʤəʤ
+judge,判断,n. 裁判；审判员；法官vt. 判断，断定,ʤəʤ
 administration,管理,"n.管理,行政部门",ædˌmɪnɪˈstreɪʃən
 board,木板,n. 木板；布告牌；委员会 v. 上（船、火车、飞机）,bɔrd
 science,科学,n. 科学，自然科学,saɪəns
 floor,地面,n.地面，地板.（楼房的）层,flɔr
 realize,认识到,"vt.认识到,实现",ˈriəˌlaɪz
-deep,深,a. 深 ad. 深；深厚,dip
+deep,深的,ad. 深的；深厚,dip
 challenge,挑战性,n.挑战(性),ˈʧælənʤ
-lie,躺,v. 躺;卧;平放;位于n.& vi. 谎言; 说谎,laɪ
+lie,说谎,v. 躺;卧;平放;位于n.& vi. 谎言; 说谎,laɪ
 sport,体育运动,vn. 体育运动，锻炼；(复，英)运动会,spɔrt
 material,材料,n. 材料，原料,məˈtɪriəl
-page,页,n. 页，页码,peɪʤ
-per,每,prep. 每，每一,pər
-throw,投,"v.投,掷,扔",θroʊ
+page,页码,n. 页，页码,peɪʤ
+per,每个,prep. 每，每一，每个,pər
+throw,投掷,"v.投,掷,扔",θroʊ
 billion,十亿,num. 十亿，百亿,ˈbɪljən
-range,变化,n./ v. 变化，变动，排序,reɪnʤ
+range,范围,n.范围,reɪnʤ
 daughter,女儿,n. 女儿,ˈdɔtər
 push,推,n.& v. 推,pʊʃ
 fear,害怕,n. 害怕；恐惧； 担忧,fɪr
 husband,丈夫,n. 丈夫,ˈhəzbənd
-letter,信,n. 信；字母,ˈlɛtər
+letter,信件,n. 信，信件；字母,ˈlɛtər
 choice,选择,n. 选择；抉择,ʧɔɪs
-score,得分,n.& v. 得分，分数,skɔr
+score,分数,n.& v. 得分，分数,skɔr
 author,作者,n. 作者，作家,ˈɔθər
 bed,床,n. 床,bɛd
 interview,采访,"n.& vt.采访,会见,面试",ˈɪntərvˌju
@@ -541,16 +541,16 @@ address,地址,n. 地址,ˈæˌdrɛs
 dead,死的,a. 死的；无生命的,dɛd
 blue,蓝色,n. 蓝色 a.蓝色的 a. 悲伤的；沮丧的,blu
 certainly,当然,ad. 当然；一定，无疑,ˈsərtənli
-common,普通,a. 普通，一般；共有的,ˈkɑmən
+common,普通的,a. 普通的，一般的；共有的,ˈkɑmən
 hospital,医院,n. 医院,ˈhɑˌspɪtəl
-officer,军官,"n. 军官;公务员,官员；警察，警官",ˈɔfɪsər
+officer,公务员,"n. 军官;公务员,官员；警察，警官",ˈɔfɪsər
 anyone,任何人,pron. 任何人，无论谁,ˈɛniˌwən
-total,总数的,"a. 总数的;完全的 n.合计,总计",ˈtoʊtəl
+total,完全的,"a. 总数的;完全的 n.合计,总计",ˈtoʊtəl
 represent,代表,vt. 代表,ˌrɛprɪˈzɛnt
 nature,自然,"n. 自然, 性质，种类",ˈneɪʧər
 seek,寻找,vt.寻找;探寻,sik
 complete,完成,a. 完成vt. 完成，结束,kəmˈplit
-fill,填空,vt. 填空，装满,fɪl
+fill,装满,vt. 填空，装满,fɪl
 alone,单独的,a. 单独的，孤独的,əˈloʊn
 fine,美好的,a. 细的；晴朗的；美好的；（身体）健康的 n.& v. 罚款,faɪn
 reduce,减少,vt. 减少，缩减,rɪˈdus
@@ -563,11 +563,11 @@ upon,在上面,prep. 在……上面,əˈpɑn
 cup,茶杯,n. 茶杯,kəp
 movement,运动,n. 运动，活动,ˈmuvmənt
 language,语言,n. 语言,ˈlæŋgwɪʤ
-blood,血,n. 血，血液,bləd
-save,救,vt. 救，挽救，节省,seɪv
-account,账目,n. 账目;描述,əˈkaʊnt
-beyond,在那边,prep. (表示位置) 在…的那边,bɪɔnd
-thus,这样,ad. 这样；因而,ðəs
+blood,血液,n. 血，血液,bləd
+save,拯救,vt. 救，拯救，挽救，节省,seɪv
+account,账户,n. 账户，账目;描述,əˈkaʊnt
+beyond,超过,prep. 超过， 在…的那边,bɪɔnd
+thus,因此,ad. 因此；这样,ðəs
 natural,自然的,a. 自然的,ˈnæʧərəl
 shoot,射击,"(shot, shot) vt. 射击，射中，发射 n. 嫩枝；苗；芽",ʃut
 demand,要求,vt. 要求,dɪˈmænd
@@ -576,7 +576,7 @@ particular,特殊的,a. 特殊的，个别的,ˌpɑˈtɪkjələr
 hot,热的,a. 热的,hɑt
 analysis,分析,n. 分析，分析结果,æˈnælɪsɪs
 travel,旅行,n.& vi.旅行,ˈtrævəl
-decade,十年期,n. 十年期,ˈdɛkeɪd
+decade,十年,n. 十年，十年期,ˈdɛkeɪd
 rock,岩石,"n.岩石,大石头vt. 摇,摇晃",rɑk
 staff,全体职工,n. 全体职工（雇员）,stæf
 attempt,试图,vt. 试图，尝试,əˈtɛmpt
@@ -591,24 +591,24 @@ poor,贫穷,"a.贫穷；可怜；不好的,差的",pur
 artist,艺术家,n.艺术家,ˈɑrtɪst
 similar,相似的,a. 相似的，像,ˈsɪmələr
 exactly,精确地,ad. 精确地；确切地,ɪgˈzæktli
-pressure,压迫,"n. 压迫,压力,压强",ˈprɛʃər
+pressure,压力,"n. 压迫,压力,压强",ˈprɛʃər
 size,尺寸,n. 尺寸，大小,saɪz
-forward,将来,ad.将来.今后.向前，前进,ˈfɔrwərd
+forward,向前的,ad.向前的，前进的,ˈfɔrwərd
 firm,公司,"n.公司;企业 a.坚固的,坚定的",fərm
 sort,'种类',vt. 把…分类，拣选 n. 种类，类别,sɔrt
 animal,动物,n. 动物,ˈænəməl
 usually,通常,ad. 通常，经常,ˈjuʒəwəli
 herself,她自己,pron. 她自己,hərˈsɛlf
 sleep,睡觉,n. 睡觉,slip
-happy,幸福,a.幸福；快乐的，高兴的,ˈhæpi
+happy,快乐的,a.幸福；快乐的，高兴的,ˈhæpi
 final,最后的,a. 最后的；终极的,ˈfaɪnəl
-river,河,n. 江；河；水道；巨流,ˈrɪvər
+river,江河,n. 江；河；水道；巨流,ˈrɪvər
 dream,梦想,n.& vt. 梦，梦想,drim
-ahead,在前,ad. 在前，向前,əˈhɛd
-central,中心,a. 中心，中央；主要的,ˈsɛntrəl
+ahead,向前,ad. 在前，向前,əˈhɛd
+central,中心的,a. 中心的，中央的；主要的,ˈsɛntrəl
 physical,身体的,a. 身体的；物理的,ˈfɪzɪkəl
 seven,七,num. 七,ˈsɛvən
-guess,猜,vi. 猜,gɛs
+guess,猜测,vi. 猜，猜测,gɛs
 media,媒体,n. 媒体，大众传播媒介,ˈmidiə
 quality,质量,n. 质量，性质,kˈwɑləti
 occur,发生,vi. 发生,əˈkər
@@ -621,7 +621,7 @@ male,男性的,a. 男（性）的；雄的,meɪl
 box,盒子,n. 盒子，箱子,bɑks
 disease,疾病,n. 病，疾病,dɪˈziz
 everybody,每人,pron.每人，人人,ˈɛvriˌbɑdi
-lay,放,vt. 放，搁,leɪ
+lay,放置,vt. 放，放置，搁,leɪ
 beat,敲打,v. 敲打；跳动；打赢 n. （音乐）节拍,bit
 scene,场景,n. （戏剧、电影等的）一场，场景，布景,sin
 eight,八,num. 八,eɪt
@@ -633,7 +633,7 @@ fly,飞行,n. 飞行；苍蝇,flaɪ
 simple,简单的,a. 简单的，简易的,ˈsɪmpəl
 protect,保护,vt. 保护,prəˈtɛkt
 success,成功,n. 成功,səkˈsɛs
-finish,结束,v. 结束；做完,ˈfɪnɪʃ
+finish,完成,v. 完成，结束；做完,ˈfɪnɪʃ
 lack,缺乏,n.& vt. 缺乏，缺少,læk
 degree,程度,n. 程度；度数；学位,dɪˈgri
 growth,生长,n. 生长，增长,groʊθ
@@ -656,13 +656,13 @@ prepare,准备,"vt. 准备,预备,调制,配制",priˈpɛr
 dress,连衣裙,n. 女服，连衣裙；(统指)服装；童装 v. 穿衣；穿着,drɛs
 fast,快的,a. 快的，迅速的；紧密的 ad. 快地，迅速地；紧密地,fæst
 wind,风,n. 风 vt. 缠，连带；蜿蜒，弯曲,wɪnd
-miss,失去,vt. 失去，错过，缺,mɪs
+miss,错过,vt. 失去，错过，缺,mɪs
 section,部分,n. 段，部分，部门,ˈsɛkʃən
 station,车站,n. 站，所，车站；电台,ˈsteɪʃən
 professor,教授,n. 教授,prəˈfɛsər
 potential,潜在的,a. 潜在的，可能的,pəˈtɛnʃəl
 tonight,今晚,ad.& n. 今晚，今夜,təˈnaɪt
-sister,姐,n. 姐；妹,ˈsɪstər
+sister,姐妹,n. 姐；妹,ˈsɪstər
 heat,加热,n. 热 vt. 把……加热,hit
 television,电视,n. 电视,ˈtɛləˌvɪʒən
 gun,枪,n. 枪，炮,gən
@@ -671,7 +671,7 @@ fail,失败,v. 失败；不及格；衰退,feɪl
 compare,比较,vt. 比较，对照,kəmˈpɛr
 message,消息,n. 消息，音信,ˈmɛsɪʤ
 sex,性,n. 性，性别,sɛks
-ride,骑,v. 骑（马、自行车）；乘车 n. 乘车旅行,raɪd
+ride,骑车,v. 骑（马、自行车）；乘车 n. 乘车旅行,raɪd
 authority,权力,"n.权力,权威,威信,官方",əˈθɔrəti
 crime,罪行,n. （法律上的）罪行，犯罪,kraɪm
 fish,鱼,n. 鱼；鱼肉 vi. 钓鱼；捕鱼,fɪʃ
@@ -681,19 +681,19 @@ shake,动摇,v. （使）动摇，震动,ʃeɪk
 hang,悬挂,v.悬挂，吊着；把……吊起,hæŋ
 leg,腿,n. 腿；腿脚；支柱,lɛg
 example,例子,n. 例子；榜样,ɪgˈzæmpəl
-operation,手术,n. 手术，操作,ˌɑpərˈeɪʃən
+operation,操作,n. 手术，操作,ˌɑpərˈeɪʃən
 lawyer,律师,n. 律师,ˈlɔjər
-notice,布告,n. 布告，通告；注意 vt. 注意，注意到,ˈnoʊtɪs
+notice,通告,n. 通告；注意 vt. 注意，注意到,ˈnoʊtɪs
 feeling,感觉,n. 感情；感觉,ˈfilɪŋ
-review,重新调查,vt. 重新调查； 回顾； 复习 n. 复查；复习；评论,ˌrivˈju
-strike,罢工,"v.敲（响）,罢工,击打",straɪk
+review,复习,vt. 重新调查； 回顾； 复习 n. 复查；复习；评论,ˌrivˈju
+strike,击打,"v.敲（响）,罢工,击打",straɪk
 commercial,贸易的,a.贸易的，商业的,kəˈmərʃəl
 district,地区,n. 区；地区；区域,ˈdɪstrɪkt
-nice,令人愉快,a.令人愉快;好的漂亮的,nis
+nice,令人愉快的,a.令人愉快的;美妙的,nis
 network,网络,n. 网络，网状系统,ˈnɛtˌwərk
 religious,宗教的,a. 宗教的,rɪˈlɪʤəs
 gain,赢得,vt. 赢得；挣得,geɪn
-mountain,山,n. 山，山脉,ˈmaʊntən
+mountain,山脉,n. 山，山脉,ˈmaʊntən
 various,各种各样的,a. 各种各样的，不同的,ˈvɛriəs
 video,录像,n. 录像，视频,ˈvɪdioʊ
 club,俱乐部,n. 俱乐部；纸牌中的梅花,kləb
@@ -701,8 +701,8 @@ manager,经理,n. 经理,ˈmænɪʤər
 sun,太阳,n. 太阳，阳光,sən
 song,'歌曲',n. 歌唱；歌曲,sɔŋ
 train,火车,"n. 火车 v. 培训,训练",treɪn
-thousand,千,num. 千,ˈθaʊzənd
-associate,联想,v. 联想，联系,əˈsoʊʃiˌeɪt
+thousand,一千,num. 千，一千,ˈθaʊzənd
+associate,联系,v. 联想，联系,əˈsoʊʃiˌeɪt
 indeed,确实,a. 确实；实在,ˌɪnˈdid
 track,轨道,n. 轨道；田径,træk
 theory,理论,n. 理论,ˈθɪri
@@ -710,13 +710,13 @@ wish,愿望,n. 愿望，祝愿 vt. 希望，想要，祝愿,wɪʃ
 clearly,清楚地,ad. 清楚地，无疑地,ˈklɪrli
 trip,旅行,n. 旅行，旅程,trɪp
 forget,忘记,v. 忘记；忘掉,fərˈgɛt
-living,活着的生计,a. 活着的 n. 生计,ˈlɪvɪŋ
+living,活着的,a. 活着的 n. 生计,ˈlɪvɪŋ
 camera,照相机,n. 照相机；摄像机,ˈkæmərə
-remove,移动,vt. 移动，拿走，脱掉（衣服等）,riˈmuv
+remove,移开,vt. 移开，拿走，去除，脱掉（衣服等）,riˈmuv
 chair,椅子,n. 椅子,ʧɛr
 truth,真理,"n. 真理,事实,真相,实际",truθ
 mention,提及,n. 提及；记载 vt. 提到，说起；提名表扬,ˈmɛnʃən
-cell,单人牢房,n.（监狱的）单人牢房；（蜂巢的）小蜂窝； 细胞,sɛl
+cell,细胞,n.（监狱的）单人牢房；（蜂巢的）小蜂窝； 细胞,sɛl
 roll,滚动,"v. 滚动, 打滚 n. 面包圈，小圆面包；卷状物",roʊl
 expert,专家,n. 专家，能手,ˈɛkspərt
 bar,酒吧,n. 条（长方）块，棒 n.酒吧；（卖东西的）柜台,bɑr
@@ -731,7 +731,7 @@ ball,球,n. 球 n. 舞会,bɔl
 wide,宽阔的,a. 宽阔的,waɪd
 affect,影响,vt. 影响,əˈfɛkt
 discuss,讨论,vt. 讨论，议论,dɪˈskəs
-enjoy,欣赏,vt.欣赏；享受乐趣；喜欢,ˌɛnˈʤɔɪ
+enjoy,享受,vt.欣赏；享受乐趣；喜欢,ˌɛnˈʤɔɪ
 specific,明确的,"a.明确的,具体的,独特的",spɪˈsɪfɪk
 entire,整个的,a. 整个的，全部的,ɪnˈtaɪər
 stick,粘住,"vi. 粘住，钉住；坚持n. 木棒（棍）,枝条",stɪk
@@ -750,15 +750,15 @@ imagine,想像,vt. 想像，设想,ˌɪˈmæʤən
 search,搜寻,n.& v. 搜寻，搜查,sərʧ
 block,大块,n. 大块；（木、石等）块；街区；路障 vt. 阻塞；阻挡,blɑk
 onto,到上面,prep. 到…的上面,ˈɔntu
-island,岛,n. 岛,ˈaɪlənd
+island,岛屿,n. 岛，岛屿,ˈaɪlənd
 edge,边缘,n. 边缘,ɛʤ
 memory,回忆,n. 回忆，记忆,ˈmɛməri
-promise,答应,n.& vi. 答应，允诺,ˈprɑməs
+promise,承诺,n.& vi. 答应，承诺，允诺,ˈprɑməs
 spot,斑点,n. 斑点，污点；场所，地点 v. 沾上污渍，弄脏,spɑt
 huge,巨大的,a. 巨大的，庞大的,juʤ
 traditional,传统的,a. 传统的，风俗的,trəˈdɪʃənəl
 method,方法,n. 方法，办法,ˈmɛθəd
-weight,重,n. 重，重量,weɪt
+weight,重量,n. 重，重量,weɪt
 avoid,避免,v. 避免，躲开，逃避,əˈvɔɪd
 radio,无线电,n. 无线电，收音机,ˈreɪdiˌoʊ
 conduct,引导,vt. 引导，带领,ˈkɑndəkt
@@ -774,19 +774,19 @@ committee,委员会,n. 委员会,kəˈmɪti
 respond,回答,"v.回答,回应,作出反应",rɪˈspɑnd
 reform,改革,v./ n. 改革，改进，改良,rɪˈfɔrm
 peace,和平,n. 和平,pis
-popular,流行,"a. 流行,大众,受欢迎的",ˈpɑpjələr
-style,方式,n. 方式，作风，款式,staɪl
+popular,流行的,"a. 流行的,受欢迎的",ˈpɑpjələr
+style,风格,n. 风格，作风，款式,staɪl
 skin,皮肤,n. 皮，皮肤；兽皮,skɪn
 credit,信用,n. 信用；信赖；信誉,ˈkrɛdɪt
 pain,疼痛,n. 疼痛，疼,peɪn
 bear,承受,v. 承受，负担，承担；忍受；容忍 n. 熊,bɛr
 production,生产,n. 生产；制造,pərˈdəkʃən
 politics,政治,n. 政治,ˈpɑləˌtɪks
-count,数,vt. 数，点数,kaʊnt
+count,数数,vt. 数，数数，点数,kaʊnt
 surface,表面,n. 表面,ˈsərfəs
-sing,唱,v. 唱，唱歌,sɪŋ
+sing,唱歌,v. 唱，唱歌,sɪŋ
 budget,预算,n. 预算,ˈbəʤɪt
-stare,盯,vi. 盯，凝视,stɛr
+stare,凝视,vi. 盯，凝视,stɛr
 somebody,'某人',pron. 某人；有人；有名气的人,ˈsəmˌbɑdi
 perform,表演,v. 表演，履行；行动,pərˈfɔrm
 direction,方向,n. 方向；方位,dɪˈrɛkʃɪn
@@ -797,33 +797,33 @@ editor,编辑,n. 编辑,ˈɛdɪtər
 target,目标,n./ v. 目标，把…作为攻击目标,ˈtərgət
 conference,会议,n. (正式的)会议；讨论,ˈkɑnfərəns
 comment,评论,n. 评论,ˈkɑmɛnt
-mouth,嘴,n. 嘴，口,maʊθ
+mouth,嘴巴,n. 嘴，嘴巴，口,maʊθ
 evening,傍晚,n. 傍晚，晚上,ˈivnɪŋ
 manage,管理,v. 管理；设法对付,ˈmænɪʤ
 unit,单元,n. 单元，单位,ˈjunɪt
 please,请,"v. 请,使人高兴,使人满意",pliz
 cross,越过,a. 脾气不好的 n. 十字形的东西 vt. 越过；穿过,krɔs
 respect,尊敬,vt.& n. 尊敬，尊重,rɪˈspɛkt
-struggle,斗争,vi. 斗争,ˈstrəgəl
+struggle,奋斗,vi. 奋斗，挣扎，斗争,ˈstrəgəl
 necessary,必需的,a. 必需的，必要的,ˈnɛsəˌsɛri
 soldier,'士兵',n. 士兵，战士,ˈsoʊlʤər
-ship,船,n. 船，轮船 vi. 用船装运,ʃɪp
+ship,轮船,n. 船，轮船 vi. 用船装运,ʃɪp
 tough,坚硬的,a. 坚硬的；结实的；棘手的，难解的,təf
 improve,改进,vt. 改进，更新,ˌɪmˈpruv
 pattern,样式,n. 样式,ˈpætərn
 reflect,反映,v. 反映，反射,rɪˈflɛkt
 beautiful,美丽的,a. 美，美丽，美观的,ˈbjutəfəl
 discover,发现,vt. 发现,dɪˈskəvər
-worth,有的价值,"a. 有…的价值,值得…的",wərθ
+worth,有价值的,"a. 有…的价值,值得…的",wərθ
 fat,胖的,n. 脂肪 a. 胖的；肥的,fæt
 sea,海洋,n. 海，海洋,si
 object,物体,n. 物，物体；宾语,ˈɑbʤɛkt
 museum,博物馆,n. 博物馆，博物院,mˈjuziəm
 exercise,锻炼,n. 锻炼，做操；练习，习题 vi. 锻炼,ˈɛksərˌsaɪz
-file,公文柜,n.公文柜；档案(计算机)文档,faɪl
-cancer,癌,n. 癌,ˈkænsər
+file,文件,n.文件；公文柜；档案(计算机)文档,faɪl
+cancer,癌症,n. 癌，癌症,ˈkænsər
 purpose,目的,n. 目的，意图,ˈpərpəs
-mass,众多,n. 众多;大量;（复）群众,mæs
+mass,大量,n. 众多;大量;（复）群众,mæs
 yard,院子,n. 码；院子；场地,jɑrd
 fit,健康的,"a. 健康的, 适合的 v. （使）适合，安装",fɪt
 justice,正义,n. 正义；公正；司法,ˈʤəstɪs
@@ -845,7 +845,7 @@ gas,煤气,n. 煤气,gæs
 marriage,结婚,n. 结婚，婚姻,ˈmɛrɪʤ
 violence,暴力行为,n. 暴力行为,ˈvaɪələns
 reality,现实,n. 现实,ˌriˈæləˌti
-except,除之外,prep. 除……之外,ɪkˈsɛpt
+except,除此之外,prep. 除……之外,ɪkˈsɛpt
 fan,粉丝,n. （电影、运动等的）迷；爱好者（支持者） n. 风扇,fæn
 slow,慢慢地,ad. 慢慢地，缓慢地,sloʊ
 collection,收藏品,n. 收藏品，收集物,kəˈlɛkʃən
@@ -855,28 +855,28 @@ agent,代理人,n. 代理人，经济人,ˈeɪʤənt
 cool,凉的,a. 凉的，凉爽的；酷,kul
 generation,一代,n. 代，一代,ˌʤɛnərˈeɪʃən
 wood,木头,"n.木头,木材,(复)树木,森林",wʊd
-supply,供给,vt.& n. 供给，供应,səˈplaɪ
-cry,叫喊,n. 叫喊；哭声 v. 喊叫；哭,kraɪ
+supply,供应,vt.& n. 供给，供应,səˈplaɪ
+cry,哭泣,n. 叫喊；哭泣，哭声 v. 喊叫；哭,kraɪ
 camp,野营,"n.（夏令）营 vi.野营,宿营",kæmp
 hall,大厅,"n. 大厅,会堂,礼堂;过道",hɔl
-tend,往往会,v. 往往会，常常就，倾向，趋于,tɛnd
+tend,倾向于,v. 往往会，常常就，倾向于，趋于,tɛnd
 interesting,有趣的,a. 有趣的,ˈɪntəˌrɛstɪŋ
 capital,首都,n.首都.省会.大写；资本,ˈkæpɪtəl
-guard,防护装置,n. 防护装置，警戒,gɑrd
+guard,警卫,n. 警卫，防护装置，警戒,gɑrd
 handle,把手,n. 柄，把手 v. 处理,ˈhændəl
 battle,战斗,n. 战斗；战役,ˈbætəl
 whom,谁的,pron. (who的宾格 ),hum
 painting,油画,n. 油画，水彩画,ˈpeɪnɪŋ
-dinner,正餐,n. 正餐，宴会,ˈdɪnər
+dinner,晚餐,n. 晚餐（正餐），宴会,ˈdɪnər
 bottom,底部,n. 底部；底,ˈbɑtəm
 scientist,科学家,n. 科学家,ˈsaɪəntɪst
-civil,国内的,a. 国内的；平民（非军人）的；民用的,ˈsɪvəl
+civil,平民的,a. 平民（非军人）的；民用的,ˈsɪvəl
 fresh,新鲜的,a. 新鲜的,frɛʃ
 audience,观众,n. 观众，听众,ˈɔdiəns
 shop,商店,"vi. 买东西 n. 商店,车间",ʃɑp
 agreement,同意,n. 同意，一致；协定，协议,əˈgrimənt
 victim,受害者,n. 受害者，牺牲品,ˈvɪktɪm
-function,作用,"n. / v. 作用,功能,运转",ˈfəŋkʃən
+function,功能,"n. / v. 作用,功能,运转",ˈfəŋkʃən
 link,连接,v. 连接； 联系,lɪŋk
 labor,劳动,n. 劳动,ˈleɪbər
 majority,大多数,n. 大多数,məˈʤɔrəti
@@ -884,10 +884,10 @@ stone,石头,n. 石头，石料,stoʊn
 separate,使分开,v. 使分开，使分离 a. 单独的，分开的,ˈsɛpərˌeɪt
 murder,谋杀,vt. 谋杀,ˈmərdər
 warm,暖和的,"a. 暖和的,温暖的;热情的",wɔrm
-nor,也不,conj. 也不,nɔr
+nor,也不是,conj. 也不，也不是,nɔr
 western,西方的,a. 西方的，西部的,ˈwɛstərn
 responsibility,责任,n. 责任，负责,riˌspɑnsəˈbɪləti
-straight,一直的,a. 一直的，直的 ad. 一直地，直地,streɪt
+straight,直接地,a. 一直的，直的 ad. 一直地，直接地,streɪt
 ring,铃声,v. （钟、铃等）响 n. 铃声 n. 环形物（如环、戒指等）,rɪŋ
 secret,秘密,n. 秘密，内情,ˈsikrɪt
 fun,有趣的事,n. 有趣的事，娱乐，玩笑,fən
@@ -898,9 +898,9 @@ restaurant,饭馆,"n. 饭馆, 饭店",ˈrɛˌstrɑnt
 prevent,防止,"vt. 防止, 预防",prɪˈvɛnt
 forest,森林,n. 森林,ˈfɔrɪst
 citizen,公民,n. 公民；居民,ˈsɪtɪzən
-welcome,欢迎受欢迎的,int.n. & v.欢迎 a. 受欢迎的,ˈwɛlkəm
+welcome,欢迎,int.n. & v.欢迎 a. 受欢迎的,ˈwɛlkəm
 perfect,完美的,a. 完美的，极好的,ˈpərˌfɪkt
-corner,角,n. 角；角落；拐角,ˈkɔrnər
+corner,角落,n. 角；角落；拐角,ˈkɔrnər
 suit,适合,vt. 适合于（某人） n.一套（衣服）,sut
 relation,关系,n. 关系； 亲属,riˈleɪʃən
 troop,部队,n. 部队,trup
@@ -915,7 +915,7 @@ examine,检查,vt. 检查；诊察,ɪgˈzæmɪn
 nuclear,原子核的,a. 原子核的，原子能的，核动力的,ˈnukliər
 assume,假定,v. 假定，假设,əˈsum
 screen,屏幕,n. 屏幕，荧光屏,skrin
-pound,磅,n. 磅；英镑,paʊnd
+pound,英镑,n. 磅；英镑,paʊnd
 therefore,因此,ad. 因此，所以,ˈðɛrˌfɔr
 none,无任何东西,"pron.无任何东西, 无一人",nən
 tear,眼泪,"n. 眼泪 v. 扯破, 撕开",tɪr
