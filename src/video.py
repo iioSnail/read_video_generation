@@ -27,14 +27,14 @@ class VideoGenerator:
         audio_generator = AudioGenerator(chunk.audio, self.args, cache_dir=self.args.cache_dir)
         audio_file, audio_filename = audio_generator.generate()
 
-        with audioread.audio_open(audio_file) as f:
-            duration = round(f.duration + 0.01 + self.video.interval / 1000, 3)
-
         filename = md5(image_filename + audio_filename) + ".mp4"
         file = str(self.cache_dir / filename)
 
         if file_exists(file):
             return file, filename
+
+        with audioread.audio_open(audio_file) as f:
+            duration = round(f.duration + 0.01 + self.video.interval / 1000, 3)
 
         temp_mp4_file = str(self.cache_dir / (audio_filename + ".mp4"))
         remove_file(temp_mp4_file)

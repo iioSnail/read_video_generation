@@ -3,7 +3,7 @@ import time
 from pathlib import Path
 
 from src.model import Audio, AudioElement
-from src.util import md5, exec_cmd, file_exists
+from src.util import md5, exec_cmd, file_exists, remove_file
 
 
 class AudioGenerator:
@@ -25,7 +25,22 @@ class AudioGenerator:
         if self.args.proxy is not None:
             cmd += " --proxy " + self.args.proxy
 
-        exec_cmd(cmd, file, "Fail to generate audio file with edge-tts. Please check you network.")
+        def gene_file():
+            try:
+                remove_file(file)
+                exec_cmd(cmd, file)
+                return True
+            except Exception as e:
+                print("Fail to generate audio file with edge-tts. Retry it after 20s.")
+                return False
+
+        for _ in range(3):
+            if gene_file():
+                break
+
+            time.sleep(20)
+        else:
+            raise RuntimeError("Fail to generate audio file with edge-tts.")
 
         time.sleep(0.05)
 
