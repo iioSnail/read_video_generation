@@ -103,7 +103,7 @@ question,n.问题,He asked a question that no one could answer.
 question,v.质疑,Many began to question the validity of the theory.
 house,n.房子,They bought a new house in the suburbs.
 again,adv.再次,Please say that again; I didn't hear you the first time.
-case,n.情况,In this case, we need to act quickly.
+case,n.情况,"In this case, we need to act quickly."
 case,n.箱子,She packed her clothes into a small case.
 move,v.移动,Can you help me move this table to the other room?
 move,v.感动,The movie's ending really moved me to tears.
@@ -250,90 +250,125 @@ care,n.照顾,The nurse provided excellent care to the patients.
 among,prep.在...之中,She found her book among the pile of papers.
 hard,adj.困难的,"The exam was very hard, but she passed."
 hard,adv.努力地,He worked hard to achieve his goals.
-member
-light
-team
-fall
-stop
-ever
-yet
-social
-law
-lose
-include
-kid
-minute
-experience
-past
-sure
-control
-car
-level
-meet
-walk
-health
-least
-almost
-nothing
-center
-continue
-information
-five
-white
-learn
-ago
-research
-real
-door
-table
-human
-offer
-idea
-cut
-several
-whether
-break
-form
-understand
-win
-create
-top
-anything
-add
-together
-follow
-parent
-process
-speak
-hope
-art
-along
-teacher
-low
-base
-within
-education
-read
-across
-spend
-already
-allow
-party
-history
-morning
-person
-office
-return
-behind
-girl
-market
-age
-reason
-figure
-moment
-grow
-maybe
-food
+member,n.成员,She is a valued member of our team.
+light,n.光,The light from the window brightened the room.
+light,adj.轻的,This bag is very light to carry.
+team,n.团队,Our team won the championship last year.
+fall,v.落下,Leaves fall from the trees in autumn.
+fall,n.秋天,I love the cool weather in the fall.
+stop,v.停止,Please stop talking during the movie.
+ever,adv.曾经,Have you ever been to Paris?
+yet,adv.尚未,She hasn't finished her homework yet.
+social,adj.社交的,He is very active in social events.
+law,n.法律,It is important to obey the law.
+lose,v.失去,I don't want to lose my keys again.
+include,v.包括,The package includes a free gift.
+kid,n.小孩,The kid is playing in the park.
+kid,v.开玩笑,"I'm just kidding, don't take it seriously."
+minute,n.分钟,An hour consists of sixty minutes.
+minute,adj.微小的,There was a minute change in the plan.
+experience,n.经验,She has a lot of experience in teaching.
+experience,v.经历,We experienced a great adventure last summer.
+past,n.过去,"In the past, people didn't have smartphones."
+past,adj.过去的,The past year has been very challenging.
+sure,adj.确定的,Are you sure you want to leave now?
+control,n.控制,He lost control of the car on the icy road.
+control,v.控制,She tried to control her temper during the argument.
+car,n.汽车,We drove to the beach in our new car.
+level,n.水平,Her English is at an advanced level.
+level,adj.平坦的,The ground is level and perfect for a picnic.
+meet,v.遇见,I will meet my friend at the cafe this afternoon.
+meet,v.满足,This new policy does not meet the needs of the people.
+walk,v.步行,"Every morning, I walk to the park for some fresh air."
+walk,n.散步,We went for a walk along the beach at sunset.
+health,n.健康,Regular exercise is important for maintaining good health.
+least,adj.最少的,She chose the least expensive option available.
+least,adv.最少地,He was the least interested in the topic among all.
+almost,adv.几乎,She almost missed the bus this morning.
+nothing,pron.没有东西,There is nothing in the fridge to eat.
+center,n.中心,The library is located in the center of the town.
+continue,v.继续,"After the break, we will continue with the meeting."
+information,n.信息,Can you give me more information about the event?
+five,num.五,There are five apples on the table.
+white,adj.白色的,She wore a beautiful white dress to the party.
+learn,v.学习,Children learn new languages faster than adults.
+ago,adv.以前,We visited Paris two years ago.
+research,n.研究,He is conducting research on renewable energy sources.
+real,adj.真实的,"This is a real diamond, not a fake one."
+door,n.门,Please close the door when you leave.
+table,n.桌子,We gathered around the table for dinner.
+human,n.人类,Human beings are capable of great kindness and creativity.
+offer,v.提供,The company offered him a job with a high salary.
+offer,n.录取通知书,She received an offer to study at a prestigious university.
+idea,n.想法,He had a brilliant idea to solve the problem.
+cut,v.切割,She cut the cake into small pieces.
+cut,n.伤口,He got a small cut on his finger while cooking.
+several,adj.几个,Several students volunteered to help with the project.
+whether,conj.是否,She asked whether he would attend the meeting.
+whether,conj.不管,"Whether it rains or not, we will go hiking."
+break,v.打破,He accidentally broke the vase.
+break,n.休息,Let's take a short break before continuing.
+form,n.形式,The artist used clay to create a beautiful form.
+form,v.形成,The children formed a circle around the teacher.
+understand,v.理解,Do you understand the instructions?
+win,v.赢得,They worked hard to win the competition.
+win,n.胜利,The team celebrated their win with a party.
+create,v.创造,The artist created a masterpiece.
+top,n.顶部,She reached the top of the mountain after hours of climbing.
+top,adj.最高的,He is the top student in his class.
+anything,pron.任何事物,You can ask me anything if you need help.
+add,v.添加,Please add some sugar to the tea.
+together,adv.一起,They worked together to finish the project.
+together,adj.共同的,Their together efforts led to success.
+follow,v.跟随,The dog followed its owner everywhere.
+follow,v.遵循,You should follow the rules to avoid trouble.
+parent,n.父母,My parents always support me in everything I do.
+process,n.过程,Learning a new language is a long and challenging process.
+process,v.处理,The computer processes data faster than humans.
+speak,v.说话,She can speak three languages fluently.
+speak,v.表达,He spoke his mind during the meeting.
+hope,n.希望,There is always hope for a better future.
+hope,v.希望,I hope to see you again soon.
+art,n.艺术,The museum has a beautiful collection of modern art.
+along,prep.沿着,We walked along the beach at sunset.
+along,adv.一起,She brought her sister along to the party.
+teacher,n.老师,The teacher explained the lesson clearly to the students.
+low,adj.低的,The plane flew at a low altitude.
+low,adj.情绪低落的,She felt low after hearing the bad news.
+base,n.基础,The base of the building is made of concrete.
+base,v.以...为基础,The movie is based on a true story.
+within,prep.在...之内,We are now within range of enemy fire.
+within,adv.内部,The house is clean within and without.
+education,n.教育,Education is the key to a better future.
+read,v.阅读,I love to read novels in my free time.
+across,prep.穿过,The cat ran across the street.
+across,adv.在对面,The store is just across from the park.
+spend,v.花费,She spends a lot of money on clothes.
+spend,v.度过,We spent the weekend at the beach.
+already,adv.已经,I have already finished my homework.
+allow,v.允许,My parents allow me to stay out late on weekends.
+party,n.聚会,We are going to a birthday party this weekend.
+party,n.政党,The new party promises to bring change to the country.
+history,n.历史,She loves studying ancient history.
+morning,n.早晨,I always drink coffee in the morning.
+person,n.人,She is a very kind person.
+office,n.办公室,She works in a small office downtown.
+office,n.职务,He was elected to the office of mayor.
+return,v.返回,He will return home after the trip.
+return,v.归还,Please return the book to the library.
+behind,prep.在...后面,The cat is hiding behind the sofa.
+behind,adv.落后地,Our team is behind by two points.
+girl,n.女孩,The girl is playing in the park.
+market,n.市场,We bought fresh vegetables at the market.
+age,n.年龄,What is your age?
+age,n.时代,We live in the age of technology.
+reason,n.原因,The reason for his absence is unknown.
+figure,n.数字,The figure on the report is incorrect.
+figure,n.人物,He is a well-known figure in the art world.
+moment,n.时刻,This is a moment I will never forget.
+grow,v.生长,Plants need sunlight to grow.
+maybe,adv.也许,Maybe we should try a different approach.
+food,n.食物,We need to buy more food for the party.
 himself
 air
 view
