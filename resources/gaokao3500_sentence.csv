@@ -1025,7 +1025,7 @@ living,n.生计,He earns a living by selling books.
 camera,n.照相机,She brought her camera to capture the beautiful scenery.
 remove,v.移除,Please remove your shoes before entering the house.
 chair,n.椅子,He sat down on the chair and began to read.
-truth,n.真相,She always tells the truth, no matter how hard it is.
+truth,n.真相,"She always tells the truth, no matter how hard it is."
 mention,v.提到,He forgot to mention the meeting time.
 cell,n.细胞,The human body is made up of millions of cells.
 roll,v.滚动,The ball started to roll down the hill.
@@ -1080,657 +1080,775 @@ army,n.军队,He served in the army for ten years.
 apply,v.申请,She decided to apply for the job.
 tie,v.系,He helped her tie the ribbon around the gift box.
 finger,n.手指,She pointed at the map with her finger.
-institution
-committee
-respond
-reform
-peace
-popular
-style
-skin
-credit
-pain
-bear
-production
-politics
-count
-surface
-sing
-budget
-stare
-somebody
-perform
-direction
-throughout
-contain
-bag
-editor
-target
-conference
-comment
-mouth
-evening
-manage
-unit
-please
-cross
-respect
-struggle
-necessary
-soldier
-ship
-tough
-improve
-pattern
-reflect
-beautiful
-discover
-worth
-fat
-sea
-object
-museum
-exercise
-file
-cancer
-purpose
-mass
-yard
-fit
-justice
-hotel
-owner
-dance
-machine
-discussion
-kitchen
-magazine
-task
-relate
-partner
-hurt
-heavy
-garden
-exist
-gas
-marriage
-violence
-reality
-except
-fan
-slow
-collection
-modern
-safe
-agent
-cool
-generation
-wood
-supply
-cry
-camp
-hall
-tend
-interesting
-capital
-guard
-handle
-battle
-whom
-painting
-dinner
-bottom
-scientist
-civil
-fresh
-audience
-shop
-agreement
-victim
-function
-link
-labor
-majority
-stone
-separate
-murder
-warm
-nor
-western
-responsibility
-straight
-ring
-secret
-fun
-born
-bird
-newspaper
-restaurant
-prevent
-forest
-citizen
-welcome
-perfect
-corner
-suit
-relation
-troop
-customer
-speech
-speed
-paint
-crowd
-conflict
-rich
-examine
-nuclear
-assume
-screen
-pound
-therefore
-none
-tear
-successful
-round
-lady
-southern
-favorite
-host
-neighborhood
-safety
-publish
-trust
-sky
-version
-achieve
-attitude
-admit
-income
-blow
-document
-lift
-insurance
-suffer
-post
-eventually
-sorry
-dad
-due
-jump
-opinion
-nobody
-tour
-basic
-independent
-damage
-primary
-spread
-conversation
-weekend
-freedom
-refer
-status
-village
-brain
-balance
-title
-variety
-daily
-plane
-dry
-attend
-winter
-argument
-nine
-announce
-encourage
-concept
-spirit
-complex
-hole
-immediately
-powerful
-gold
-reporter
-afternoon
-theater
-stress
-boat
-league
-internet
-hide
-replace
-distance
-surprise
-mix
-ice
-double
-nod
-feed
-express
-abuse
-conservative
-academic
-possibility
-native
-tradition
-communication
-truck
-quick
-beginning
-understanding
-easily
-mine
-band
-catholic
-driver
-tool
-bowl
-desire
-grade
-farm
-guide
-normal
-introduce
-following
-text
-identity
-horse
-exchange
-rush
-border
-master
-prison
-apartment
-refuse
-burn
-wild
-salt
-beach
-observe
-neither
-mistake
-favor
-content
-tomorrow
-contribute
-taste
-alternative
-appeal
-circle
-decline
-basis
-guest
-flow
-match
-bright
-flight
-promote
-principle
-willing
-progress
-tiny
-strength
-division
-vehicle
-technique
-deliver
-ear
-earn
-fair
-graduate
-rain
-correct
-faith
-advantage
-annual
-square
-protection
-collect
-chairman
-fuel
-aspect
-witness
-waste
-operate
-lesson
-honor
-youth
-hate
-doubt
-pack
-award
-dozen
-cook
-belief
-folk
-procedure
-quiet
-marry
-settle
-appropriate
-tape
-schedule
-path
-egg
-anybody
-regular
-moral
-coffee
-wake
-regard
-competition
-failure
-religion
-minister
-aid
-anyway
-baseball
-pair
-reading
-wine
-gift
-quarter
-classroom
-soft
-unless
-gather
-smoke
-survive
-tip
-snow
-equipment
-intelligence
-afraid
-shoe
-affair
-criminal
-smell
-combine
-empty
-broad
-construction
-secretary
-category
-root
-novel
-advance
-wonderful
-ignore
-shut
-insist
-map
-commit
-arrest
-clothes
-assessment
-suspect
-connection
-background
-neighbor
-sweet
-aim
-active
-actor
-healthy
-hire
-extra
-participate
-victory
-climb
-purchase
-bone
-sugar
-twice
-chicken
-flower
-neck
-literature
-destroy
-bus
-monitor
-thin
-knee
-request
-remind
-yesterday
-bond
-medicine
-application
-kick
-football
-representative
-lip
-aware
-tall
-dangerous
-print
-breath
-storm
-writing
-instruction
-depend
-plate
-importance
-slip
-birth
-eastern
-weather
-sir
-cast
-addition
-famous
-expression
-leaf
-plastic
-sight
-studio
-familiar
-session
-colleague
-pool
-mental
-minority
-yellow
-alive
-select
-pocket
-slide
-glance
-obtain
-repeat
-works
-injury
-fellow
-bridge
-blame
-chemical
-cash
-signal
-ticket
-explore
-package
-supreme
-meaning
-planet
-urban
-engine
-otherwise
-athlete
-shadow
-software
-strange
-nurse
-lock
-relative
-somewhere
-outcome
-silence
-northern
-escape
-lunch
-profit
-intend
-farmer
-assistant
-instrument
-expand
-desk
-fourth
-coast
-bomb
-scientific
-swing
-disappear
-fix
-consequence
-metal
-temperature
-danger
-commitment
-kiss
-apart
-aside
-pepper
-equal
-conclusion
-thick
-enemy
-predict
-soul
-experiment
-crew
-adopt
-copy
-surround
-grand
-tire
-chest
-moon
-breast
-theme
-regulation
-invite
-connect
-fruit
-library
-characteristic
-bottle
-organize
-nose
-advice
-mirror
-impossible
-married
-trend
-difficulty
-scream
-component
-acknowledge
-conclude
-traffic
-volunteer
-narrow
-gay
-belong
-recommend
-shirt
-meal
-expensive
-permit
-sick
-rank
-thinking
-sentence
-load
-soil
-being
-initial
-pilot
-angry
-unique
-wheel
-beauty
-visitor
-bell
-hearing
-cat
-nearby
-divide
-seed
-opposite
-unlike
-actual
-crazy
-reserve
-sheet
-emergency
-steal
-reference
-appreciate
-user
-comfortable
-contemporary
-mark
-wash
-telephone
-accident
-appearance
-airport
-ad
-row
-possibly
-shock
-ought
-branch
-obvious
-prefer
-joke
-command
-cloud
-funny
-chain
-percentage
-truly
-basketball
-tight
-pause
-golf
-contribution
-zone
-engineer
-fee
-tooth
-hardly
-meat
-debt
-defend
-declare
-brief
-reply
-net
-dish
-politician
-finance
-smart
-knock
-crash
-ancient
-golden
-silver
-requirement
-coat
-duty
-extremely
-bedroom
-channel
-circumstance
-expectation
-warn
-beneath
-classic
-advocate
-ourselves
+institution,n.机构,The university is one of the oldest educational institutions in the country.
+committee,n.委员会,The committee meets every month to discuss important issues.
+respond,v.回应,She quickly responded to the email with all the necessary details.
+reform,v.改革,The government plans to reform the healthcare system next year.
+peace,n.和平,"After years of conflict, the country finally achieved peace."
+popular,adj.流行的,This song is very popular among teenagers.
+style,n.风格,Her writing style is unique and easily recognizable.
+skin,n.皮肤,She has very sensitive skin that gets irritated easily.
+credit,n.信用,"He has good credit, so he was able to get a loan easily."
+pain,n.疼痛,She felt a sharp pain in her knee after the fall.
+bear,v.忍受,I can't bear the noise from the construction site anymore.
+production,n.生产,The factory increased its production to meet the growing demand.
+politics,n.政治,He has always been interested in politics and current affairs.
+count,v.数数,Can you count how many apples are in the basket?
+surface,n.表面,The surface of the table was smooth and shiny.
+sing,v.唱歌,She loves to sing in the shower every morning.
+budget,n.预算,The company had to cut its budget due to financial difficulties.
+stare,v.盯着看,She stared at the painting for a long time.
+somebody,n.某人,Somebody left their umbrella in the office.
+perform,v.表演,The band will perform at the concert tonight.
+perform,v.执行,The surgeon will perform the operation tomorrow.
+direction,n.方向,He walked in the direction of the park.
+direction,n.指示,Follow the directions on the package carefully.
+throughout,prep.遍及,The news spread throughout the town quickly.
+contain,v.包含,This box contains all the necessary tools.
+bag,n.包,She carried a small bag with her essentials.
+editor,n.编辑,The editor reviewed the article before publication.
+target,n.目标,The company set a new sales target for the year.
+conference,n.会议,They attended a conference on climate change.
+comment,n.评论,She made a positive comment about the new policy.
+mouth,n.嘴,He opened his mouth to speak but hesitated.
+evening,n.晚上,We usually go for a walk in the evening.
+manage,v.管理,She manages a team of ten people at work.
+manage,v.设法,He managed to finish the project on time.
+unit,n.单元,This apartment has two bedrooms and a living unit.
+please,v.使高兴,The gift will please her for sure.
+cross,v.穿过,Be careful when you cross the street.
+respect,n.尊重,He has a lot of respect for his teachers.
+struggle,v.挣扎,He struggled to lift the heavy box.
+struggle,v.努力, She struggled to pass the exam.
+necessary,adj.必要的, It is necessary to drink water every day.
+soldier,n.士兵,The soldier bravely defended his country.
+ship,n.船,The ship sailed across the ocean.
+ship,v.运送,They will ship the package tomorrow.
+tough,adj.艰难的,It was a tough decision to make.
+tough,adj.坚强的,She is a tough woman who never gives up.
+improve,v.提高,Reading books can improve your vocabulary.
+pattern,n.模式,He noticed a pattern in her behavior.
+reflect,v.反映,His words reflect his true feelings.
+reflect,v.反射,The mirror reflects light.
+beautiful,adj.美丽的,The sunset looks beautiful.
+discover,v.发现,Scientists discovered a new planet.
+worth,adj.值得的,This book is worth reading.
+fat,adj.胖的,The cat became fat after eating too much.
+sea,n.海洋, We swam in the sea during our vacation.
+object,n.物体,The strange object was floating in the sky.
+object,v.反对,He objected to the new rules.
+museum,n.博物馆,We visited a history museum yesterday.
+exercise,n.锻炼,Regular exercise keeps you healthy.
+exercise,v.练习,You should exercise speaking English every day.
+file,n.文件,She saved the file on her computer.
+file,v.归档,He filed the papers in the cabinet.
+cancer,n.癌症,Smoking increases the risk of cancer.
+purpose,n.目的,The purpose of this meeting is to discuss our future plans.
+mass,n.大量,There was a mass of people at the concert.
+yard,n.院子,The kids are playing in the yard.
+fit,adj.合适的,These shoes fit me well.
+justice,n.正义,People want justice for the victims.
+hotel,n.酒店,We stayed at a five-star hotel.
+owner,n.主人,The owner of the shop is very friendly.
+dance,v.跳舞,They love to dance to the music.
+machine,n.机器,This washing machine is very easy to use.
+discussion,n.讨论,We had a long discussion about the project.
+kitchen,n.厨房,She is cooking in the kitchen.
+magazine,n.杂志,She bought a fashion magazine.
+task,n.任务,My task is to finish this report by Friday.
+relate,v.与……相关,His problems relate to his childhood.
+partner,n.伙伴,He is my business partner.
+hurt,v.伤害,He hurt his leg while playing soccer.
+heavy,adj.沉重的,This box is too heavy to carry.
+garden,n.花园,They have a beautiful garden.
+exist,v.存在,Does life exist on other planets?
+gas,n.气体,Oxygen is an important gas for life.
+gas,n.汽油,We need to stop and get some gas.
+marriage,n.婚姻,Their marriage lasted for 50 years.
+violence,n.暴力,The movie contains a lot of violence.
+reality,n.现实,He needs to face reality.
+except,prep.除了,Everyone came except John.
+fan,n.风扇,"Turn on the fan, it's too hot in here."
+fan,n.粉丝,She is a big fan of that singer.
+slow,adj.慢的,The internet is very slow today.
+collection,n.收藏,She has a large collection of old coins.
+modern,adj.现代的,This house has a modern design.
+safe,adj.安全的,This neighborhood is very safe.
+agent,n.代理人,She works as a travel agent.
+cool,adj.凉爽的,The breeze feels cool in the evening.
+cool,adj.酷的,His new jacket looks really cool.
+generation,n.一代人,Each generation has its own culture.
+wood,n.木材,This table is made of wood.
+supply,n.供应,The water supply was cut off.
+cry,v.哭泣,The baby started to cry.
+camp,n.营地,We set up a camp near the lake.
+hall,n.大厅,The meeting will be held in the main hall.
+tend,v.倾向于,She tends to wake up early.
+tend,v.照顾,He tends to his sick mother.
+interesting,adj.有趣的,This book is very interesting.
+capital,n.首都,Paris is the capital of France.
+capital,n.资金,He invested a lot of capital in the project.
+guard,n.警卫,A guard stood at the entrance.
+guard,v.守卫,The dog guards the house at night.
+handle,v.处理,She knows how to handle difficult situations.
+handle,n.把手,The door has a silver handle.
+battle,n.战斗,The soldiers fought a fierce battle.
+battle,v.斗争,He battled against the disease for years.
+whom,pron.谁（宾格）,Whom did you see at the party?
+painting,n.绘画,This painting is very beautiful.
+dinner,n.晚餐,We had dinner at a nice restaurant.
+bottom,n.底部,There is a message at the bottom of the page.
+scientist,n.科学家,She is a famous scientist in the field of physics.
+civil,adj.公民的,All citizens have civil rights.
+civil,adj.文明的,They had a civil conversation despite their disagreement.
+fresh,adj.新鲜的,The bread is still fresh.
+audience,n.观众,The audience cheered loudly.
+shop,n.商店,She bought a dress at the shop.
+shop,v.购物,They went shopping for new clothes.
+agreement,n.协议,They reached an agreement after long talks.
+victim,n.受害者,The victim of the accident was taken to the hospital.
+function,n.功能,The main function of a phone is communication.
+function,v.运作,The machine is not functioning properly.
+link,n.连接,There is a strong link between diet and health.
+link,v.连接,This bridge links the two cities together.
+labor,n.劳动,Physical labor can be exhausting.
+labor,v.努力工作,He labored day and night to finish the project.
+majority,n.大多数,The majority of people like summer.
+stone,n.石头,He picked up a stone and threw it into the river.
+separate,v.分开,They decided to separate after years of marriage.
+separate,adj.分开的,We live in separate apartments.
+murder,n.谋杀,The police are investigating a murder case.
+murder,v.谋杀,He was arrested for murdering his neighbor.
+warm,adj.温暖的,The sun feels warm on my skin.
+warm,v.使温暖,She warmed her hands by the fire.
+nor,conj.也不,"He doesn’t like coffee, nor does he like tea."
+western,adj.西方的,He is interested in Western culture.
+responsibility,n.责任,It is your responsibility to take care of your pet.
+straight,adv.直地,He walked straight to the door.
+straight,adj.直的,Draw a straight line on the paper.
+ring,n.戒指,She wears a gold ring on her finger.
+ring,v.响铃,The phone rang loudly in the room.
+secret,n.秘密,Can you keep a secret?
+fun,n.乐趣,We had so much fun at the party.
+born,v.出生,She was born in a small town.
+bird,n.鸟,A bird is singing outside my window.
+newspaper,n.报纸,He reads the newspaper every morning.
+restaurant,n.餐厅,We had dinner at a fancy restaurant.
+prevent,v.阻止,The seatbelt helps prevent serious injuries.
+forest,n.森林,They walked through a dense forest.
+citizen,n.公民,Every citizen has the right to vote.
+welcome,v.欢迎,They warmly welcomed us to their home.
+perfect,adj.完美的,Her performance was perfect.
+corner,n.角落,He sat in the corner of the room.
+suit,n.西装,He wore a black suit to the wedding.
+suit,v.适合,This job suits him well.
+relation,n.关系,The two countries have a good relation.
+troop,n.部队,The troops were ready for battle.
+customer,n.顾客,The customer asked for a refund.
+speech,n.演讲,He gave a speech at the meeting.
+speed,n.速度,The car moved at high speed.
+paint,v.涂漆,They painted the wall blue.
+crowd,n.人群,A large crowd gathered in the square.
+conflict,n.冲突,The conflict between the two sides lasted for years.
+rich,adj.富有的,He became rich through hard work.
+examine,v.检查,The doctor examined the patient carefully.
+nuclear,adj.核能的,The country is developing nuclear energy.
+assume,v.假设,I assume he will be here soon.
+screen,n.屏幕,She stared at the computer screen for hours.
+pound,n.（重量单位）磅,This bag of rice weighs five pounds.
+pound,v.猛击,He pounded on the door angrily.
+therefore,adv.因此,"She was sick, therefore she stayed at home."
+none,pron.没有一个,"I asked for help, but none came."
+tear,n.眼泪,Tears rolled down her cheeks.
+tear,v.撕裂,Be careful not to tear the paper.
+successful,adj.成功的,She is a successful businesswoman.
+round,adj.圆的,The table has a round shape.
+round,n.一轮（比赛、活动等）,He reached the final round of the competition.
+lady,n.女士,A kind lady helped me cross the street.
+southern,adj.南方的,The weather is warm in southern countries.
+favorite,adj.最喜欢的,Blue is my favorite color.
+host,n.主持人,The TV show host is very funny.
+host,v.招待,They will host a party this weekend.
+neighborhood,n.社区,Our neighborhood is quiet and friendly.
+safety,n.安全,"For your safety, wear a seatbelt."
+publish,v.出版,He plans to publish his first book next year.
+trust,v.信任,I trust my best friend completely.
+sky,n.天空,The sky is full of stars tonight.
+version,n.版本,I like the latest version of this app.
+achieve,v.实现,She worked hard to achieve her dream.
+attitude,n.态度,His attitude towards work is very positive.
+admit,v.承认,He admitted that he made a mistake.
+income,n.收入,Her monthly income is quite high.
+blow,v.吹,The wind blew strongly last night.
+blow,n.打击,Losing his job was a huge blow to him.
+document,n.文件,She signed the document carefully.
+lift,v.举起,He can lift a heavy box easily.
+insurance,n.保险,He bought health insurance last year.
+suffer,v.遭受,Many people suffered during the storm.
+post,n.邮件,I received a post from my friend today.
+post,v.发布,She posted a new photo on social media.
+eventually,adv.最终,He eventually became a doctor.
+sorry,adj.抱歉的,I'm sorry for being late.
+dad,n.爸爸,My dad loves to cook.
+due,adj.到期的,The payment is due next Monday.
+jump,v.跳跃,The cat jumped over the fence.
+opinion,n.意见,Everyone has a different opinion on this topic.
+nobody,pron.没有人,Nobody knows the answer.
+tour,n.旅行,They went on a tour around Europe last summer.
+tour,v.旅游,We plan to tour the city by bike.
+basic,adj.基本的,He needs to learn some basic math before the test.
+independent,adj.独立的,She is an independent woman who runs her own business.
+damage,n.损害,The storm caused severe damage to the buildings.
+damage,v.损坏,The car was damaged in the accident.
+primary,adj.主要的,The primary goal is to finish the project on time.
+primary,adj.初级的,He is in primary school and loves reading books.
+spread,v.传播,The news spread quickly across social media.
+spread,v.涂抹,She spread butter on the toast.
+conversation,n.谈话,They had a long conversation about their plans for the summer.
+weekend,n.周末,I usually relax with friends on the weekend.
+freedom,n.自由,"After years of struggle, the country gained its freedom."
+refer,v.提到,She referred to her notes during the presentation.
+refer,v.推荐,The doctor referred me to a specialist for treatment.
+status,n.状态,Inspecting the status of steering wheel.
+status,n.地位,The organization is concerned with the status of women in society.
+village,n.村庄,They live in a small village near the mountains.
+brain,n.大脑,The brain controls all the body's functions.
+balance,n.平衡,She practiced yoga to improve her balance.
+title,n.标题,The title of the book caught my attention.
+title,n.头衔,He earned the title of champion after winning the race.
+variety,n.种类,The store offers a wide variety of fruits and vegetables.
+daily,adj.每日的,He follows a daily routine of exercise and work.
+daily,adv.每日,She checks her email daily to stay updated.
+plane,n.飞机,The plane took off smoothly from the airport.
+dry,adj.干的,The clothes are dry after being in the sun.
+dry,adj.枯燥的,The lecture was so dry that I almost fell asleep.
+attend,v.参加,She will attend the meeting tomorrow.
+attend,v.照顾,The nurse attended to the patient's needs.
+winter,n.冬天,Winter is my favorite season because of the snow.
+argument,n.争论,They had an argument about where to go for dinner.
+argument,n.论点,His argument for the new policy was very convincing.
+nine,num.九,There are nine apples in the basket.
+announce,v.宣布,The principal will announce the winner at the assembly.
+encourage,v.鼓励,The teacher encouraged the students to try their best.
+concept,n.概念,The concept of time is difficult for young children to understand.
+spirit,n.精神,The team showed great spirit during the game.
+spirit,n.灵魂,Many cultures believe in the existence of the human spirit.
+complex,adj.复杂的,The instructions were too complex for me to follow.
+hole,n.洞,There is a hole in my sock.
+immediately,adv.立即,He left the room immediately after the phone rang.
+powerful,adj.强大的,The powerful engine made the car go very fast.
+gold,n.黄金,She wore a beautiful gold necklace.
+reporter,n.记者,The reporter asked the mayor about the new policy.
+afternoon,n.下午,We went for a walk in the afternoon.
+theater,n.剧院,We watched a play at the theater last night.
+stress,n.压力,Too much stress can affect your health.
+boat,n.船,We took a boat to cross the river.
+league,n.联盟,The local teams formed a new football league.
+internet,n.互联网,She found the recipe on the internet.
+hide,v.隐藏,The cat likes to hide under the bed.
+replace,v.替换,He decided to replace the old carpet with a new one.
+distance,n.距离,The distance from my house to the school is two kilometers.
+surprise,n.惊喜,Her birthday party was a complete surprise to her.
+mix,v.混合,You need to mix the ingredients well before baking.
+ice,n.冰,She put some ice in her drink to cool it down.
+double,adj.双倍的,He ordered a double espresso to stay awake.
+nod,v.点头,She gave a nod to show she agreed.
+feed,v.喂养,"Every morning, he feeds the birds in his garden."
+express,v.表达,He found it hard to express his feelings.
+abuse,n.滥用,The abuse of power by officials is a serious issue.
+conservative,adj.保守的,His conservative views often sparked debates.
+academic,adj.学术的,She is pursuing an academic career in physics.
+possibility,n.可能性,There is a possibility of rain tomorrow.
+native,adj.本地的,He is a native speaker of Spanish.
+tradition,n.传统,It's a tradition in our family to have dinner together on Sundays.
+communication,n.沟通,Effective communication is key to a successful team.
+truck,n.卡车,The truck was loaded with fresh vegetables.
+quick,adj.快的,She gave a quick reply to the question.
+beginning,n.开始,The beginning of the movie was very exciting.
+understanding,n.理解,His understanding of the problem was clear.
+easily,adv.容易地,She solved the puzzle easily.
+mine,pron.我的,This book is mine, not yours.
+mine,n.矿,They discovered a gold mine in the mountains.
+band,n.乐队,The band played all night at the concert.
+catholic,adj.广泛的,He has a catholic taste in music.
+driver,n.司机,The driver stopped the bus at the station.
+tool,n.工具,A hammer is a useful tool for building.
+bowl,n.碗,She filled the bowl with soup.
+desire,n.愿望,His desire to travel the world is strong.
+grade,n.成绩,He always got high grades in school.
+farm,n.农场,They grow corn and wheat on their farm.
+guide,n.指南,The tour guide explained the history of the castle.
+normal,adj.正常的,It's normal to feel nervous before a test.
+introduce,v.介绍,Let me introduce you to my friend.
+following,adj.接下来的,The following day was sunny and warm.
+text,n.文本,She sent a text to her friend.
+identity,n.身份,The police asked him to show his identity card.
+horse,n.马,She loves to ride her horse in the countryside.
+exchange,v.交换,They exchanged phone numbers at the party.
+rush,v.匆忙,He had to rush to catch the last train.
+border,n.边界,The river forms the border between the two countries.
+master,v.掌握,It takes years to master a new language.
+prison,n.监狱,He was sent to prison for his crimes.
+apartment,n.公寓,She lives in a small apartment in the city.
+refuse,v.拒绝,He refused to answer the question.
+burn,v.燃烧,The fire burned all night in the fireplace.
+wild,adj.野生的,We saw wild animals on our safari.
+salt,n.盐,"Can you pass the salt, please?"
+beach,n.海滩,They spent the day relaxing on the beach.
+observe,v.观察,The scientist observed the behavior of the birds.
+neither,conj.也不,Neither of the options seemed appealing.
+mistake,n.错误,She realized she had made a mistake.
+favor,n.帮助,Can you do me a favor and lend me your pen?
+content,adj.满足的,He was content with his simple life.
+tomorrow,adv.明天,We will meet tomorrow to discuss the project.
+contribute,v.贡献,She decided to contribute money to the charity.
+taste,n.味道,The taste of this soup is amazing.
+taste,v.品尝,Would you like to taste this new dish?
+alternative,n.替代选择,"If the train is late, we can take the bus as an alternative."
+alternative,adj.替代的,We need to find an alternative solution to this problem.
+appeal,n.吸引力,The appeal of the movie lies in its unique story.
+appeal,v.呼吁,The organization is appealing for donations to help the victims.
+circle,n.圆圈,The children sat in a circle and played a game.
+circle,v.环绕,The plane circled the airport before landing.
+decline,v.下降,The number of students in the school has declined this year.
+decline,n.衰退,There has been a decline in the quality of the product.
+basis,n.基础,Trust is the basis of a good relationship.
+guest,n.客人,We had a special guest at our party last night.
+flow,v.流动,The river flows through the valley.
+flow,n.流量,The flow of traffic was smooth this morning.
+match,n.比赛,The football match ended in a draw.
+match,v.匹配,Your shoes match your dress perfectly.
+bright,adj.明亮的,The room is bright with sunlight.
+bright,adj.聪明的,She is a bright student who always asks good questions.
+flight,n.飞行,Our flight was delayed due to bad weather.
+flight,n.航班,She booked a flight to Paris for her vacation.
+promote,v.促进,The government is promoting the use of renewable energy.
+promote,v.晋升,He was promoted to manager after five years of hard work.
+principle,n.原则,Honesty is a principle that he always follows.
+willing,adj.愿意的,She is willing to help with the project.
+progress,n.进步,There has been significant progress in the research.
+progress,v.进展,The construction work is progressing slowly.
+tiny,adj.微小的,She found a tiny shell on the beach.
+strength,n.力量,He showed great strength in lifting the heavy box.
+strength,n.优点,One of her strengths is her ability to communicate well.
+division,n.部门,He works in the marketing division of the company.
+division,n.分割,The division of the cake was done fairly.
+vehicle,n.车辆,The city is trying to reduce the number of vehicles on the road.
+vehicle,n.媒介,Art can be a vehicle for expressing emotions.
+technique,n.技巧,She has mastered the technique of playing the piano.
+deliver,v.递送,The postman delivers letters to our house every morning.
+ear,n.耳朵,She whispered something into his ear.
+earn,v.赚取,He works hard to earn money for his family.
+fair,adj.公平的,The teacher was fair to all students.
+graduate,v.毕业,She will graduate from university next year.
+rain,n.雨,The rain started to fall just as we left the house.
+correct,adj.正确的,Please make sure your answers are correct.
+faith,n.信任,He has faith in his team's ability to win.
+advantage,n.优势,Her height gives her an advantage in basketball.
+annual,adj.每年的,The company holds its annual meeting in December.
+square,n.广场,The children played in the square after school.
+protection,n.保护,Wearing a helmet provides protection for your head.
+collect,v.收集,He likes to collect stamps from different countries.
+chairman,n.主席,The chairman opened the meeting with a brief speech.
+fuel,n.燃料,The car runs on diesel fuel.
+aspect,n.方面,One important aspect of learning a language is practice.
+witness,v.目击,She witnessed the accident on her way to work.
+waste,v.浪费,Don't waste food; there are many people who are hungry.
+operate,v.操作,He knows how to operate the new machine.
+lesson,n.课程,She gives piano lessons every Saturday.
+honor,n.荣誉,It was an honor to meet the president.
+honor,v.尊敬,We should honor our parents and teachers.
+youth,n.青年时期,He spent his youth traveling the world.
+youth,n.年轻人,The youth of today face many challenges.
+hate,v.憎恨,She hates waking up early in the morning.
+hate,n.厌恶,His hate for injustice drove him to become a lawyer.
+doubt,n.怀疑,There is no doubt that he is the best candidate for the job.
+doubt,v.怀疑,I doubt that it will rain tomorrow.
+pack,v.打包,She packed her bags for the trip.
+pack,n.一群,Wolves often hunt in packs.
+award,n.奖项,He won an award for his outstanding performance.
+award,v.授予,The school awarded her a scholarship for her achievements.
+dozen,n.十二个,She bought a dozen eggs from the store.
+cook,v.烹饪,He loves to cook dinner for his family.
+cook,n.厨师,The cook prepared a delicious meal for the guests.
+belief,n.信仰,Her belief in kindness inspires everyone around her.
+folk,n.人们,Folk in this village are very friendly.
+folk,n.民谣,She enjoys listening to folk music.
+procedure,n.程序,The doctor explained the procedure before the surgery.
+procedure,n.步骤,Follow the procedure to assemble the furniture.
+quiet,adj.安静的,The library is a quiet place to study.
+quiet,n.宁静,She enjoys the quiet of the countryside.
+marry,v.结婚,They plan to marry next summer.
+settle,v.解决,They finally settled their argument.
+settle,v.定居,"After traveling for years, they decided to settle in a small town."
+appropriate,adj.合适的,It is important to wear appropriate clothing for the interview.
+appropriate,v.挪用,He was accused of appropriating company funds.
+tape,n.胶带,She used tape to fix the broken vase.
+schedule,n.时间表,Check the schedule to see when the train arrives.
+schedule,v.安排,We need to schedule a meeting for next week.
+path,n.小路,They walked along the path through the forest.
+egg,n.鸡蛋,She had boiled eggs for breakfast.
+anybody,pron.任何人,Does anybody know the answer to this question?
+regular,adj.定期的,He goes to the gym on a regular basis.
+regular,adj.普通的,"She ordered a regular coffee, not a large one."
+moral,adj.道德的,It's important to make moral decisions in life.
+coffee,n.咖啡,She drinks a cup of coffee every morning.
+wake,v.醒来,I usually wake up at 7 a.m. on weekdays.
+regard,v.认为,She is regarded as one of the best teachers in the school.
+competition,n.比赛,He won first prize in the singing competition.
+failure,n.失败,Failure is a part of the learning process.
+religion,n.宗教,Religion plays an important role in many people's lives.
+minister,n.部长,The minister announced new policies for education.
+aid,n.帮助,The government provided aid to the flood victims.
+anyway,adv.无论如何,"I don't think we should go, but let's try anyway."
+baseball,n.棒球,He plays baseball with his friends every weekend.
+pair,n.一对,She bought a new pair of shoes for the party.
+reading,n.阅读,Reading is a great way to improve your vocabulary.
+wine,n.葡萄酒,They enjoyed a bottle of red wine with dinner.
+gift,n.礼物,He gave her a gift for her birthday.
+quarter,n.四分之一,A quarter of the students passed the exam.
+classroom,n.教室,The classroom was filled with students eager to learn.
+soft,adj.柔软的,The kitten's fur was very soft to the touch.
+unless,conj.除非,You won't pass the test unless you study.
+gather,v.聚集,We will gather at the park for a picnic.
+smoke,v.吸烟,He decided to quit smoking for his health.
+survive,v.生存,It's amazing how plants can survive in the desert.
+tip,n.小费,He left a generous tip for the waiter.
+tip,n.建议,She gave me a useful tip on how to improve my writing.
+snow,n.雪,The children played happily in the snow.
+snow,v.下雪,It snowed heavily last night.
+equipment,n.设备,The laboratory has all the necessary equipment for experiments.
+intelligence,n.智力,Her intelligence and hard work helped her succeed.
+intelligence,n.情报,The spy gathered important intelligence for his country.
+afraid,adj.害怕的,She was afraid of the dark and always slept with a light on.
+shoe,n.鞋子,He bought a new pair of shoes for the party.
+affair,n.事件,The scandalous affair was the talk of the town.
+criminal,n.罪犯,The criminal was arrested by the police.
+criminal,adj.犯罪的,Stealing is a criminal act.
+smell,n.气味,The smell of fresh bread filled the kitchen.
+smell,v.闻,She smelled the flowers and smiled.
+combine,v.结合,We need to combine our efforts to solve this problem.
+empty,adj.空的,"The bottle was empty, so he threw it away."
+broad,adj.宽阔的,The river was broad and calm.
+construction,n.建筑,The construction of the new bridge will take two years.
+secretary,n.秘书,The secretary scheduled all the meetings for the manager.
+category,n.类别,Books in the library are organized by category.
+root,n.根,The tree's roots were deep and strong.
+root,v.扎根,Her love for music rooted in her childhood.
+novel,n.小说,He is reading a novel by his favorite author.
+novel,adj.新颖的,She came up with a novel idea for the project.
+advance,n.进展,There has been a significant advance in medical research.
+advance,v.前进,The troops advanced towards the enemy's position.
+wonderful,adj.极好的,They had a wonderful time at the beach.
+ignore,v.忽视,He chose to ignore the rude comments.
+shut,v.关闭,Please shut the door when you leave.
+insist,v.坚持,She insisted on paying for the meal herself.
+map,n.地图,He used a map to find the way to the hotel.
+commit,v.承诺,He committed to finishing the project on time.
+commit,v.犯罪,The man was arrested for committing a robbery.
+arrest,v.逮捕,The police arrested the suspect last night.
+clothes,n.衣服,She bought new clothes for the party.
+assessment,n.评估,The teacher gave an assessment of the students' progress.
+suspect,n.嫌疑人,The police questioned the suspect for hours.
+suspect,v.怀疑,I suspect that he is hiding something.
+connection,n.联系,There is a strong connection between the two events.
+background,n.背景,Her background in science helped her solve the problem.
+neighbor,n.邻居,My neighbor helped me carry the groceries.
+sweet,adj.甜的,The cake was too sweet for my taste.
+sweet,adj.可爱的,She has a sweet smile that everyone loves.
+aim,n.目标,His aim is to become a doctor.
+aim,v.瞄准,He aimed the camera at the beautiful scenery.
+active,adj.活跃的,She is very active in her community.
+actor,n.演员,The actor received an award for his performance.
+healthy,adj.健康的,Eating vegetables is important for a healthy diet.
+hire,v.雇佣,The company decided to hire more employees.
+extra,adj.额外的,She asked for extra cheese on her pizza.
+participate,v.参加,He decided to participate in the school play.
+victory,n.胜利,The team celebrated their victory with a party.
+climb,v.攀登,They decided to climb the mountain early in the morning.
+climb,v.上升,The temperature began to climb as the sun rose higher.
+purchase,v.购买,She saved money to purchase a new laptop.
+purchase,n.购买物,"He was excited about his latest purchase, a vintage guitar."
+bone,n.骨头,The dog buried the bone in the backyard.
+sugar,n.糖,She added a teaspoon of sugar to her coffee to sweeten it.
+twice,adv.两次,He checked his homework twice to ensure there were no mistakes.
+chicken,n.鸡,They had roast chicken for dinner last night.
+flower,n.花,She received a bouquet of flowers on her birthday.
+neck,n.脖子,He wore a scarf around his neck to keep warm.
+literature,n.文学,She has a deep interest in English literature.
+destroy,v.摧毁,The hurricane destroyed many homes along the coast.
+bus,n.公共汽车,She takes the bus to work every day.
+monitor,v.监控,The security guard monitors the cameras throughout the night.
+monitor,n.显示器,He bought a new monitor for his computer setup.
+thin,adj.薄的,The ice on the lake is too thin to walk on.
+thin,adj.瘦的,After months of dieting, she became quite thin.
+knee,n.膝盖,He fell and scraped his knee while playing soccer.
+request,n.请求,She made a request for more information about the job.
+request,v.请求,He requested a day off to attend his sister's wedding.
+remind,v.提醒,Can you remind me to call my mom after lunch?
+yesterday,n.昨天,Yesterday was a busy day at the office.
+bond,n.纽带,There is a strong bond between the two siblings.
+bond,v.结合,The glue bonds the pieces of wood together securely.
+medicine,n.药物,She took the medicine to relieve her headache.
+application,n.应用,The application of this theory in real life is quite challenging.
+application,n.申请,He submitted his application for the job last week.
+kick,v.踢,The child kicked the ball across the yard.
+football,n.足球,They play football every Saturday afternoon.
+representative,n.代表,She was chosen as the representative of her class.
+lip,n.嘴唇,He bit his lip nervously during the interview.
+aware,adj.意识到,Are you aware of the risks involved in this project?
+tall,adj.高的,The tall building can be seen from miles away.
+dangerous,adj.危险的,It is dangerous to drive without wearing a seatbelt.
+print,v.打印,Can you print this document for me?
+breath,n.呼吸,After running, he took a deep breath to calm down.
+storm,n.暴风雨,The storm caused a lot of damage to the coastal town.
+writing,n.写作,Her writing has improved significantly over the years.
+instruction,n.指示,Follow the instructions carefully to assemble the furniture.
+depend,v.依赖,Children depend on their parents for support.
+plate,n.盘子,She placed the sandwiches on a large plate.
+importance,n.重要性,The importance of education cannot be overstated.
+slip,v.滑倒,He slipped on the wet floor and fell.
+birth,n.出生,The birth of their first child was a joyous occasion.
+eastern,adj.东方的,The eastern part of the country is known for its beautiful beaches.
+weather,n.天气,The weather today is sunny and warm.
+sir,n.先生,Excuse me, sir, do you have a moment?
+cast,v.投掷,He cast the fishing line into the lake.
+addition,n.加法,The teacher taught us addition in math class.
+addition,n.增加,The new addition to the family is a baby girl.
+famous,adj.著名的,She is a famous singer known worldwide.
+expression,n.表情,His expression showed that he was surprised.
+expression,n.表达,Freedom of expression is important in a democracy.
+leaf,n.叶子,The leaf fell from the tree in autumn.
+plastic,n.塑料,This bottle is made of recycled plastic.
+sight,n.视力,Her sight is perfect; she doesn't need glasses.
+sight,n.景象,The Grand Canyon is a breathtaking sight.
+studio,n.工作室,The artist spent hours painting in his studio.
+familiar,adj.熟悉的,This song sounds familiar to me.
+session,n.会议,The committee held a session to discuss the new policy.
+colleague,n.同事,My colleague helped me finish the project on time.
+pool,n.水池,The children are swimming in the pool.
+mental,adj.精神的,She has excellent mental abilities.
+minority,n.少数,Only a small minority of the class voted against the idea.
+yellow,adj.黄色的,She wore a bright yellow dress to the party.
+alive,adj.活着的,After the accident, we were just happy to be alive.
+select,v.选择,Please select a book from the library.
+pocket,n.口袋,He keeps his keys in his pocket.
+slide,v.滑动,The kids love to slide down the hill on their sleds.
+slide,n.幻灯片,She showed her vacation photos in a slide presentation.
+glance,v.瞥一眼,He glanced at his watch and realized he was late.
+glance,n.一瞥,She gave him a quick glance before turning away.
+obtain,v.获得,He managed to obtain a rare book from the library.
+repeat,v.重复,Please repeat the question so I can understand it better.
+works,n.作品,The museum displayed the works of famous artists.
+works,v.工作,She works hard to achieve her goals.
+injury,n.伤害,The athlete suffered a serious injury during the game.
+fellow,n.伙伴,He's a friendly fellow who always helps others.
+bridge,n.桥,They walked across the bridge to get to the other side of the river.
+blame,v.责备,Don't blame me for your mistakes.
+blame,n.责任,He took the blame for the project's failure.
+chemical,n.化学物质,The lab is full of dangerous chemicals.
+chemical,adj.化学的,She studied chemical reactions in her science class.
+cash,n.现金,He paid for the meal in cash.
+cash,v.兑现,She cashed her paycheck at the bank.
+signal,n.信号,The traffic signal turned red, so we stopped.
+signal,v.示意,He signaled to the waiter to bring the bill.
+ticket,n.门票,She bought a ticket for the concert.
+ticket,n.罚单,He got a parking ticket for leaving his car in a no-parking zone.
+explore,v.探索,They decided to explore the forest to find the hidden treasure.
+package,n.包裹,The package arrived at her doorstep this morning.
+package,v.打包,He packaged the gift carefully before mailing it.
+supreme,adj.最高的,The supreme court made the final decision.
+meaning,n.意义,The meaning of his words was unclear to everyone.
+planet,n.行星,Earth is the third planet from the sun.
+urban,adj.城市的,She prefers urban life to living in the countryside.
+engine,n.引擎,The car's engine stopped working on the highway.
+otherwise,adv.否则,"Hurry up, otherwise we'll miss the bus."
+athlete,n.运动员,The athlete trained hard for the upcoming competition.
+shadow,n.影子,The tree cast a long shadow on the ground.
+shadow,v.跟踪,The detective shadowed the suspect for days.
+software,n.软件,The new software makes it easier to edit videos.
+strange,adj.奇怪的,She heard a strange noise coming from the basement.
+nurse,n.护士,The nurse took care of the patients in the hospital.
+lock,v.锁上,Don't forget to lock the door before you leave.
+relative,n.亲戚,We visited our relatives during the holiday.
+somewhere,adv.某处,I left my keys somewhere in the house.
+outcome,n.结果,The outcome of the game was a surprise to everyone.
+silence,n.沉默,There was a moment of silence after the announcement.
+northern,adj.北方的,They traveled to the northern part of the country.
+escape,v.逃脱,The cat tried to escape from the room.
+lunch,n.午餐,We had lunch at a small café downtown.
+profit,n.利润,The company made a large profit last year.
+intend,v.打算,I intend to finish this project by tomorrow.
+farmer,n.农民,The farmer grows vegetables and sells them at the market.
+assistant,n.助手,She works as an assistant in a law firm.
+instrument,n.乐器,He plays several musical instruments.
+expand,v.扩大,The company plans to expand its business overseas.
+desk,n.书桌,She keeps her books and papers on the desk.
+fourth,adj.第四,She finished in fourth place in the race.
+coast,n.海岸,We drove along the coast and enjoyed the ocean view.
+bomb,n.炸弹,The police found a bomb in the building.
+bomb,v.轰炸,The army decided to bomb the enemy's base.
+scientific,adj.科学的,She is working on a scientific research project.
+swing,v.摇摆,The children love to swing on the playground swings.
+disappear,v.消失,The magician made the rabbit disappear.
+fix,v.修理,He tried to fix the broken chair.
+consequence,n.后果,The consequence of his actions was severe.
+metal,n.金属,The bridge is made of strong metal.
+temperature,n.温度,The temperature dropped suddenly last night.
+danger,n.危险,There is a danger of falling rocks on this path.
+commitment,n.承诺,She has a strong commitment to her job.
+kiss,v.亲吻,He kissed his daughter goodnight.
+apart,adv.分开,The two houses are set apart from each other.
+aside,adv.在旁边,She set the book aside and started to work.
+pepper,n.胡椒,Add some pepper to the soup for extra flavor.
+equal,adj.相等的,All people are born equal.
+conclusion,n.结论,The conclusion of the story was surprising.
+thick,adj.厚的,The walls of the castle are very thick.
+enemy,n.敌人,The soldier was captured by the enemy.
+predict,v.预测,The weather forecast predicts rain tomorrow.
+soul,n.灵魂,Many people believe the soul lives on after death.
+experiment,n.实验,The students conducted an experiment to test their hypothesis.
+crew,n.全体船员,The crew prepared the ship for departure.
+adopt,v.采用,The company decided to adopt a new marketing strategy.
+copy,v.复制,She copied the notes from the board into her notebook.
+surround,v.包围,The garden is surrounded by a tall fence.
+grand,adj.宏伟的,They stayed in a grand hotel during their vacation.
+tire,v.使疲劳,The long hike tired everyone out.
+chest,n.胸部,He felt a sharp pain in his chest.
+moon,n.月亮,The moon was bright in the night sky.
+breast,n.乳房,She held the baby close to her breast.
+theme,n.主题,The theme of the party was 'Under the Sea'.
+regulation,n.规定,The new regulation will take effect next month.
+invite,v.邀请,They invited us to their wedding.
+connect,v.连接,The bridge connects the two cities.
+fruit,n.水果,She bought some fresh fruit from the market.
+library,n.图书馆,He spent the afternoon studying at the library.
+characteristic,n.特征,One characteristic of the breed is its long ears.
+bottle,n.瓶子,She filled the bottle with water.
+organize,v.组织,She helped organize the school event.
+organize,v.整理,He organized his desk before starting work.
+nose,n.鼻子,She has a small nose.
+advice,n.建议,He gave me good advice about my career.
+mirror,n.镜子,She looked at herself in the mirror.
+impossible,adj.不可能的,It's impossible to finish this task in one day.
+married,adj.已婚的,They have been married for ten years.
+trend,n.趋势,The trend of wearing sneakers is growing.
+difficulty,n.困难,She faced many difficulties in her project.
+scream,v.尖叫,The child screamed when he saw the spider.
+component,n.组成部分,Each component of the machine is essential.
+acknowledge,v.承认,He acknowledged his mistake.
+conclude,v.得出结论,"After much discussion, they concluded the meeting."
+traffic,n.交通,The traffic was heavy this morning.
+volunteer,n.志愿者,She works as a volunteer at the hospital.
+volunteer,v.自愿做,He volunteered to help with the event.
+narrow,adj.狭窄的,The road was too narrow for two cars.
+narrow,v.变窄,The river narrows as it flows through the valley.
+gay,adj.同性恋的,He came out as gay last year.
+belong,v.属于,This book belongs to me.
+recommend,v.推荐,Can you recommend a good restaurant?
+shirt,n.衬衫,He wore a blue shirt to the party.
+meal,n.一餐,We had a delicious meal at the new restaurant.
+expensive,adj.昂贵的,The watch was too expensive for me to buy.
+permit,v.允许,The teacher did not permit talking during the exam.
+sick,adj.生病的,She felt sick and decided to stay home.
+rank,n.等级,He achieved the rank of captain in the army.
+thinking,n.思考,Deep thinking is required to solve this problem.
+sentence,n.句子,She wrote a sentence on the board.
+load,n.负载,The truck carried a heavy load of bricks.
+soil,n.土壤,The soil in this area is very fertile.
+being,n.存在,The mystery of human being has puzzled many.
+initial,adj.最初的,His initial reaction was to refuse the offer.
+pilot,n.飞行员,The pilot announced that we would be landing soon.
+angry,adj.生气的,He was angry when he found out the truth.
+unique,adj.独特的,Her style of painting is truly unique.
+wheel,n.轮子,The wheel of the car got stuck in the mud.
+beauty,n.美丽,The beauty of the sunset took our breath away.
+visitor,n.访客,The museum had many visitors last weekend.
+bell,n.铃铛,The bell rang to signal the end of class.
+hearing,n.听力,Her hearing is very sharp; she can hear a whisper across the room.
+cat,n.猫,The cat is sleeping on the sofa.
+nearby,adj.附近的,There is a grocery store nearby.
+divide,v.分开,The teacher asked the students to divide into groups.
+seed,n.种子,She planted the seed in the garden.
+opposite,adj.相反的,The library is on the opposite side of the street.
+unlike,prep.不像,Unlike his brother, he loves to read books.
+actual,adj.实际的,The actual cost was higher than we expected.
+crazy,adj.疯狂的,It was a crazy idea, but it worked.
+reserve,v.预订,I reserved a table at the restaurant for dinner.
+sheet,n.床单,She changed the sheet on her bed.
+emergency,n.紧急情况,Call 911 in case of an emergency.
+steal,v.偷,He tried to steal a candy from the store.
+reference,n.参考,This book is a good reference for learning history.
+appreciate,v.欣赏,I really appreciate your help.
+user,n.用户,The app is designed to be easy for any user.
+comfortable,adj.舒适的,This chair is very comfortable.
+contemporary,adj.当代的,She loves contemporary art.
+mark,n.标记,He made a mark on the paper to show where to cut.
+wash,v.洗,She needs to wash the dishes after dinner.
+telephone,n.电话,She answered the telephone on the first ring.
+accident,n.事故,He had a car accident on his way to work.
+appearance,n.外貌,Her appearance changed after she cut her hair.
+airport,n.机场,We arrived at the airport two hours before the flight.
+ad,n.广告,She saw an ad for a new phone in the newspaper.
+row,n.一排,We sat in the front row at the concert.
+possibly,adv.可能,He could possibly be late due to the traffic.
+shock,n.震惊,The news of his resignation came as a shock to everyone.
+ought,modal verb.应该,You ought to apologize for your mistake.
+branch,n.分支,The bank opened a new branch in the city center.
+obvious,adj.明显的,It was obvious that she was upset.
+prefer,v.更喜欢,I prefer tea over coffee in the morning.
+joke,n.玩笑,He told a funny joke that made everyone laugh.
+command,n.命令,The officer gave a command to his troops.
+cloud,n.云,The sky was filled with dark clouds before the storm.
+funny,adj.有趣的,That movie was really funny; I laughed the whole time.
+chain,n.链条,She wore a beautiful gold chain around her neck.
+percentage,n.百分比,A large percentage of the students passed the exam.
+truly,adv.真正地,She was truly happy to see her old friend.
+basketball,n.篮球,He plays basketball every weekend with his friends.
+tight,adj.紧的,These shoes are too tight for me.
+tight,adj.严格的,The teacher has tight rules in the classroom.
+pause,v.暂停,She paused for a moment before answering the question.
+golf,n.高尔夫,He enjoys playing golf on sunny weekends.
+contribution,n.贡献,Her contribution to the project was very important.
+zone,n.区域,This area is a no-parking zone.
+engineer,n.工程师,My brother is an engineer who designs bridges.
+fee,n.费用,The fee for the course is quite high.
+tooth,n.牙齿,She brushed her teeth before going to bed.
+hardly,adv.几乎不,I hardly ever watch TV these days.
+meat,n.肉,We had meat and vegetables for dinner.
+debt,n.债务,He is trying to pay off his debt as soon as possible.
+defend,v.防御,The soldiers defended the city from the attack.
+declare,v.宣布,The president declared a national holiday.
+brief,adj.简短的,She gave a brief explanation of the plan.
+reply,v.回复,He replied to the email immediately.
+net,n.网,The fisherman cast his net into the sea.
+dish,n.盘子,She washed the dishes after dinner.
+politician,n.政治家,The politician gave a speech about the new policy.
+finance,n.财政,The government is discussing the new finance policy.
+finance,v.提供资金,The company will finance the new project.
+smart,adj.聪明的,She is a smart student who always gets good grades.
+knock,v.敲,Please knock on the door before entering.
+knock,n.敲击声,We heard a loud knock at the door.
+crash,v.碰撞,The car crashed into the tree.
+crash,n.撞击声,The crash was heard from miles away.
+ancient,adj.古老的,We visited an ancient temple in Greece.
+golden,adj.金色的,The golden sunset was breathtaking.
+silver,n.银,She wore a beautiful silver necklace.
+requirement,n.要求,The basic requirement for this job is a college degree.
+coat,n.外套,He put on his coat before going outside.
+duty,n.责任,It is your duty to take care of your family.
+duty,n.关税,We had to pay duty on the imported goods.
+extremely,adv.极其,The weather is extremely hot today.
+bedroom,n.卧室,She is decorating her new bedroom.
+channel,n.频道,What channel is the news on?
+channel,n.渠道,We need to find a new channel for distribution.
+circumstance,n.情况,Under normal circumstances, this would not happen.
+expectation,n.期望,The movie did not meet my expectations.
+warn,v.警告,The teacher warned the students about the upcoming test.
+beneath,prep.在...下面,The cat is hiding beneath the table.
+classic,adj.经典的,This is a classic example of good writing.
+advocate,v.提倡,She advocates for equal rights for everyone.
+ourselves,pron.我们自己,We need to take care of ourselves.
 meanwhile
 bend
 beside
