@@ -39,7 +39,7 @@ class VideoGenerator:
         temp_mp4_file = str(self.cache_dir / (audio_filename + ".mp4"))
         remove_file(temp_mp4_file)
         cmd = f'ffmpeg -loop 1 -i {image_file} -c:v libx264 -t {duration} -vf "scale={self.video.width}:{self.video.height}" -pix_fmt yuv420p {temp_mp4_file}'
-        exec_cmd(cmd, temp_mp4_file, "Fail to convert image to video.")
+        exec_cmd(cmd, temp_mp4_file, "Fail to convert image to video.", timeout=10)
 
         remove_file(file)
         cmd = f"ffmpeg -i {temp_mp4_file} -i {audio_file} -c:v copy -c:a aac -b:a 192k {file}"

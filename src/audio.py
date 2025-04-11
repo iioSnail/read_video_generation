@@ -66,8 +66,9 @@ class AudioGenerator:
             delay_list.append(f"apad=pad_dur={round(audio.after_silence / 1000, 3)}")
         delay = ",".join(delay_list)
 
+        remove_file(file)
         cmd = f'ffmpeg -i {old_file} -af "{delay}" -acodec libmp3lame {file}'
-        exec_cmd(cmd, file, "Fail to add silence to audio file.")
+        exec_cmd(cmd, file, "Fail to add silence to audio file.", timeout=10)
 
         return file, filename
 
@@ -76,7 +77,7 @@ class AudioGenerator:
         silence_file = str(self.cache_dir / f"silence_{self.audio.interval}.mp3")
         if self.audio.interval > 0 and not file_exists(silence_file):
             cmd = f"ffmpeg -f lavfi -t {round(self.audio.interval / 1000, 3)} -i anullsrc=r=44100:cl=stereo {silence_file}"
-            exec_cmd(cmd, silence_file, "Fail to generate silent audio file.")
+            exec_cmd(cmd, silence_file, "Fail to generate silent audio file.", timeout=10)
 
         # Generate audio.
         file_list = []
@@ -102,7 +103,8 @@ class AudioGenerator:
             for file_item in file_list:
                 f.write(f"file '{Path(file_item).name}'\n")
 
+        remove_file(file)
         cmd = f'ffmpeg -f concat -safe 0 -i {merge_txt} -c copy {file}'
-        exec_cmd(cmd, file, "Fail to merge audio files.")
+        exec_cmd(cmd, file, "Fail to merge audio files.", timeout=10)
 
         return file, filename

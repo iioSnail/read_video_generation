@@ -2,6 +2,7 @@ import hashlib
 import os
 import subprocess
 
+import cv2
 from PIL import Image
 
 
@@ -10,7 +11,7 @@ def md5(text) -> str:
 
 
 def remove_file(file):
-    if file_exists(file):
+    if os.path.exists(file):
         os.remove(file)
 
 
@@ -21,7 +22,58 @@ def file_exists(file):
     if os.path.getsize(file) <= 0:
         return False
 
+    if str(file).endswith("mp4"):
+        return is_mp4_valid(file)
+
+    if str(file).endswith("mp3"):
+        return is_mp3_valid(file)
+
+    if str(file).endswith("jpg"):
+        return is_jpg_valid(file)
+
     return True
+
+
+def is_mp4_valid(file_path):
+    try:
+        cap = cv2.VideoCapture(str(file_path))
+        if not cap.isOpened():
+            return False
+        # Check if we can read at least one frame
+        ret, frame = cap.read()
+        cap.release()
+        return ret
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
+
+
+def is_mp3_valid(file_path):
+    try:
+        with open(file_path, 'rb') as f:
+            # Check for MP3 header (simplistic check)
+            data = f.read(3)
+            if data == b'ID3':
+                return True
+            # Check for MPEG frame header
+            f.seek(0)
+            header = f.read(4)
+            if (header[0] == 0xFF) and ((header[1] & 0xE0) == 0xE0):
+                return True
+        return False
+    except Exception as e:
+        print(f"Error checking MP3: {e}")
+        return False
+
+
+def is_jpg_valid(file_path):
+    try:
+        with Image.open(str(file_path)) as img:
+            img.verify()  # Verify the file contents
+            return True
+    except (IOError, SyntaxError) as e:
+        print(f"Invalid image: {e}")
+        return False
 
 
 def resize_image(image_path: str, width: int, height: int, output_path: str):
@@ -35,11 +87,12 @@ def resize_image(image_path: str, width: int, height: int, output_path: str):
         resized_img.save(output_path, format="JPEG")  # Explicitly set format
 
 
-def exec_cmd(cmd, output_file=None, error_msg=None, stdout=False):
+def exec_cmd(cmd, output_file=None, error_msg=None, stdout=False, timeout=None):
     if stdout:
-        subprocess.call(cmd)
+        subprocess.run(cmd, timeout=timeout)
     else:
-        subprocess.call(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=timeout)
+
     if output_file is None:
         return
 
