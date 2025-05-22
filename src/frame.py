@@ -41,7 +41,12 @@ class FrameGenerator:
 
             # Adjust position if coord_type is "center"
             if element.coord_type == "center":
-                text_width, text_height = draw.textsize(element.content, font=font)
+                try:
+                    text_width, text_height = draw.textsize(element.content, font=font)
+                except Exception as e:
+                    left, top, right, bottom = draw.textbbox((0, 0), element.content, font=font)
+                    text_width, text_height = right - left, bottom - top
+
                 x -= text_width // 2
                 y -= text_height // 2
 

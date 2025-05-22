@@ -1,5 +1,5 @@
 from dataclasses import dataclass, fields
-from typing import List, Any
+from typing import List, Any, Optional
 
 
 @dataclass
@@ -45,9 +45,21 @@ class Audio:
 
 
 @dataclass
+class VideoClip:
+    file_path: str
+    before_delay: int  # Delay the start of video playing. Unit: ms
+    after_delay: int  # Delay the end of video playing. Unit: ms
+
+    def __post_init__(self):
+        self.before_delay = 0 if self.before_delay is None else self.before_delay
+        self.after_delay = 0 if self.after_delay is None else self.after_delay
+
+
+@dataclass
 class Chunk:
     frame: Frame
     audio: Audio
+    video_clip: VideoClip
 
 
 @dataclass
@@ -68,31 +80,55 @@ class Video:
     def from_dict(data_dict) -> List[Chunk]:
         chunks = []
         for data_item in data_dict:
-            frame_elements = [
-                FrameElement(
-                    x_coord=element.get("x_coord"),
-                    y_coord=element.get("y_coord"),
-                    coord_type=element.get("coord_type"),
-                    font_size=element.get("font_size"),
-                    font_color=element.get("font_color"),
-                    content=element.get("content")
-                )
-                for element in data_item['frame']['elements']
-            ]
-
-            frame = Frame(elements=frame_elements)
-
-            audio_elements = [
-                AudioElement(
-                    text=element.get("text"),
-                    tts_name=element.get("tts_name"),
-                    before_silence=element.get('before_silence'),
-                    after_silence=element.get('after_silence'),
-                )
-                for element in data_item['audio']['elements']
-            ]
-            audio = Audio(elements=audio_elements, interval=data_item['audio'].get('interval'))
-
-            chunks.append(Chunk(frame=frame, audio=audio))
+            chunks.append(Chunk(frame=Video.__resolve_frame(data_item),
+                                audio=Video.__resolve_audio(data_item),
+                                video_clip=Video.__resolve_video_clip(data_item)))
 
         return chunks
+
+    @staticmethod
+    def __resolve_frame(data_item) -> Optional[Frame]:
+        if 'frame' not in data_item:
+            return None
+
+        frame_elements = [
+            FrameElement(
+                x_coord=element.get("x_coord"),
+                y_coord=element.get("y_coord"),
+                coord_type=element.get("coord_type"),
+                font_size=element.get("font_size"),
+                font_color=element.get("font_color"),
+                content=element.get("content")
+            )
+            for element in data_item['frame']['elements']
+        ]
+
+        return Frame(elements=frame_elements)
+
+    @staticmethod
+    def __resolve_audio(data_item) -> Optional[Audio]:
+        if 'audio' not in data_item:
+            return None
+
+        audio_elements = [
+            AudioElement(
+                text=element.get("text"),
+                tts_name=element.get("tts_name"),
+                before_silence=element.get('before_silence'),
+                after_silence=element.get('after_silence'),
+            )
+            for element in data_item['audio']['elements']
+        ]
+
+        return Audio(elements=audio_elements, interval=data_item['audio'].get('interval'))
+
+    @staticmethod
+    def __resolve_video_clip(data_item) -> Optional[VideoClip]:
+        if 'video_clip' not in data_item:
+            return None
+
+        return VideoClip(
+            file_path=data_item['video_clip'].get('file_path'),
+            before_delay=data_item['video_clip'].get('before_delay'),
+            after_delay=data_item['video_clip'].get('after_delay'),
+        )

@@ -10,6 +10,16 @@ def md5(text) -> str:
     return hashlib.md5(text.encode('utf-8')).hexdigest()
 
 
+def md5_file(file_path):
+    """Calculate MD5 hash of a file."""
+    md5_hash = hashlib.md5()
+    with open(file_path, "rb") as f:
+        # Read and update hash in chunks of 4K
+        for chunk in iter(lambda: f.read(4096), b""):
+            md5_hash.update(chunk)
+    return md5_hash.hexdigest()
+
+
 def remove_file(file):
     if os.path.exists(file):
         os.remove(file)
@@ -97,5 +107,8 @@ def exec_cmd(cmd, output_file=None, error_msg=None, stdout=False, timeout=None):
         return
 
     if error_msg is None:
-        error_msg = f"Fail to generate file: {str(output_file)}"
+        error_msg = f"Fail to generate file: {str(output_file)}."
+
+    error_msg += f" Cmd: {cmd}"
+
     assert file_exists(output_file), error_msg
