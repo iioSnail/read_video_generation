@@ -49,7 +49,7 @@ class VideoGenerator:
 
         temp_mp4_file2 = str(self.cache_dir / (audio_filename + "_bg.mp4"))
         remove_file(temp_mp4_file2)
-        cmd = (f"ffmpeg -i {temp_mp4_file} -i {audio_file} -c:v copy -c:a aac -ar 48000 -b:a 192k "
+        cmd = (f"ffmpeg -i {temp_mp4_file} -i {audio_file} -c:v copy -c:a aac -ar 48000 -b:a 192k -ac 2 "
                f"-r {self.video.framerate} {temp_mp4_file2}")
         exec_cmd(cmd, temp_mp4_file2, "Fail to merge audio and video.")
 
