@@ -22,6 +22,15 @@ class FrameGenerator:
         self.background = "black"
         self.font_file = "./assets/font.TTF"
 
+    def __draw_textsize(self, draw: ImageDraw, content, font):
+        try:
+            text_width, text_height = draw.textsize(content, font=font)
+        except Exception as e:
+            left, top, right, bottom = draw.textbbox((0, 0), content, font=font)
+            text_width, text_height = right - left, bottom - top
+
+        return text_width, text_height
+
     def generate(self):
         image = Image.new("RGB", (self.width, self.height), self.background)
         draw = ImageDraw.Draw(image)
@@ -32,27 +41,38 @@ class FrameGenerator:
             return file, filename
 
         for element in self.frame.elements:
-            # Calculate the actual position based on the relative coordinates
-            x = int(element.x_coord * self.width)
-            y = int(element.y_coord * self.height)
+            # Calculate the base position
+            base_x = int(element.x_coord * self.width)
+            base_y = int(element.y_coord * self.height)
 
-            # Load a font with the specified size
-            font = ImageFont.truetype(self.font_file, element.font_size)  # You can specify a font file
+            # Load the font
+            font = ImageFont.truetype(self.font_file, element.font_size)
 
-            # Adjust position if coord_type is "center"
+            # Split content into multiple lines
+            lines = element.content.split('\n')
+
+            # Estimate line height (including spacing)
+            _, line_height = self.__draw_textsize(draw, "A", font=font)
+            spacing = int(line_height * 0.2)  # some spacing between lines
+            total_height = len(lines) * line_height + (len(lines) - 1) * spacing
+
+            # Start y-position to vertically center the block of text
+            y = base_y
             if element.coord_type == "center":
-                try:
-                    text_width, text_height = draw.textsize(element.content, font=font)
-                except Exception as e:
-                    left, top, right, bottom = draw.textbbox((0, 0), element.content, font=font)
-                    text_width, text_height = right - left, bottom - top
+                y -= total_height // 2
 
-                x -= text_width // 2
-                y -= text_height // 2
+            # Draw each line
+            for line in lines:
+                text_width, text_height = self.__draw_textsize(draw, line, font)
 
-            # Draw the text on the image
-            draw.text((x, y), element.content, font=font, fill=element.font_color)
+                x = base_x
+                if element.coord_type == "center":
+                    x -= text_width // 2
+
+                draw.text((x, y), line, font=font, fill=element.font_color)
+                y += text_height + spacing
 
         image.save(file)
 
         return file, filename
+
