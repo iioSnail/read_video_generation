@@ -86,11 +86,22 @@ optional arguments:
       ],
       "interval": 1000  // elements中的每段音频间隔多久。若指定该值，通常就不用再指定“before_silence”和“after_silence”。
     }
-  }
+  },
+  {
+    "video_clip": {
+      "file_path": "./samples/mp4/read_sentence.mp4",  // 插入视频片段
+      "before_delay": 500,  // 视频开始前等待500ms。这500ms会停留在第一帧
+      "after_delay": 1000  // 视频结束后等待1000ms。这1000ms会停留在最后一帧
+    }
+  },
   // ...
 ]
 ```
 
+## 成果展示
+
+- [【高考3500词-词频版】读单词 含例句 含中文(多释义) 睡前磨耳朵](https://www.bilibili.com/video/BV1eDAfe9Ezv)
+- [【看火影学英语】英文版《火影忍者》逐句听](https://www.bilibili.com/video/BV1jNjJzzEPU)
 
 ## 文字转语音样例
 
@@ -128,8 +139,3 @@ optional arguments:
 | zh-TW-HsiaoChenNeural | Female | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoChenNeural.mp3) |
 | zh-TW-HsiaoYuNeural | Female | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-HsiaoYuNeural.mp3) |
 | zh-TW-YunJheNeural | Male | TW | [链接](https://raw.githubusercontent.com/iioSnail/read_video_generation/main/samples/tts/zh-TW-YunJheNeural.mp3)
-
-## 代办事项
-
-- [ ] 增加英文文档
-- [ ] 暂不支持使用黑色字体
