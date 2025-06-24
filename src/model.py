@@ -67,14 +67,12 @@ class Video:
     width: int
     height: int
     framerate: int
-    interval: int  # The silence duration between two chunk. Unit: ms
     background_image: str
 
     chunks: List[Chunk]
 
     def __post_init__(self):
         self.framerate = 24 if self.framerate is None else self.framerate
-        self.interval = 0 if self.interval is None else self.interval
 
     @staticmethod
     def from_dict(data_dict) -> List[Chunk]:

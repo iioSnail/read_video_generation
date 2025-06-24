@@ -15,6 +15,8 @@ class AudioGenerator:
 
         self.audio = audio
 
+        self.lrc_list = []
+
     def _tts(self, audio: AudioElement):
         filename = md5(audio.text + "_" + audio.tts_name)
         file = str(self.cache_dir / (filename + ".mp3"))
@@ -88,10 +90,19 @@ class AudioGenerator:
 
             if self.audio.interval > 0:
                 file_list.append(silence_file)
+                self.lrc_list.append({
+                    "file": silence_file,
+                    "duration": round(self.audio.interval / 1000, 3),
+                    "text": None
+                })
 
             file_list.append(file)
-
             filename_list.append(filename)
+
+            self.lrc_list.append({
+                "file": file,
+                "text": audio_item.text
+            })
 
         filename = md5(f'_{self.audio.interval}_'.join(filename_list))
         file = str(self.cache_dir / (filename + ".mp3"))

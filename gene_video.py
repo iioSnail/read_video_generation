@@ -15,6 +15,7 @@ class GenerateVideo(object):
         parser.add_argument('--file', type=str, required=True, help='The json filepath.')
         parser.add_argument('--output', type=str, default='output.mp4', help='The output filepath.')
         parser.add_argument('--output-mp3', type=str, default=None, help='The output filepath for mp3 file.')
+        parser.add_argument('--output-lrc', type=str, default=None, help='The output filepath for lyric file.')
         parser.add_argument('--background', type=str, default="./assets/background.png",
                             help="The background image file path. Default: ./assert/background.png")
         parser.add_argument('--width', type=int, default=1920, help="The width of video. Default: 1920")
@@ -32,11 +33,11 @@ class GenerateVideo(object):
             data_json = json.load(f)
 
         video = Video(width=self.args.width, height=self.args.height, framerate=self.args.framerate,
-                      interval=self.args.interval, background_image=self.args.background,
-                      chunks=Video.from_dict(data_json))
+                      background_image=self.args.background, chunks=Video.from_dict(data_json))
         video_generator = VideoGenerator(video, args=self.args, cache_dir=self.args.cache_dir)
         video_generator.generate()
         video_generator.output_audio()
+        video_generator.output_lrc()
 
 
 if __name__ == '__main__':

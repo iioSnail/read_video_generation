@@ -21,6 +21,8 @@ class VideoGenerator:
 
         os.makedirs(self.cache_dir, exist_ok=True)
 
+        self.lrc_list = []
+
     def generate_one(self, chunk: Chunk):
         if chunk.video_clip is not None:
             return self.generate_video_clip(chunk.video_clip)
@@ -31,6 +33,7 @@ class VideoGenerator:
 
         audio_generator = AudioGenerator(chunk.audio, self.args, cache_dir=self.args.cache_dir)
         audio_file, audio_filename = audio_generator.generate()
+        self.lrc_list.extend(audio_generator.lrc_list)
 
         filename = md5(image_filename + audio_filename) + ".mp4"
         file = str(self.cache_dir / filename)
@@ -142,3 +145,31 @@ class VideoGenerator:
         remove_file(self.args.output_mp3)
         cmd = f'ffmpeg -i {self.output_file} -vn -c:a libmp3lame -q:a 0 -ar 48000 -ac 2 -map 0:a {self.args.output_mp3}'
         exec_cmd(cmd, self.output_file, "Fail to output mp3 file.", stdout=True)
+
+    def output_lrc(self):
+        if not self.args.output_lrc:
+            return
+
+        lrc_lines = []
+        current_time = 0.0
+
+        for item in tqdm(self.lrc_list, desc="Generating lrc file"):
+            if 'duration' not in item:
+                with audioread.audio_open(item['file']) as f:
+                    duration = f.duration
+
+                item['duration'] = duration
+
+            duration = item['duration']
+            text = item['text']
+
+            if text is not None:
+                minutes = int(current_time // 60)
+                seconds = current_time % 60
+                time_tag = f"[{minutes:02d}:{seconds:05.2f}]"
+                lrc_lines.append(f"{time_tag} {text}")
+
+            current_time += duration
+
+        with open(self.args.output_lrc, "w", encoding='utf-8') as f:
+            f.write('\n'.join(lrc_lines))
