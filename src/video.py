@@ -76,6 +76,11 @@ class VideoGenerator:
 
         file = str(self.cache_dir / filename)
 
+        self.lrc_list.append({
+            "file": file,
+            "text": None
+        })
+
         if file_exists(file):
             return filename
 

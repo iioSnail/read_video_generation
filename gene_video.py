@@ -20,7 +20,7 @@ class GenerateVideo(object):
                             help="The background image file path. Default: ./assert/background.png")
         parser.add_argument('--width', type=int, default=1920, help="The width of video. Default: 1920")
         parser.add_argument('--height', type=int, default=1080, help="The height of video. Default: 1080")
-        parser.add_argument('--framerate', type=int, default=24, help="The framerate of video. Default: 24")
+        parser.add_argument('--framerate', type=int, default=25, help="The framerate of video. Default: 25")
         parser.add_argument('--cache-dir', type=str, default='./cache/')
         parser.add_argument('--proxy', type=str, help="The proxy for edge-tts. For example: http://127.0.0.1:1080")
 
