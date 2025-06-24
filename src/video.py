@@ -39,7 +39,7 @@ class VideoGenerator:
             return filename
 
         with audioread.audio_open(audio_file) as f:
-            duration = round(f.duration + 0.01 + self.video.interval / 1000, 3)
+            duration = round(f.duration + 1.0, 3)
 
         temp_mp4_file = str(self.cache_dir / (audio_filename + ".mp4"))
         remove_file(temp_mp4_file)
@@ -50,7 +50,7 @@ class VideoGenerator:
         temp_mp4_file2 = str(self.cache_dir / (audio_filename + "_bg.mp4"))
         remove_file(temp_mp4_file2)
         cmd = (f"ffmpeg -i {temp_mp4_file} -i {audio_file} -c:v copy -c:a aac -ar 48000 -b:a 192k -ac 2 "
-               f"-r {self.video.framerate} {temp_mp4_file2}")
+               f"-r {self.video.framerate} -shortest {temp_mp4_file2}")
         exec_cmd(cmd, temp_mp4_file2, "Fail to merge audio and video.")
 
         # Add background
@@ -132,3 +132,13 @@ class VideoGenerator:
         print("Success to generate video. The file is located at ", self.output_file)
 
         return self.output_file
+
+    def output_audio(self):
+        if not self.args.output_mp3:
+            return
+
+        print("Outputting mp3 file...")
+
+        remove_file(self.args.output_mp3)
+        cmd = f'ffmpeg -i {self.output_file} -vn -c:a libmp3lame -q:a 0 -ar 48000 -ac 2 -map 0:a {self.args.output_mp3}'
+        exec_cmd(cmd, self.output_file, "Fail to output mp3 file.", stdout=True)

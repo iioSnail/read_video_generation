@@ -15,7 +15,7 @@ https://github.com/user-attachments/assets/d10fa44d-649c-4c4d-abf4-4b9b3bd64930
 ```shell
 python gene_video.py --file ./samples/read_sentence.json  --output output.mp4
 
-python gene_video.py --file ./samples/read_words.json  --output output.mp4
+python gene_video.py --file ./samples/read_words.json  --output output.mp4  --output-mp3 output.mp3
 ```
 
 ## 使用说明
@@ -32,7 +32,7 @@ usage: gene_video.py [-h] --file FILE [--output OUTPUT] [--interval INTERVAL] [-
 optional arguments:
   --file FILE           JSON文件的路径，该文件描述了具体的视频内容
   --output OUTPUT       输出文件的路径。例如：output.mp4
-  --interval INTERVAL   两段视频之间间隔多少秒。默认为500ms
+  --output-mp3 OUTPUT_MP3   输出音频文件的路径。例如：output.mp3
   --background BACKGROUND
                         视频的背景图片（尽量和视频宽高保持一致，否则会被拉伸）. 默认值: ./assert/background.png
   --width WIDTH         视频的宽度。 默认值: 1920

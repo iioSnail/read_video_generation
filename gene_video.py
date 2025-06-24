@@ -14,8 +14,7 @@ class GenerateVideo(object):
         parser = argparse.ArgumentParser()
         parser.add_argument('--file', type=str, required=True, help='The json filepath.')
         parser.add_argument('--output', type=str, default='output.mp4', help='The output filepath.')
-        parser.add_argument('--interval', type=int, default=500,
-                            help='The silence duration between two chunk. Unit: ms. Default: 500ms')
+        parser.add_argument('--output-mp3', type=str, default=None, help='The output filepath for mp3 file.')
         parser.add_argument('--background', type=str, default="./assets/background.png",
                             help="The background image file path. Default: ./assert/background.png")
         parser.add_argument('--width', type=int, default=1920, help="The width of video. Default: 1920")
@@ -37,6 +36,7 @@ class GenerateVideo(object):
                       chunks=Video.from_dict(data_json))
         video_generator = VideoGenerator(video, args=self.args, cache_dir=self.args.cache_dir)
         video_generator.generate()
+        video_generator.output_audio()
 
 
 if __name__ == '__main__':

@@ -76,7 +76,8 @@ class AudioGenerator:
         # Generate silence audio file.
         silence_file = str(self.cache_dir / f"silence_{self.audio.interval}.mp3")
         if self.audio.interval > 0 and not file_exists(silence_file):
-            cmd = f"ffmpeg -f lavfi -t {round(self.audio.interval / 1000, 3)} -i anullsrc=r=44100:cl=stereo {silence_file}"
+            cmd = (f'ffmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=48000 -t '
+                   f'{round(self.audio.interval / 1000, 3)} -c:a libmp3lame -q:a 2 {silence_file}')
             exec_cmd(cmd, silence_file, "Fail to generate silent audio file.", timeout=10)
 
         # Generate audio.
