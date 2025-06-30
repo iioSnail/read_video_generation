@@ -1,14 +1,12 @@
 import os
-import shutil
 from pathlib import Path
 
-import audioread
 from tqdm import tqdm
 
 from src.audio import AudioGenerator
 from src.frame import FrameGenerator
 from src.model import Video, Chunk, VideoClip
-from src.util import md5, remove_file, resize_image, exec_cmd, file_exists, md5_file
+from src.util import md5, remove_file, resize_image, exec_cmd, file_exists, md5_file, get_duration, get_mp3_duration
 
 
 class VideoGenerator:
@@ -41,8 +39,8 @@ class VideoGenerator:
         if file_exists(file):
             return filename
 
-        with audioread.audio_open(audio_file) as f:
-            duration = round(f.duration + 1.0, 3)
+        duration = get_duration(audio_file)
+        duration = round(duration + 1.0, 3)
 
         temp_mp4_file = str(self.cache_dir / (audio_filename + ".mp4"))
         remove_file(temp_mp4_file)
@@ -160,8 +158,7 @@ class VideoGenerator:
 
         for item in tqdm(self.lrc_list, desc="Generating lrc file"):
             if 'duration' not in item:
-                with audioread.audio_open(item['file']) as f:
-                    duration = f.duration
+                duration = get_duration(item['file'])
 
                 item['duration'] = duration
 

@@ -1,3 +1,2 @@
 edge-tts
-audioread
 opencv-python

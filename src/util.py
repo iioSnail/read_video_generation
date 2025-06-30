@@ -1,4 +1,5 @@
 import hashlib
+import json
 import os
 import subprocess
 
@@ -95,6 +96,44 @@ def resize_image(image_path: str, width: int, height: int, output_path: str):
             resized_img = resized_img.convert("RGB")
 
         resized_img.save(output_path, format="JPEG")  # Explicitly set format
+
+
+def get_mp3_duration(file_path):
+    cmd = [
+        'ffprobe',
+        '-i', file_path,
+        '-show_entries', 'format=duration',
+        '-v', 'quiet',
+        '-of', 'csv=p=0'
+    ]
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    return float(result.stdout)
+
+
+def get_mp4_duration(filepath):
+    cmd = [
+        'ffprobe',
+        '-v', 'error',
+        '-show_entries', 'format=duration',
+        '-of', 'json',
+        filepath
+    ]
+
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    metadata = json.loads(result.stdout)
+    return float(metadata['format']['duration'])
+
+
+def get_duration(filepath):
+    filepath = str(filepath)
+
+    if filepath.endswith(".mp3"):
+        return get_mp3_duration(filepath)
+
+    if filepath.endswith(".mp4"):
+        return get_mp4_duration(filepath)
+
+    raise ValueError("Unsupported file format.")
 
 
 def exec_cmd(cmd, output_file=None, error_msg=None, stdout=False, timeout=None):
