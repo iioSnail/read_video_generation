@@ -24,6 +24,7 @@ class Frame:
 
 @dataclass
 class AudioElement:
+    file_path: str  # If the audio file is provided already, don't need to generate it.
     text: str  # The text that will be read.
     tts_name: str  # The name of edge-tts. Reference: https://github.com/rany2/edge-tts
     before_silence: int  # Add silence before the audio. Unit: ms
@@ -110,6 +111,7 @@ class Video:
 
         audio_elements = [
             AudioElement(
+                file_path=element.get("file_path"),
                 text=element.get("text"),
                 tts_name=element.get("tts_name"),
                 before_silence=element.get('before_silence'),

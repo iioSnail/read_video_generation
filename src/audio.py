@@ -18,31 +18,37 @@ class AudioGenerator:
         self.lrc_list = []
 
     def _tts(self, audio: AudioElement):
-        filename = md5(audio.text + "_" + audio.tts_name)
-        file = str(self.cache_dir / (filename + ".mp3"))
+        if audio.file_path is not None and file_exists(audio.file_path):
+            filename = md5(str(audio.file_path))
+            file = audio.file_path
+        else:
+            filename = md5(audio.text + "_" + audio.tts_name)
+            file = str(self.cache_dir / (filename + ".mp3"))
+
         if file_exists(file):
             return file, filename
 
-        cmd = f'edge-tts --text "{audio.text}" -v {audio.tts_name} --write-media {file}'
+        text = audio.text.replace("\n", " ")
+        cmd = f'edge-tts --text "{text}" -v {audio.tts_name} --write-media {file}'
         if self.args.proxy is not None:
             cmd += " --proxy " + self.args.proxy
 
-        def gene_file():
+        def gene_file(retry: bool):
             try:
                 remove_file(file)
-                exec_cmd(cmd, file)
+                exec_cmd(cmd, file, stdout=retry)
                 return True
             except Exception as e:
-                print("Fail to generate audio file with edge-tts. Retry it after 20s.")
+                print("Fail to generate audio file with edge-tts. Retry it after 20s. Command: {}".format(cmd))
                 return False
 
-        for _ in range(3):
-            if gene_file():
+        for i in range(3):
+            if gene_file(i > 0):
                 break
 
             time.sleep(20)
         else:
-            raise RuntimeError("Fail to generate audio file with edge-tts.")
+            raise RuntimeError("Fail to generate audio file with edge-tts. Command: {}".format(cmd))
 
         time.sleep(0.05)
 
