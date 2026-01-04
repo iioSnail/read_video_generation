@@ -6,6 +6,11 @@ import subprocess
 import cv2
 from PIL import Image
 
+_ffmpeg_executable: str = None
+
+def set_ffmpeg(ffmpeg_executable):
+    global _ffmpeg_executable
+    _ffmpeg_executable = ffmpeg_executable
 
 def md5(text) -> str:
     return hashlib.md5(text.encode('utf-8')).hexdigest()
@@ -43,6 +48,10 @@ def file_exists(file):
         return is_jpg_valid(file)
 
     return True
+
+def makedirs(filepath):
+    parent_dir = os.path.dirname(filepath)
+    os.makedirs(parent_dir, exist_ok=True)
 
 
 def is_mp4_valid(file_path):
@@ -136,7 +145,10 @@ def get_duration(filepath):
     raise ValueError("Unsupported file format.")
 
 
-def exec_cmd(cmd, output_file=None, error_msg=None, stdout=False, timeout=None):
+def exec_cmd(cmd: str, output_file=None, error_msg=None, stdout=False, timeout=None):
+    if _ffmpeg_executable is not None and cmd.startswith("ffmpeg"):
+        cmd = _ffmpeg_executable + cmd[6:]
+
     if stdout:
         subprocess.run(cmd, timeout=timeout)
     else:

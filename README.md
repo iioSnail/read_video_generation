@@ -42,6 +42,7 @@ optional arguments:
                         视频的帧率. 默认值: 24
   --cache-dir CACHE_DIR 缓存目录. 视频生成过程中会产生一些中间文件，会被存在该目录下。若生成中断或报错，则部分内容不用重复生成。
   --proxy PROXY         edge-tts的代理。文本转语音需要调用微软的API，中国网络你懂得，可能需要上代理。样例: http://127.0.0.1:1080
+  --ffmpeg              ffmpeg可执行文件路径。本项目依赖完全版ffmpeg。可以使用该参数显示指定ffmpeg所在路径。例如: D:/ffmpeg/bin/ffmpeg.exe
 ```
 
 ### 构造JSON
@@ -74,6 +75,7 @@ optional arguments:
     "audio": {  // audio描述了当前项的音频如何展示
       "elements": [  // 通常一张图片可能会对应多段音频。因此这里是list
         {
+          "file_path": "./0001.mp3",  // 使用的音频片段。若指定了该参数，则不自动生成音频，即text和tts_name不生效
           "text": "I've heard about that one",  // 朗读的文本
           "tts_name": "en-US-AriaNeural",  // 使用谁的声音
           "before_silence": 200,  // 在读这段文字前，插入200ms的无声音频

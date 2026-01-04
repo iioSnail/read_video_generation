@@ -6,7 +6,8 @@ from tqdm import tqdm
 from src.audio import AudioGenerator
 from src.frame import FrameGenerator
 from src.model import Video, Chunk, VideoClip
-from src.util import md5, remove_file, resize_image, exec_cmd, file_exists, md5_file, get_duration, get_mp3_duration
+from src.util import md5, remove_file, resize_image, exec_cmd, file_exists, md5_file, get_duration, get_mp3_duration, \
+    makedirs
 
 
 class VideoGenerator:
@@ -132,6 +133,7 @@ class VideoGenerator:
                 f.write(f"file '{filename}'\n")
 
         remove_file(self.output_file)
+        makedirs(self.output_file)
         cmd = f'ffmpeg -f concat -safe 0 -i {tmp_list_file} -c:v libx264 -c:a aac {self.output_file}'
         exec_cmd(cmd, self.output_file, "Fail to merge videos.", stdout=True)
 
@@ -146,12 +148,15 @@ class VideoGenerator:
         print("Outputting mp3 file...")
 
         remove_file(self.args.output_mp3)
+        makedirs(self.args.output_mp3)
         cmd = f'ffmpeg -i {self.output_file} -vn -c:a libmp3lame -q:a 0 -ar 48000 -ac 2 -map 0:a {self.args.output_mp3}'
         exec_cmd(cmd, self.output_file, "Fail to output mp3 file.", stdout=True)
 
     def output_lrc(self):
         if not self.args.output_lrc:
             return
+
+        makedirs(self.args.output_lrc)
 
         lrc_lines = []
         current_time = 0.0

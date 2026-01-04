@@ -2,6 +2,7 @@ import argparse
 import json
 
 from src.model import Video
+from src.util import set_ffmpeg
 from src.video import VideoGenerator
 
 
@@ -23,8 +24,14 @@ class GenerateVideo(object):
         parser.add_argument('--framerate', type=int, default=25, help="The framerate of video. Default: 25")
         parser.add_argument('--cache-dir', type=str, default='./cache/')
         parser.add_argument('--proxy', type=str, help="The proxy for edge-tts. For example: http://127.0.0.1:1080")
+        parser.add_argument('--ffmpeg', type=str,
+                            help="The ffmpeg executable. Default: ffmpeg. For example: D:/ffmpeg/bin/ffmpeg.exe")
+
 
         args = parser.parse_args()
+
+        if args.ffmpeg is not None:
+            set_ffmpeg(args.ffmpeg)
 
         return args
 
