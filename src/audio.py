@@ -3,7 +3,7 @@ import time
 from pathlib import Path
 
 from src.model import Audio, AudioElement
-from src.util import md5, exec_cmd, file_exists, remove_file
+from src.util import md5, exec_cmd, file_exists, remove_file, get_duration
 
 
 class AudioGenerator:
@@ -96,9 +96,11 @@ class AudioGenerator:
 
             if self.audio.interval > 0:
                 file_list.append(silence_file)
+                # Measure actual silence file duration for accurate timing
+                silence_duration = get_duration(silence_file)
                 self.lrc_list.append({
                     "file": silence_file,
-                    "duration": round(self.audio.interval / 1000, 3),
+                    "duration": silence_duration,
                     "text": None
                 })
 

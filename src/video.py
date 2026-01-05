@@ -141,16 +141,49 @@ class VideoGenerator:
 
         return self.output_file
 
+    def _reencode_mp3(self, input_file):
+        """Re-encode audio file to consistent format."""
+        input_path = Path(input_file)
+        reencode_file = str(self.cache_dir.parent / 'audio' / f"{input_path.stem}_reencode.mp3")
+
+        if file_exists(reencode_file):
+            return reencode_file
+
+        remove_file(reencode_file)
+        cmd = (f'ffmpeg -i {input_file} '
+               f'-c:a libmp3lame -q:a 0 -ar 16000 -ac 2 '
+               f'{reencode_file}')
+        exec_cmd(cmd, reencode_file, "Fail to re-encode mp3 file.", timeout=10)
+        return reencode_file
+
     def output_audio(self):
+        """
+        Merge mp3 based on self.lrc_list using ffmpeg concat method.
+        """
         if not self.args.output_mp3:
             return
 
         print("Outputting mp3 file...")
 
+        # Re-encode each audio file to same encode, sample rate, etc.
+        for item in tqdm(self.lrc_list, desc="Generating mp3"):
+            item['reencode_file'] = self._reencode_mp3(item['file'])
+
+        # Create concat list file for re-encoded audio files
+        tmp_list_file = str(self.cache_dir.parent / 'audio' / "tmp_audio_list.txt")
+        with open(tmp_list_file, "w") as f:
+            for item in self.lrc_list:
+                item_file = Path(item['reencode_file']).name
+                # Use re-encoded files with absolute paths
+                f.write(f"file '{item_file}'\n")
+
         remove_file(self.args.output_mp3)
         makedirs(self.args.output_mp3)
-        cmd = f'ffmpeg -i {self.output_file} -vn -c:a libmp3lame -q:a 0 -ar 48000 -ac 2 -map 0:a {self.args.output_mp3}'
-        exec_cmd(cmd, self.output_file, "Fail to output mp3 file.", stdout=True)
+
+        # Concat these audios without re-encode.
+        cmd = (f'ffmpeg -f concat -safe 0 -i {tmp_list_file} '
+               f'-c copy {self.args.output_mp3}')
+        exec_cmd(cmd, self.args.output_mp3, "Fail to merge mp3 files.", stdout=True)
 
     def output_lrc(self):
         if not self.args.output_lrc:
@@ -163,7 +196,7 @@ class VideoGenerator:
 
         for item in tqdm(self.lrc_list, desc="Generating lrc file"):
             if 'duration' not in item:
-                duration = get_duration(item['file'])
+                duration = get_duration(item['reencode_file'])
 
                 item['duration'] = duration
 
