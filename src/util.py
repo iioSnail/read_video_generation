@@ -1,7 +1,9 @@
 import hashlib
 import json
 import os
+import shutil
 import subprocess
+from pathlib import Path
 
 import cv2
 from PIL import Image
@@ -52,6 +54,10 @@ def file_exists(file):
 def makedirs(filepath):
     parent_dir = os.path.dirname(filepath)
     os.makedirs(parent_dir, exist_ok=True)
+
+def move_file(src, dst):
+    shutil.copy2(src, dst)
+    os.remove(src)
 
 
 def is_mp4_valid(file_path):

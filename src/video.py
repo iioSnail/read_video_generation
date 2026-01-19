@@ -4,10 +4,11 @@ from pathlib import Path
 from tqdm import tqdm
 
 from src.audio import AudioGenerator
+from src.db_adjust import DecibelAdjustor
 from src.frame import FrameGenerator
 from src.model import Video, Chunk, VideoClip
 from src.util import md5, remove_file, resize_image, exec_cmd, file_exists, md5_file, get_duration, get_mp3_duration, \
-    makedirs
+    makedirs, move_file
 
 
 class VideoGenerator:
@@ -132,10 +133,18 @@ class VideoGenerator:
             for filename in filenames:
                 f.write(f"file '{filename}'\n")
 
-        remove_file(self.output_file)
-        makedirs(self.output_file)
-        cmd = f'ffmpeg -f concat -safe 0 -i {tmp_list_file} -c:v libx264 -c:a aac {self.output_file}'
+        temp_output_file = self.cache_dir / "output_video.mp4"
+        remove_file(temp_output_file)
+        cmd = f'ffmpeg -f concat -safe 0 -i {tmp_list_file} -c:v libx264 -c:a aac {temp_output_file}'
         exec_cmd(cmd, self.output_file, "Fail to merge videos.", stdout=True)
+
+        if self.args.db:
+            adjusted_file = self.cache_dir / "output_adjusted_video.mp4"
+            DecibelAdjustor(self.cache_dir).adjust(str(temp_output_file), str(adjusted_file))
+            temp_output_file = adjusted_file
+
+        makedirs(self.output_file)
+        move_file(temp_output_file, self.output_file)
 
         print("Success to generate video. The file is located at ", self.output_file)
 
@@ -177,13 +186,26 @@ class VideoGenerator:
                 # Use re-encoded files with absolute paths
                 f.write(f"file '{item_file}'\n")
 
-        remove_file(self.args.output_mp3)
-        makedirs(self.args.output_mp3)
+        temp_output_file = self.cache_dir / "output_audio.mp3"
+        remove_file(temp_output_file)
 
         # Concat these audios without re-encode.
         cmd = (f'ffmpeg -f concat -safe 0 -i {tmp_list_file} '
-               f'-c copy {self.args.output_mp3}')
-        exec_cmd(cmd, self.args.output_mp3, "Fail to merge mp3 files.", stdout=True)
+               f'-c copy {temp_output_file}')
+        exec_cmd(cmd, temp_output_file, "Fail to merge mp3 files.", stdout=True)
+
+        if self.args.db:
+            adjusted_file = self.cache_dir / "output_adjusted_audio.mp3"
+            DecibelAdjustor(self.cache_dir).adjust(str(temp_output_file), str(adjusted_file))
+            temp_output_file = adjusted_file
+
+        remove_file(self.args.output_mp3)
+        makedirs(self.args.output_mp3)
+        move_file(temp_output_file, self.args.output_mp3)
+
+        print("Success to generate audio. The file is located at ", self.args.output_mp3)
+
+        return self.args.output_mp3
 
     def output_lrc(self):
         if not self.args.output_lrc:

@@ -26,7 +26,7 @@ class GenerateVideo(object):
         parser.add_argument('--proxy', type=str, help="The proxy for edge-tts. For example: http://127.0.0.1:1080")
         parser.add_argument('--ffmpeg', type=str,
                             help="The ffmpeg executable. Default: ffmpeg. For example: D:/ffmpeg/bin/ffmpeg.exe")
-
+        parser.add_argument('--db', type=int, default=20, help="Automatically adjust the decibel to 20 db.")
 
         args = parser.parse_args()
 

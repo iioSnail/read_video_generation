@@ -43,6 +43,7 @@ optional arguments:
   --cache-dir CACHE_DIR 缓存目录. 视频生成过程中会产生一些中间文件，会被存在该目录下。若生成中断或报错，则部分内容不用重复生成。
   --proxy PROXY         edge-tts的代理。文本转语音需要调用微软的API，中国网络你懂得，可能需要上代理。样例: http://127.0.0.1:1080
   --ffmpeg              ffmpeg可执行文件路径。本项目依赖完全版ffmpeg。可以使用该参数显示指定ffmpeg所在路径。例如: D:/ffmpeg/bin/ffmpeg.exe
+  --db                  调节生成音频的分贝。默认值为-20。
 ```
 
 ### 构造JSON
