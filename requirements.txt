@@ -1,2 +1,4 @@
 edge-tts
 opencv-python
+webrtcvad
+pydub
