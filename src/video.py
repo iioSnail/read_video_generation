@@ -136,7 +136,7 @@ class VideoGenerator:
         temp_output_file = self.cache_dir / "output_video.mp4"
         remove_file(temp_output_file)
         cmd = f'ffmpeg -f concat -safe 0 -i {tmp_list_file} -c:v libx264 -c:a aac {temp_output_file}'
-        exec_cmd(cmd, self.output_file, "Fail to merge videos.", stdout=True)
+        exec_cmd(cmd, temp_output_file, "Fail to merge videos.", stdout=True)
 
         if self.args.db:
             adjusted_file = self.cache_dir / "output_adjusted_video.mp4"
