@@ -46,6 +46,9 @@ def file_exists(file):
     if str(file).endswith("mp3"):
         return is_mp3_valid(file)
 
+    if str(file).endswith("wav"):
+        return is_wav_valid(file)
+
     if str(file).endswith("jpg"):
         return is_jpg_valid(file)
 
@@ -58,6 +61,9 @@ def makedirs(filepath):
 def move_file(src, dst):
     shutil.copy2(src, dst)
     os.remove(src)
+
+def copy_file(src, dst):
+    shutil.copy2(src, dst)
 
 
 def is_mp4_valid(file_path):
@@ -72,7 +78,6 @@ def is_mp4_valid(file_path):
     except Exception as e:
         print(f"Error: {e}")
         return False
-
 
 def is_mp3_valid(file_path):
     try:
@@ -89,6 +94,18 @@ def is_mp3_valid(file_path):
         return False
     except Exception as e:
         print(f"Error checking MP3: {e}")
+        return False
+
+def is_wav_valid(file_path):
+    try:
+        with open(file_path, 'rb') as f:
+            # Check for RIFF header and WAVE format
+            header = f.read(12)
+            if header[:4] == b'RIFF' and header[8:12] == b'WAVE':
+                return True
+        return False
+    except Exception as e:
+        print(f"Error checking WAV: {e}")
         return False
 
 
@@ -125,6 +142,18 @@ def get_mp3_duration(file_path):
     return float(result.stdout)
 
 
+def get_wav_duration(file_path):
+    cmd = [
+        'ffprobe',
+        '-i', file_path,
+        '-show_entries', 'format=duration',
+        '-v', 'quiet',
+        '-of', 'csv=p=0'
+    ]
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    return float(result.stdout)
+
+
 def get_mp4_duration(filepath):
     cmd = [
         'ffprobe',
@@ -145,10 +174,25 @@ def get_duration(filepath):
     if filepath.endswith(".mp3"):
         return get_mp3_duration(filepath)
 
+    if filepath.endswith(".wav"):
+        return get_wav_duration(filepath)
+
     if filepath.endswith(".mp4"):
         return get_mp4_duration(filepath)
 
     raise ValueError("Unsupported file format.")
+
+
+def convert_mp3_to_wav(mp3_file: str, output_file: str):
+    # Convert mp3 to wav
+    convert_cmd = f'ffmpeg -i {mp3_file} -acodec pcm_s16le -ar 48000 {output_file}'
+    exec_cmd(convert_cmd, output_file, "Fail to convert mp3 to wav.", timeout=10)
+
+
+def convert_wav_to_wav(wav_file: str, output_file: str):
+    # Convert wav to wav. The main goal is to make the wav's sample rate 48000
+    convert_cmd = f'ffmpeg -i {wav_file} -acodec pcm_s16le -ar 48000 {output_file}'
+    exec_cmd(convert_cmd, output_file, "Fail to convert wav to wav.", timeout=10)
 
 
 def exec_cmd(cmd: str, output_file=None, error_msg=None, stdout=False, timeout=None):

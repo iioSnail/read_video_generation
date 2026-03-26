@@ -3,7 +3,8 @@ import time
 from pathlib import Path
 
 from src.model import Audio, AudioElement
-from src.util import md5, exec_cmd, file_exists, remove_file, get_duration
+from src.util import md5, exec_cmd, file_exists, remove_file, get_duration, convert_mp3_to_wav, copy_file, \
+    convert_wav_to_wav
 
 
 class AudioGenerator:
@@ -17,26 +18,43 @@ class AudioGenerator:
 
         self.lrc_list = []
 
-    def _tts(self, audio: AudioElement):
-        if audio.file_path is not None and file_exists(audio.file_path):
-            filename = md5(str(audio.file_path))
-            file = audio.file_path
+    def _get_audio(self, audio: AudioElement):
+        if not file_exists(audio.file_path):
+            raise FileNotFoundError(audio.file_path)
+
+        filename = md5(str(audio.file_path))
+        file = str(self.cache_dir / (filename + ".wav"))
+
+        if file_exists(file):
+            return file, filename
+
+        if audio.file_path.endswith(".mp3"):
+            convert_mp3_to_wav(audio.file_path, file)
+        elif audio.file_path.endswith(".wav"):
+            convert_wav_to_wav(audio.file_path, file)
         else:
-            filename = md5(audio.text + "_" + audio.tts_name)
-            file = str(self.cache_dir / (filename + ".mp3"))
+            raise ValueError("Unsupported file format of audio.file_path")
+
+        return file, filename
+
+
+    def _tts(self, audio: AudioElement):
+        filename = md5(audio.text + "_" + audio.tts_name)
+        mp3_file = str(self.cache_dir / (filename + ".mp3"))
+        file = str(self.cache_dir / (filename + ".wav"))
 
         if file_exists(file):
             return file, filename
 
         text = audio.text.replace("\n", " ")
-        cmd = f'edge-tts --text "{text}" -v {audio.tts_name} --write-media {file}'
+        cmd = f'edge-tts --text "{text}" -v {audio.tts_name} --write-media {mp3_file}'
         if self.args.proxy is not None:
             cmd += " --proxy " + self.args.proxy
 
         def gene_file(retry: bool):
             try:
-                remove_file(file)
-                exec_cmd(cmd, file, stdout=retry)
+                remove_file(mp3_file)
+                exec_cmd(cmd, mp3_file, stdout=retry)
                 return True
             except Exception as e:
                 print("Fail to generate audio file with edge-tts. Retry it after 20s. Command: {}".format(cmd))
@@ -52,17 +70,25 @@ class AudioGenerator:
 
         time.sleep(0.05)
 
+        # Convert mp3 to wav
+        remove_file(file)
+        convert_mp3_to_wav(mp3_file, file)
+        remove_file(mp3_file)
+
         return file, filename
 
     def _generate_one(self, audio: AudioElement):
-        file, filename = self._tts(audio)
+        if audio.file_path is not None:
+            file, filename = self._get_audio(audio)
+        else:
+            file, filename = self._tts(audio)
 
         if audio.before_silence <= 0 and audio.after_silence <= 0:
             return file, filename
 
         filename = f"{filename}_{audio.before_silence}_{audio.after_silence}"
         old_file = file
-        file = str(self.cache_dir / (filename + ".mp3"))
+        file = str(self.cache_dir / (filename + ".wav"))
 
         if file_exists(file):
             return file, filename
@@ -75,17 +101,17 @@ class AudioGenerator:
         delay = ",".join(delay_list)
 
         remove_file(file)
-        cmd = f'ffmpeg -i {old_file} -af "{delay}" -acodec libmp3lame {file}'
+        cmd = f'ffmpeg -i {old_file} -af "{delay}" -acodec pcm_s16le {file}'
         exec_cmd(cmd, file, "Fail to add silence to audio file.", timeout=10)
 
         return file, filename
 
     def generate(self):
         # Generate silence audio file.
-        silence_file = str(self.cache_dir / f"silence_{self.audio.interval}.mp3")
+        silence_file = str(self.cache_dir / f"silence_{self.audio.interval}.wav")
         if self.audio.interval > 0 and not file_exists(silence_file):
             cmd = (f'ffmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=48000 -t '
-                   f'{round(self.audio.interval / 1000, 3)} -c:a libmp3lame -q:a 2 {silence_file}')
+                   f'{round(self.audio.interval / 1000, 3)} -c:a pcm_s16le {silence_file}')
             exec_cmd(cmd, silence_file, "Fail to generate silent audio file.", timeout=10)
 
         # Generate audio.
@@ -113,7 +139,7 @@ class AudioGenerator:
             })
 
         filename = md5(f'_{self.audio.interval}_'.join(filename_list))
-        file = str(self.cache_dir / (filename + ".mp3"))
+        file = str(self.cache_dir / (filename + ".wav"))
 
         if file_exists(file):
             return file, filename
