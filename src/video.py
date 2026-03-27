@@ -150,33 +150,33 @@ class VideoGenerator:
 
         return self.output_file
 
-    def _reencode_mp3(self, input_file):
+    def _reencode_wav(self, input_file):
         """Re-encode audio file to consistent format."""
         input_path = Path(input_file)
-        reencode_file = str(self.cache_dir.parent / 'audio' / f"{input_path.stem}_reencode.mp3")
+        reencode_file = str(self.cache_dir.parent / 'audio' / f"{input_path.stem}_reencode.wav")
 
         if file_exists(reencode_file):
             return reencode_file
 
         remove_file(reencode_file)
         cmd = (f'ffmpeg -i {input_file} '
-               f'-c:a libmp3lame -q:a 0 -ar 16000 -ac 2 '
+               f'-c:a pcm_s16le -ar 16000 -ac 2 '
                f'{reencode_file}')
-        exec_cmd(cmd, reencode_file, "Fail to re-encode mp3 file.", timeout=10)
+        exec_cmd(cmd, reencode_file, "Fail to re-encode wav file.", timeout=10)
         return reencode_file
 
     def output_audio(self):
         """
-        Merge mp3 based on self.lrc_list using ffmpeg concat method.
+        Merge wav based on self.lrc_list using ffmpeg concat method.
         """
         if not self.args.output_mp3:
             return
 
-        print("Outputting mp3 file...")
+        print("Outputting wav file...")
 
         # Re-encode each audio file to same encode, sample rate, etc.
-        for item in tqdm(self.lrc_list, desc="Generating mp3"):
-            item['reencode_file'] = self._reencode_mp3(item['file'])
+        for item in tqdm(self.lrc_list, desc="Generating wav"):
+            item['reencode_file'] = self._reencode_wav(item['file'])
 
         # Create concat list file for re-encoded audio files
         tmp_list_file = str(self.cache_dir.parent / 'audio' / "tmp_audio_list.txt")
@@ -186,16 +186,16 @@ class VideoGenerator:
                 # Use re-encoded files with absolute paths
                 f.write(f"file '{item_file}'\n")
 
-        temp_output_file = self.cache_dir / "output_audio.mp3"
+        temp_output_file = self.cache_dir / "output_audio.wav"
         remove_file(temp_output_file)
 
         # Concat these audios without re-encode.
         cmd = (f'ffmpeg -f concat -safe 0 -i {tmp_list_file} '
                f'-c copy {temp_output_file}')
-        exec_cmd(cmd, temp_output_file, "Fail to merge mp3 files.", stdout=True)
+        exec_cmd(cmd, temp_output_file, "Fail to merge wav files.", stdout=True)
 
         if self.args.db:
-            adjusted_file = self.cache_dir / "output_adjusted_audio.mp3"
+            adjusted_file = self.cache_dir / "output_adjusted_audio.wav"
             DecibelAdjustor(self.cache_dir).adjust(str(temp_output_file), str(adjusted_file))
             temp_output_file = adjusted_file
 
