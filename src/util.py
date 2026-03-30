@@ -185,13 +185,13 @@ def get_duration(filepath):
 
 def convert_mp3_to_wav(mp3_file: str, output_file: str):
     # Convert mp3 to wav
-    convert_cmd = f'ffmpeg -i {mp3_file} -acodec pcm_s16le -ar 48000 {output_file}'
+    convert_cmd = f'ffmpeg -i {mp3_file} -acodec pcm_s16le -ar 48000 -b:a 192k -ac 2 {output_file}'
     exec_cmd(convert_cmd, output_file, "Fail to convert mp3 to wav.", timeout=10)
 
 
 def convert_wav_to_wav(wav_file: str, output_file: str):
     # Convert wav to wav. The main goal is to make the wav's sample rate 48000
-    convert_cmd = f'ffmpeg -i {wav_file} -acodec pcm_s16le -ar 48000 {output_file}'
+    convert_cmd = f'ffmpeg -i {wav_file} -acodec pcm_s16le -ar 48000 -b:a 192k  -ac 2 {output_file}'
     exec_cmd(convert_cmd, output_file, "Fail to convert wav to wav.", timeout=10)
 
 

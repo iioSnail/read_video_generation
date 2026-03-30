@@ -150,6 +150,7 @@ class AudioGenerator:
                 f.write(f"file '{Path(file_item).name}'\n")
 
         remove_file(file)
+        # ffmpeg -f concat -safe 0 -i merge.txt -c copy output.wav
         cmd = f'ffmpeg -f concat -safe 0 -i {merge_txt} -c copy {file}'
         exec_cmd(cmd, file, "Fail to merge audio files.", timeout=10)
 
